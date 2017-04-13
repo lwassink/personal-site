@@ -1,0 +1,21 @@
+div.nav-bar {
+  position: fixed;
+  display: flex;
+  height: 50px;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+  box-shadow: 0 3px 12px grey;
+
+  a {
+    padding: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    display: inline;
+    font-size: 18px;
+  }
+
+  a.active {
+    color: black;
+  }
+}
