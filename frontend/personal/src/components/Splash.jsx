@@ -4,8 +4,8 @@ import Link from 'react-router-dom/Link';
 export default () => (
   <div className="splash">
     <div className="title">
-      <h1>Luke Wassink</h1>
-      <h2>I am a full-stack web developer</h2>
+      <h1>Luke Wassink,</h1>
+      <h2>full-stack web developer</h2>
     </div>
 
     <div className="index">

@@ -6,6 +6,8 @@ div.nav-bar {
   width: 100%;
   align-items: center;
   box-shadow: 0 3px 12px grey;
+  z-index: 1;
+  background: white;
 
   a {
     padding: 5px;
