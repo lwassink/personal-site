@@ -32,7 +32,7 @@ export default ({ text }) => {
   }
 
   function proccessMarkdown(text) {
-    const end = text.indexOf('```');
+    const end = text.search(/(```|`math)/);
     const content = text.slice(0, end);
     return [{ type: 'markdown', content }, ...proccessRemainder(text, end, 0)];
   }
@@ -41,6 +41,8 @@ export default ({ text }) => {
     if (text.startsWith('```math')) {
       // console.log("Math: " + text.substr(0,10))
       return proccessMath(text.substr(7), true);
+    } else if (text.startsWith('`math')) {
+      return proccessMath(text.substr(5), false);
     } else if (text.startsWith('```')) {
       // console.log("Code: " + text.substr(0,10))
       return proccessCode(text.substr(3));
