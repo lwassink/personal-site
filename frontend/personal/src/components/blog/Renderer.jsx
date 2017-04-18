@@ -1,7 +1,7 @@
 import React from 'react';
-import ReactMarkdown from 'react-markdown';
 import TexBlock from './TexBlock';
 import CodeBlock from './CodeBlock';
+import MarkdownBlock from './MarkdownBlock';
 
 export default ({ text }) => {
   const LANGUGES = ['ruby', 'scala', 'sql', 'js'];
@@ -56,9 +56,7 @@ export default ({ text }) => {
 
       switch (type) {
       case 'markdown':
-        return (
-             <ReactMarkdown key={idx} source={content} />
-        );
+        return <MarkdownBlock content={content} key={idx} />
       case 'math':
         return <TexBlock content={content} display={display} key={idx} />;
       default:

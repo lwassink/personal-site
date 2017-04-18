@@ -9722,10 +9722,6 @@ var _react = __webpack_require__(4);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactMarkdown = __webpack_require__(285);
-
-var _reactMarkdown2 = _interopRequireDefault(_reactMarkdown);
-
 var _TexBlock = __webpack_require__(333);
 
 var _TexBlock2 = _interopRequireDefault(_TexBlock);
@@ -9733,6 +9729,10 @@ var _TexBlock2 = _interopRequireDefault(_TexBlock);
 var _CodeBlock = __webpack_require__(334);
 
 var _CodeBlock2 = _interopRequireDefault(_CodeBlock);
+
+var _MarkdownBlock = __webpack_require__(385);
+
+var _MarkdownBlock2 = _interopRequireDefault(_MarkdownBlock);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -9794,7 +9794,7 @@ exports.default = function (_ref) {
 
       switch (type) {
         case 'markdown':
-          return _react2.default.createElement(_reactMarkdown2.default, { key: idx, source: content });
+          return _react2.default.createElement(_MarkdownBlock2.default, { content: content, key: idx });
         case 'math':
           return _react2.default.createElement(_TexBlock2.default, { content: content, display: display, key: idx });
         default:
@@ -51290,6 +51290,37 @@ exports.default = {
     "hljs-strong": {
         "fontWeight": "bold"
     }
+};
+
+/***/ }),
+/* 385 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(4);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactMarkdown = __webpack_require__(285);
+
+var _reactMarkdown2 = _interopRequireDefault(_reactMarkdown);
+
+var _TexBlock = __webpack_require__(333);
+
+var _TexBlock2 = _interopRequireDefault(_TexBlock);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = function (_ref) {
+  var content = _ref.content;
+
+  return _react2.default.createElement(_reactMarkdown2.default, { source: content, skipHtml: true });
 };
 
 /***/ })
