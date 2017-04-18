@@ -34,7 +34,15 @@ const posts = {
     id: 3,
     title: "Third post",
     date: new Date("2017-05-14"),
-    body: "Nam sit <p>Hi there</p> amet metus tellus. `math x + y = z` Donec condimentum orci eros, in tristique nunc pharetra id.===FOLD=== Nunc vel orci mauris. Ut posuere venenatis tellus accumsan aliquet. Donec ut libero justo. Fusce justo diam, pellentesque in dictum sit amet, posuere sit amet magna. Nulla ut mauris id nisi efficitur molestie eu vel magna. Quisque orci turpis, iaculis laoreet ipsum eget, lobortis laoreet erat. Nullam commodo est id nisl ultrices pellentesque. Cras in nunc sagittis, vulputate ante et, venenatis ligula. Donec et bibendum tortor."
+    body: "# Nam sit \n\n amet metus tellus. `math x + y = z` Donec condimentum orci eros," +
+    " in tristique nunc pharetra id.===FOLD=== Nunc vel orci mauris." +
+    " \n * Ut posuere venenatis tellus accumsan\n  * aliquet. Donec ut libero justo." +
+    " \n * Fusce justo diam, pellentesque in dictum sit amet, posuere sit amet magna." +
+    " \n\n Nulla ut [mauris](www.google.com) id nisi efficitur molestie eu vel magna."+
+    " \n\n## Quisque orci turpis,\n\n iaculis laoreet ipsum eget, lobortis laoreet erat." +
+    " \n\n### Nullam commodo \n\n est id nisl ultrices pellentesque."+
+    " Cras in nunc sagittis, vulputate ante et, venenatis ligula." +
+    " Donec et bibendum tortor."
   }
 };
 

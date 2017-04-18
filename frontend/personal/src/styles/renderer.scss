@@ -10,10 +10,7 @@ div.renderer {
 
   span.tex {
     display: inline;
-  }
-
-  span.tex + div.markdown {
-    display: inline;
+    padding: 0 5px 0 5px;
   }
 
   div.markdown{
@@ -22,14 +19,33 @@ div.renderer {
     code {
       font-family: courier;
       background-color: #fdf6e3;
+      padding-bottom: 2px;
     }
 
-    div {
+    h1 {
+      margin: 10px 0 10px 0;
+      font-size: 25px;
+    }
 
+    h2 {
+      margin: 10px 0 10px 0;
+      font-size: 20px;
+    }
+
+    h3 {
+      margin: 5px 0 5px 0;
+      font-size: 18px;
+      font-weight: 400;
     }
 
     p {
       display: inline;
+    }
+
+    ul {
+      list-style-type: disc;
+      list-style-position: inside;
+      padding: 5px 0 5px 20px;
     }
   }
 }
