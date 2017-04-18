@@ -4,6 +4,7 @@ div.projects {
 
   li.index-item {
     margin-bottom: 20px;
+    max-width: 450px;
 
     h1 {
       font-size: 20px;
@@ -13,12 +14,12 @@ div.projects {
 
     section {
       transition: height 0.5s ease-in-out;
-      height: 0px;
       overflow: hidden;
     }
 
-    section.open {
-      height: 70px;
+    section.measure {
+      visibility: hidden;
+      position: absolute;
     }
 
     i {

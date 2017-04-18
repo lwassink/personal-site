@@ -9,8 +9,8 @@ export default () => (
     </div>
 
     <div className="index">
-      <Link to="/blog">Blog</Link>
       <Link to="/projects">Projects</Link>
+      <Link to="/posts">Blog</Link>
       <Link to="/about-me">About Me</Link>
       <Link to="/contact">Contact</Link>
     </div>

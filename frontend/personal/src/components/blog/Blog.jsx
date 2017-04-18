@@ -1,14 +1,15 @@
 import React from 'react';
+import Route from 'react-router-dom/Route';
 import NavBar from '../NavBar';
+import PostIndexContainer from './PostIndexContainer';
+import PostContainer from './PostContainer';
 
-class Blog extends React.Component {
-  render() {
-    return (
-      <div className="blog">
-        <NavBar />
-      </div>
-    )
-  }
-}
-
-export default Blog;
+export default () => (
+  <div>
+    <NavBar />
+    <div className="blog">
+      <Route exact={true} path="/posts" component={PostIndexContainer} />
+      <Route path="/posts/:postId" component={PostContainer} />
+    </div>
+  </div>
+)
