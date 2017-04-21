@@ -51,7 +51,7 @@ class ProjectItem extends React.Component {
         </section>
         <p>
           <label>live site:</label>
-          <a href={project.live_url}>{project.live_url}</a>
+          <a href={project.site_url}>{project.site_url}</a>
           <label>github:</label>
           <a href={project.github_url}>{project.github_url}</a>
         </p>

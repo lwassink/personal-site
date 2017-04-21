@@ -8,6 +8,7 @@ div.blog {
   width: 80%;
   max-width: 800px;
   overflow: scroll;
+  padding-bottom: 60px;
 
   header {
     vertical-align: middle;
@@ -43,5 +44,12 @@ div.blog {
       transform: rotate(90deg);
       margin-left: 2px;
     }
+  }
+
+  nav.blog-nav-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 40px;
   }
 }

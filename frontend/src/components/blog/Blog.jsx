@@ -3,6 +3,7 @@ import Route from 'react-router-dom/Route';
 import NavBar from '../NavBar';
 import PostIndexContainer from './PostIndexContainer';
 import PostContainer from './PostContainer';
+import CopyrightBar from '../CopyrightBar';
 
 export default () => (
   <div>
@@ -11,5 +12,6 @@ export default () => (
       <Route exact={true} path="/posts" component={PostIndexContainer} />
       <Route path="/posts/:postId" component={PostContainer} />
     </div>
+    <CopyrightBar />
   </div>
 )

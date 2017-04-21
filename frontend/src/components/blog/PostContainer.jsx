@@ -1,10 +1,18 @@
 import { connect } from 'react-redux';
 import Post from './Post';
+import { fetchPosts } from '../../actions/post_actions';
 
-const mapStateToProps = (state, ownProps) => ({
-  post: state.posts[ownProps.match.params.postId]
-})
+const _defaultPost = { title: "", body: "", created_at: "1/1/1" }
+
+const mapStateToProps = ({ posts }, ownProps) => ({
+  post: posts.allPosts[ownProps.match.params.postId] || _defaultPost
+});
+
+const mapDispatchToProps =(dispatch, ownProps) => ({
+  fetchPosts: () => dispatch(fetchPosts())
+});
 
 export default connect(
-  mapStateToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(Post);

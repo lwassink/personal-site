@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'react-router-dom/Link';
 import withRouter from 'react-router-dom/withRouter';
 import { proccessDate } from '../../util/util';
-import Renderer from './Renderer';
+import Renderer from './renderer/Renderer';
 
 class PostIndexItem extends React.Component {
   constructor(props) {
@@ -30,11 +30,11 @@ class PostIndexItem extends React.Component {
             <i className="fa fa-chevron-right " aria-hidden="true"></i>
             {post.title}
           </h1>
-          <span>{proccessDate(post.date)}</span>
+          <span>{proccessDate(post.created_at)}</span>
         </header>
         <section>
           <Renderer text={this.splitAtFold(post.body)} />
-          &nbsp;(<Link to={`/posts/${post.id}`}>full post</Link>)
+          <Link to={`/posts/${post.id}`}>full post</Link>
         </section>
       </li>
     )

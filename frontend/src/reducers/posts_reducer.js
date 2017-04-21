@@ -1,7 +1,13 @@
-export default function(state = {}, action) {
+import { RECEIVE_POSTS } from '../actions/post_actions';
+
+const _defaultState = { ids: [], allPosts: {} };
+
+export default function(state = _defaultState, action) {
   Object.freeze(state)
   switch (action.type) {
-    default:
-      return state;
+  case RECEIVE_POSTS:
+    return action.posts;
+  default:
+    return state;
   }
 }

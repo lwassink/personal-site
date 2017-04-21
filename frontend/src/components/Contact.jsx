@@ -1,5 +1,6 @@
 import React from 'react';
 import NavBar from './NavBar';
+import CopyrightBar from './CopyrightBar';
 
 class Contact extends React.Component {
   render() {
@@ -25,6 +26,7 @@ class Contact extends React.Component {
             </a>
           </p>
         </div>
+        <CopyrightBar />
       </div>
     )
   }

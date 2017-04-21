@@ -1,5 +1,6 @@
 import React from 'react';
 import NavBar from './NavBar';
+import CopyrightBar from './CopyrightBar';
 
 class AboutMe extends React.Component {
   render() {
@@ -9,9 +10,9 @@ class AboutMe extends React.Component {
         <div className="about-me center">
           <h1>Luke Wassink</h1>
           <section>
-            I am a full-stack web developer living in the east bay.
+            I am a full-stack web developer living in the East Bay.
             I work with Javascript, React, and Redux on the frontend.
-            I have used Ruby on Rails as well as the Scala library Akka HTTP on the backend.
+            On the backend I have used Ruby on Rails, express server, and the Scala library Akka HTTP.
           </section>
           <section>
             <label>resume:</label>
@@ -38,6 +39,7 @@ class AboutMe extends React.Component {
               </p>
           </section>
         </div>
+        <CopyrightBar />
       </div>
     )
   }
