@@ -14,6 +14,6 @@ export default ({ content }) => {
 const InlineCode = (source) => {
   const code = source.literal
   if (code.startsWith('math '))
-    return <TexBlock content={code} display={false} />
+    return <TexBlock content={code.substr(5)} display={false} />
   return <code>{code}</code>
 }

@@ -1,20 +1,13 @@
 div.renderer {
   p.tex {
     position: relative;
-    display: block;
-    text-align: center;
+    display: inline-block;
     left: 50%;
     transform: translate(-50%, 0);
     margin: 10px 0 10px 0;
   }
 
-  span.tex {
-    display: inline;
-    padding: 0 5px 0 5px;
-  }
-
   div.markdown{
-    display: inline;
 
     code {
       font-family: courier;
@@ -36,10 +29,6 @@ div.renderer {
       margin: 5px 0 5px 0;
       font-size: 18px;
       font-weight: 400;
-    }
-
-    p {
-      display: inline;
     }
 
     ul {
