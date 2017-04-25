@@ -17958,7 +17958,7 @@ var ProjectItem = function (_React$Component) {
             return _this2.setState({
               phase: "finishingOpen"
             });
-          }, 0);
+          }, 20);
           break;
         case "finishingOpen":
           window.setTimeout(function () {
@@ -17966,7 +17966,7 @@ var ProjectItem = function (_React$Component) {
               phase: null,
               open: true
             });
-          }, 501);
+          }, 600);
           break;
         case "closing":
           window.setTimeout(function () {
@@ -17981,13 +17981,11 @@ var ProjectItem = function (_React$Component) {
   }, {
     key: "open",
     value: function open() {
-      console.log("Opening...");
       this.setState({ phase: "measuring" });
     }
   }, {
     key: "close",
     value: function close() {
-      console.log("Closing...");
       this.setState({ phase: "closing" });
     }
   }, {
@@ -18002,7 +18000,6 @@ var ProjectItem = function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      console.log(this.state);
       var project = this.props.project;
 
       var rotateClass = this.state.phase === "finishingOpen" || this.state.open ? "rotate" : "";
@@ -18017,8 +18014,6 @@ var ProjectItem = function (_React$Component) {
         height = 0;
       }
       var sectionStyle = { height: height };
-
-      console.log("Height: " + height);
 
       return _react2.default.createElement(
         "li",

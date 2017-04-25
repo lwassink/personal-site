@@ -28,13 +28,13 @@ class ProjectItem extends React.Component {
     case "startingOpen":
       window.setTimeout(() => this.setState({
         phase: "finishingOpen"
-      }), 0);
+      }), 20);
       break;
     case "finishingOpen":
       window.setTimeout(() => this.setState({
         phase: null,
         open: true
-      }), 501);
+      }), 600);
       break;
     case "closing":
       window.setTimeout(() => this.setState({
@@ -46,12 +46,10 @@ class ProjectItem extends React.Component {
   }
 
   open() {
-    console.log("Opening...")
     this.setState({ phase: "measuring" });
   }
 
   close() {
-    console.log("Closing...")
     this.setState({ phase: "closing" });
   }
 
@@ -61,7 +59,6 @@ class ProjectItem extends React.Component {
   }
 
   render() {
-    console.log(this.state);
     const { project } = this.props;
     const rotateClass = (this.state.phase === "finishingOpen" || this.state.open) ? "rotate" : "";
     const measureClass = this.isMeasuring() ? "measure" : "";
@@ -76,8 +73,6 @@ class ProjectItem extends React.Component {
       height = 0;
     }
     const sectionStyle = { height };
-
-    console.log("Height: " + height);
 
     return (
       <li className="index-item">
