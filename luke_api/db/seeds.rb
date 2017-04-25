@@ -30,6 +30,7 @@ In this post I'm going to record that talk, and possibly flush out a few points.
 My plan is to begin with Big-O and related definitions in assymptotic analysis, review mathematical induction, and conclude by stating and motivating (though not fully proving) the Master Theorem.
 I will try to balance intuition and precision: I'll always give you the precise mathematical statements and definitions, but I'll also try to say why definitions the are natural, and why you should believe the results, even if you wouldn't have come up with them.
 ===FOLD===
+
 ## Assymptotic analysis
 
 The goal of Big-O analysis is to measure the rate of growth of a function.
@@ -55,7 +56,7 @@ They're not obviously true, but they're also not obviously false.
 After all, `math \\log_2(n)` is bigger than `math \\log_3(n)`, but does it _grow_ more quickly?
 
 Before we get to a precise definition of Big-O, let's give an intuitive one.
-My intuitive definition is: _`math f = O(g)` if `math f` is eventually dominated by a constant multiple of `math g`.
+My intuitive definition is: `math f = O(g)` if `math f` is eventually dominated by a constant multiple of `math g`.
 There are two key parts of this definition:
 * *eventually* this is because we don't care what happens for small values of `math n` (any algorithm can sort `math 100` elements quickly).
 We only care what eventually happens - that is, past some initial point.
@@ -67,7 +68,49 @@ Eventually means past some point, which simply means, when `math n` is bigger th
 Further, `math f` is dominated by a constant multiple of `math g` if `math f(n) < Cg(n)` for some constant `math C > 0`.
 Thus it is only natural that we use the following definition
 
-*Def.* `math f = O(g)` if there exist `math N, C > 0` such that `math f(n) < Cg(n)` for all `math n > N`.
+### Definition.
+We say `math f = O(g)` if there exist `math N, C > 0` such that `math f(n) < Cg(n)` for all `math n > N`.
+
+With this definition in hand, let's check the cases we were uncertain about earlier.
+It turns out that `math \\log_2(n) = O(\\log_3(n))`.
+To see this, we require the change of base formula for logarithms:
+```math
+\\log_a(x) = \\frac{\\ln b}{\\ln a} \\log_b(x).
+```
+Thus
+```math
+\\log_2(n) = \\frac{\\ln 3}{\\ln 2} \\log_3(n),
+```
+so all we need to do is pick `math C > \\ln 3 / \\ln 2` and the definition is satisfied.
+
+On the other hand, `math 3^n \neq O(2^n)`.
+To see this, we will assume the contrary and derive a contradiction.
+Assume `math 3^n = O(2^n)`.
+Then `math 3^n < C 2^n` for `math n` larger than some `math N`.
+Dividing both sides by `math 2^n` we get `math (3/2)^n < C` for `math n > N`, but `math 3/2 > 1`, so eventually `math (3/2)^n` will be larger than any constant.
+
+## induction
+
+We will now apply this definition to a more interesting example: mergesort.
+First we need to review the concept of mathematical induction.
+Induction can be thought of as the mathematical foundation of recursion.
+Here's the idea: suppose we want to prove that some statement is true for all positive integers.
+Induction tells us that it suffices to prove the statement for some number of small integers, i.e. base cases, and then show that if the statement is true for integers smaller than `math n`, it is true for `math n`.
+If we can do that, we will have proved the statement is true in general.
+
+Let's take an example.
+Suppose we want to prove the clasic formula
+```math
+\\sum_{i=1}^n i = \\frac{n(n+1)}{2}.
+```
+We can easily check for a few small cases
+```math
+  \\begin{aligned}
+    1 &= 1 &= (1 * 2)/2 \\\\
+    1 + 2 &= 3 &= (2 * 3)/2 \\\\
+    1 + 2 + 3 &= 6 &= (3 * 4)/2.
+  \\end{aligned}
+```
 POST
 
 Post.create!(

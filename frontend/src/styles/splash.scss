@@ -3,19 +3,20 @@ div.splash {
   top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
+  min-width: 310px;
+  max-width: 480px;
+  width: auto;
 
   .title {
-    min-width: 540px;
-
     h1 {
       font-size: 40px;
-      display: inline;
+      display: inline-block;
+      margin-right: 10px;
     }
 
     h2 {
-      margin-left: 10px;
       font-size: 20px;
-      display: inline;
+      display: inline-block;
     }
   }
 
@@ -23,6 +24,6 @@ div.splash {
     margin-left: 15px;
     padding-top: 5px;
     display: block;
-    width: 70px;
+    width: 80px;
   }
 }
