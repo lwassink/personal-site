@@ -32,7 +32,7 @@ export default ({ text }) => {
   }
 
   function proccessMarkdown(text) {
-    const end = text.search(/(```)/);
+    const end = text.indexOf('```');
     const content = text.slice(0, end);
     return [{ type: 'markdown', content }, ...proccessRemainder(text, end, 0)];
   }
