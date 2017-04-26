@@ -3,17 +3,17 @@ import katex from 'katex';
 
 class TexBlock extends React.Component {
   componentDidMount() {
-    katex.render(this.props.content,
+    katex.render(
+      this.props.content,
       this.el,
-      { display: true });
+      { display: this.props.display }
+    );
   }
 
   render() {
-    if (this.props.display) {
-      return <p className="tex group" ref={el => { this.el = el; }}/>;
-    } else {
-      return <span className="tex" ref={el => { this.el = el; }}/>;
-    }
+    if (this.props.display)
+      return <p className="tex" ref={el => { this.el = el; }}/>;
+    return <span className="tex" ref={el => { this.el = el; }}/>;
   }
 }
 

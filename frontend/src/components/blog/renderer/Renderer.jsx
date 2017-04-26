@@ -14,12 +14,11 @@ export default ({ text }) => {
     }
   }
 
-  function proccessMath(text, display) {
-    const end = display ? text.indexOf('```') : text.indexOf('`');
+  function proccessMath(text) {
+    const end = text.indexOf('```');
     const content = text.slice(0, end).trim();
-    const offset = display ? 3 : 1;
-    return [{ type: 'math', content, display },
-      ...proccessRemainder(text, end, offset)];
+    const type = "math";
+    return [{ type, content }, ...proccessRemainder(text, end, 3)];
   }
 
   function proccessCode(text) {
@@ -27,19 +26,19 @@ export default ({ text }) => {
     const end = text.indexOf('```');
     const type = text.slice(0, begin);
     const content = text.slice(begin, end).trim();
-    return [{ type, content },
-      ...proccessRemainder(text, end, 3)];
+    return [{ type, content }, ...proccessRemainder(text, end, 3)];
   }
 
   function proccessMarkdown(text) {
     const end = text.indexOf('```');
     const content = text.slice(0, end);
-    return [{ type: 'markdown', content }, ...proccessRemainder(text, end, 0)];
+    const type = "markdown";
+    return [{ type, content }, ...proccessRemainder(text, end, 0)];
   }
 
   function proccessText(text) {
     if (text.startsWith('```math')) {
-      return proccessMath(text.substr(7), true);
+      return proccessMath(text.substr(7));
     } else if (text.startsWith('```')) {
       return proccessCode(text.substr(3));
     } else {
@@ -49,13 +48,13 @@ export default ({ text }) => {
 
   function renderBlocks(blocks) {
     return blocks.map((block, idx) => {
-      const { type, display, content } = block;
+      const { type, content } = block;
 
       switch (type) {
       case 'markdown':
         return <MarkdownBlock content={content} key={idx} />
       case 'math':
-        return <TexBlock content={content} display={display} key={idx} />;
+        return <TexBlock content={content} display={true} key={idx} />;
       default:
         if (LANGUGES.includes(type))
           return <CodeBlock content={content} language={type} key={idx} />

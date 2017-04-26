@@ -19,11 +19,6 @@ Project.create!(
 
 Post.destroy_all
 
-Post.create!(
-  title: "First post",
-  body: "# Lorem ipsum dolor sit amet, consectetur adipiscing elit. \n\n * Fusce `function(x)` dictum porttitor nulla, vel tempus sem congue eget.\n * Nulla a congue ligula. \n Donec eleifend diam malesuada erat euismod, vel bibendum nunc interdum. ===FOLD===Cras sit amet enim tempus, pharetra nulla in, lacinia sapien. Quisque eu arcu lacinia, eleifend mi eget, iaculis tellus. Maecenas placerat suscipit mollis. Nulla suscipit suscipit ante id venenatis. Aenean vitae ex a leo cursus scelerisque eget ac est. \n ```math c = \\pm\\sqrt{a^2 + b^2}\\in\\mathbb{R} ``` \nDuis commodo, `math x + y = z` sem a rhoncus porta, felis dui venenatis enim, at feugiat mi nisi ut ex. Vestibulum non sem interdum, pretium mauris a, mattis lacus. Nulla vel leo in quam dictum fringilla.\nAenean venenatis mi risus, non luctus nulla accumsan non. Integer sed maximus mi. Proin gravida, nisl in interdum sodales, tellus ipsum placerat ipsum, a hendrerit justo mi eget tellus. Nam tincidunt est et mauris molestie, sit amet bibendum elit viverra.\n ```js function two() {\n  return 2;\n}```\n Vivamus pulvinar id orci auctor semper.\n```scala def double(x: Int) = 2 * x ``` Maecenas a accumsan ligula. Donec a risuurna.  Fusce convallis sollicitudin finibus. Integer tempus luctus nunc, sit amet feugiat tortor consequat vel. Donec lacinia id magna ac volutpat. Suspendisse ullamcorper sem et arcu pellentesque, ut vestibulum ante vulputate."
-)
-
 big_o_body = <<-POST
 A few weeks ago I gave a talk on the intuition behind the precise mathematical definition of Big-O notation.
 In this post I'm going to record that talk, and possibly flush out a few points.
@@ -58,9 +53,9 @@ After all, `math \\log_2(n)` is bigger than `math \\log_3(n)`, but does it _grow
 Before we get to a precise definition of Big-O, let's give an intuitive one.
 My intuitive definition is: `math f = O(g)` if `math f` is eventually dominated by a constant multiple of `math g`.
 There are two key parts of this definition:
-* *eventually* this is because we don't care what happens for small values of `math n` (any algorithm can sort `math 100` elements quickly).
+* **eventually** this is because we don't care what happens for small values of `math n` (any algorithm can sort `math 100` elements quickly).
 We only care what eventually happens - that is, past some initial point.
-* *constant multiple* we don't care how big `math f` is, only how fast it grows.
+* **constant multiple** we don't care how big `math f` is, only how fast it grows.
 Well `math 2g` grows at exactly the same rate as `math g`, so for our purposes it doesn't matter which of them bounds `math f`.
 
 How can we translate these definitions into math?
@@ -106,27 +101,76 @@ Suppose we want to prove the clasic formula
 We can easily check for a few small cases
 ```math
   \\begin{aligned}
-    1 &= 1 &= (1 * 2)/2 \\\\
-    1 + 2 &= 3 &= (2 * 3)/2 \\\\
-    1 + 2 + 3 &= 6 &= (3 * 4)/2.
+    1 &= 1 = (1 * 2)/2 \\\\
+    1 + 2 &= 3 = (2 * 3)/2 \\\\
+    1 + 2 + 3 &= 6 = (3 * 4)/2.
   \\end{aligned}
 ```
+Clearly, however, we can't prove the statement for all integers by checking finitely many cases.
+Instead we will use induction.
+We have already checked the case `math n=1`.
+This will serve as our base case.
+
+Now we turn to the inductive step.
+We assume the formula is true for integers smaller than `math n`, this is called the _induction hypothesis_, and prove it for `math n`.
+Let's start with the left side
+```math
+  \\begin{aligned}
+    \\sum_{i=1}^n i &= 1 + 2 + 3 + \\ldots + n \\\\
+    &= (1 + 2 + 3 + \\ldots + (n-1)) + n \\\\
+    &= \\sum_{i=1}^{n-1}i + n
+  \\end{aligned}
+```
+By the induction hypothesis, this equals
+```math
+  \\frac{(n-1)n}{2} + n,
+```
+which simplifies to
+```math
+\\begin{aligned}
+  \\frac{n^2 - n}{2} + n &= \\frac{n^2 - n}{2} + \\frac{2n}{2} \\\\
+  &= \\frac{n^2 + n}{2} \\\\
+  &= \\frac{n(n + 1)}{2}.
+\\end{aligned}
+```
+
+Now let's take a look at mergesort.
+Here's a simple implimentation of mergesort in ruby, so we have something to refer to
+```ruby
+  def sort(array)
+    n = array.length
+    return array if n <= 1
+
+    mid = n / 2
+    left = array[0...mid]
+    right = array[mid...n]
+    merge(sort(left), sort(right))
+  end
+
+  def merge(left, right)
+    merged = []
+    until left.empty? || right.empty?
+      merged << (left.first < right.first) ? left.pop : right.pop
+    end
+    merged + left + right
+  end
+```
+Big-O is concerned with the worst case, so let's write `math T(n)` for the longest it could possibly take us to sort an array of length `math n`.
+From the above code we can see that `math T(0) = T(1) = 2 = O(1)`, since if `math n=0\\text{ or }1` we hit the `return`.
+Now let's consider a general array of length `math n`.
+Sorting the array will recursively call `sort` on two arrays of length `math n/2` and then call `merge` on them.
+The worst case for each of the recursive calls to `sort` is `math T(n/2)` (actually it's `math T(\\left\\lceil n/2\\right\\rceil)`, but that turns out not to matter very much, so we won't wory about it).
+The worst case number of steps for `merge` is `math n`, which occurs if both left and right are emptied down to one element each before finishing the merge.
+
+When `math n>1` the cost of a call to `sort` comes from the recursive calls and the `merge`.
+Adding these together we get
+```math
+  T(n) = 2T(n/2) + n.
+```
+We will use this formula to prove that `math T(n) = O(n\\log n)`.
 POST
 
 Post.create!(
   title: "Assymptotic analysis and the Master Theorem",
   body: big_o_body
-)
-
-Post.create!(
-  title: "Third post",
-  body: "# Nam sit \n\n amet metus tellus. `math x + y = z` Donec condimentum orci eros," +
-  " in tristique nunc pharetra id.===FOLD=== Nunc vel orci mauris." +
-  " \n * Ut posuere venenatis tellus accumsan\n  * aliquet. Donec ut libero justo." +
-  " \n * Fusce justo diam, pellentesque in dictum sit amet, posuere sit amet magna." +
-  " \n\n Nulla ut [mauris](www.google.com) id nisi efficitur molestie eu vel magna."+
-  " \n\n## Quisque orci turpis,\n\n iaculis laoreet ipsum eget, lobortis laoreet erat." +
-  " \n\n### Nullam commodo \n\n est id nisl ultrices pellentesque."+
-  " Cras in nunc sagittis, vulputate ante et, venenatis ligula." +
-  " Donec et bibendum tortor."
 )
