@@ -1,0 +1,18 @@
+=> Booting Puma
+=> Rails 5.0.2 application starting in development on http://localhost:3000
+=> Run `rails server -h` for more startup options
+Puma starting in single mode...
+* Version 3.8.2 (ruby 2.4.1-p111), codename: Sassy Salamander
+* Min threads: 5, max threads: 5
+* Environment: development
+* Listening on tcp://localhost:3000
+Use Ctrl-C to stop
+- Gracefully stopping, waiting for requests to finish
+=== puma shutdown: 2017-04-29 20:54:52 +0000 ===
+- Goodbye!
+Exiting
+A server is already running. Check /home/ubuntu/personal-site/luke_api/tmp/pids/server.pid.
+=> Booting Puma
+=> Rails 5.0.2 application starting in development on http://localhost:3000
+=> Run `rails server -h` for more startup options
+Exiting

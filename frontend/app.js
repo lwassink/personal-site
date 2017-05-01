@@ -13,7 +13,7 @@ app.get(/^(?!\/assets)/, function (req, res, next) {
 });
 
 
-const port = 8080;
+const port = 80;
 
 app.listen(port, function () {
   console.log('Listening on port ' + port + '...');
