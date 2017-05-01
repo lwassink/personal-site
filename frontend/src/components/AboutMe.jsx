@@ -10,9 +10,10 @@ class AboutMe extends React.Component {
         <div className="about-me center">
           <h1>Luke Wassink</h1>
           <section>
-            I am a full-stack web developer living in the East Bay.
+            I am a full-stack web developer.
             I work with Javascript, React, and Redux on the frontend.
-            On the backend I have used Ruby on Rails, express server, and the Scala library Akka HTTP.
+            On the backend I have used Ruby on Rails, express server, nginx.
+            I also work with Scala.
           </section>
           <section>
             <label>resume:</label>
@@ -28,7 +29,7 @@ class AboutMe extends React.Component {
                 Ph.D. in Mathematics
               </li>
               <li className="last">
-                Web development coding bootcamp
+                App Academy coding bootcamp
               </li>
             </ul>
           </section>

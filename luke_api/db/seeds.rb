@@ -84,7 +84,7 @@ Assume `math 3^n = O(2^n)`.
 Then `math 3^n < C 2^n` for `math n` larger than some `math N`.
 Dividing both sides by `math 2^n` we get `math (3/2)^n < C` for `math n > N`, but `math 3/2 > 1`, so eventually `math (3/2)^n` will be larger than any constant.
 
-## induction
+## Induction
 
 We will now apply this definition to a more interesting example: mergesort.
 First we need to review the concept of mathematical induction.
@@ -168,6 +168,7 @@ Adding these together we get
   T(n) = 2T(n/2) + n.
 ```
 We will use this formula to prove that `math T(n) = O(n\\log n)`.
+
 POST
 
 Post.create!(
