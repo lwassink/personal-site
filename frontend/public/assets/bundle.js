@@ -3780,34 +3780,54 @@ var _NavLink = __webpack_require__(252);
 
 var _NavLink2 = _interopRequireDefault(_NavLink);
 
+var _withRouter = __webpack_require__(61);
+
+var _withRouter2 = _interopRequireDefault(_withRouter);
+
+var _Logo = __webpack_require__(390);
+
+var _Logo2 = _interopRequireDefault(_Logo);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = function () {
+var NavBar = function NavBar(_ref) {
+  var history = _ref.history;
+
+  var linkHome = function linkHome() {
+    return history.push("/");
+  };
   return _react2.default.createElement(
     'div',
     { className: 'nav-bar' },
     _react2.default.createElement(
-      _NavLink2.default,
-      { to: '/projects' },
-      'Projects'
-    ),
-    _react2.default.createElement(
-      _NavLink2.default,
-      { to: '/posts' },
-      'Blog'
-    ),
-    _react2.default.createElement(
-      _NavLink2.default,
-      { to: '/about-me' },
-      'About Me'
-    ),
-    _react2.default.createElement(
-      _NavLink2.default,
-      { to: '/contact' },
-      'Contact'
+      'section',
+      { className: 'center' },
+      _react2.default.createElement(_Logo2.default, { onClick: linkHome }),
+      _react2.default.createElement(
+        _NavLink2.default,
+        { to: '/projects' },
+        'Projects'
+      ),
+      _react2.default.createElement(
+        _NavLink2.default,
+        { to: '/posts' },
+        'Blog'
+      ),
+      _react2.default.createElement(
+        _NavLink2.default,
+        { to: '/about-me' },
+        'About Me'
+      ),
+      _react2.default.createElement(
+        _NavLink2.default,
+        { to: '/contact' },
+        'Contact'
+      )
     )
   );
 };
+
+exports.default = (0, _withRouter2.default)(NavBar);
 
 /***/ }),
 /* 33 */
@@ -12438,7 +12458,7 @@ var AboutMe = function (_React$Component) {
           _react2.default.createElement(
             'section',
             null,
-            'I am a full-stack web developer living in the East Bay. I work with Javascript, React, and Redux on the frontend. On the backend I have used Ruby on Rails, express server, and the Scala library Akka HTTP.'
+            'I am a full-stack web developer. I work with Javascript, React, and Redux on the frontend. On the backend I have used Ruby on Rails, express server, nginx. I also work with Scala.'
           ),
           _react2.default.createElement(
             'section',
@@ -12478,7 +12498,7 @@ var AboutMe = function (_React$Component) {
               _react2.default.createElement(
                 'li',
                 { className: 'last' },
-                'Web development coding bootcamp'
+                'App Academy coding bootcamp'
               )
             )
           ),
@@ -12663,7 +12683,7 @@ exports.default = function () {
       _react2.default.createElement(
         'h2',
         null,
-        'Full\u2011stack web developer'
+        'Web developer'
       )
     ),
     _react2.default.createElement(
@@ -15568,7 +15588,7 @@ exports = module.exports = __webpack_require__(142)(undefined);
 
 
 // module
-exports.push([module.i, "html, body, header, nav, h1, a,\nul, li, strong, main, button, i,\nsection, img, div, h2, p, form,\nfieldset, label, input, textarea,\nspan, article, footer, time, small {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  outline: 0;\n  font: inherit;\n  color: inherit;\n  text-align: inherit;\n  text-decoration: inherit;\n  vertical-align: inherit;\n  box-sizing: inherit;\n  background: transparent; }\n\nul {\n  list-style-type: none; }\n\nimg {\n  display: block;\n  width: 100%;\n  height: auto; }\n\ninput[type=\"password\"],\ninput[type=\"email\"],\ninput[type=\"text\"],\ninput[type=\"submit\"],\ntextarea,\nbutton {\n  /*\n  Get rid of native styling. Read more here:\n  http://css-tricks.com/almanac/properties/a/appearance/\n  */\n  -webkit-appearance: none;\n  -moz-appearance: none;\n  appearance: none; }\n\na, button,\ninput[type=\"submit\"] {\n  cursor: pointer; }\n\n/* Clearfix */\n.group:after {\n  content: \"\";\n  display: block;\n  clear: both; }\n\nhtml {\n  position: relative;\n  height: 100%;\n  font-family: 'Droid Sans', sans-serif; }\n\nbody {\n  height: 100%;\n  font-size: 18px; }\n\na {\n  color: darkgrey;\n  transition: 0.3s; }\n\na:hover {\n  color: black; }\n\ndiv.center {\n  position: absolute;\n  top: 45%;\n  left: 50%;\n  transform: translate(-50%, -50%); }\n\ndiv.projects {\n  top: 100px;\n  transform: translate(-50%, 0);\n  width: 80%;\n  max-width: 450px;\n  min-width: 310px; }\n  div.projects li.index-item {\n    margin-bottom: 20px; }\n    div.projects li.index-item h1 {\n      font-size: 20px;\n      margin-bottom: 10px;\n      cursor: pointer; }\n    div.projects li.index-item section {\n      transition: height 0.5s ease-in-out;\n      overflow: hidden; }\n    div.projects li.index-item section.measure {\n      visibility: hidden;\n      position: absolute; }\n    div.projects li.index-item i {\n      margin-right: 5px;\n      transform: rotate(0deg);\n      transition: transform 0.4s ease-in-out;\n      font-size: 20px; }\n    div.projects li.index-item i.rotate {\n      transform: rotate(90deg); }\n    div.projects li.index-item label {\n      font-weight: 400;\n      margin-right: 5px; }\n    div.projects li.index-item a {\n      margin-right: 20px; }\n    div.projects li.index-item p {\n      margin-bottom: 5px; }\n    div.projects li.index-item span {\n      display: inline-block; }\n\ndiv.splash {\n  position: absolute;\n  top: 40%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  min-width: 310px;\n  max-width: 480px;\n  width: auto; }\n  div.splash .title h1 {\n    font-size: 40px;\n    display: inline-block;\n    margin-right: 10px; }\n  div.splash .title h2 {\n    font-size: 20px;\n    display: inline-block; }\n  div.splash a {\n    margin-left: 15px;\n    padding-top: 5px;\n    display: block;\n    width: 80px; }\n\ndiv.contact h1 {\n  font-size: 30px; }\n\ndiv.contact p {\n  margin-top: 10px; }\n\ndiv.contact a {\n  margin-left: 5px; }\n\ndiv.nav-bar {\n  position: fixed;\n  display: flex;\n  height: 50px;\n  justify-content: center;\n  width: 100%;\n  align-items: center;\n  z-index: 1;\n  background: white;\n  max-width: 812px;\n  width: calc(80% + 12px);\n  left: 50%;\n  transform: translate(-50%, 0);\n  box-shadow: 0px 15px 12px -12px darkgrey;\n  min-width: 320px; }\n  div.nav-bar a {\n    padding: 5px;\n    margin-left: 5px;\n    margin-right: 5px;\n    display: inline;\n    font-size: 18px; }\n  div.nav-bar a.active {\n    color: black; }\n\ndiv.about-me {\n  max-width: 450px;\n  min-width: 310px;\n  width: 80%; }\n  div.about-me h1 {\n    font-size: 30px; }\n  div.about-me section {\n    margin-top: 10px;\n    vertical-align: top; }\n  div.about-me label {\n    font-weight: 700;\n    margin-right: 5px; }\n  div.about-me ul {\n    display: inline-block; }\n  div.about-me p {\n    display: inline-block; }\n  div.about-me li {\n    margin-bottom: 5px; }\n  div.about-me li.last {\n    margin-bottom: 0; }\n\ndiv.renderer p.tex {\n  position: relative;\n  display: inline-block;\n  left: 50%;\n  transform: translate(-50%, 0);\n  margin: 10px 0 10px 0; }\n\ndiv.renderer div.markdown code {\n  font-family: courier;\n  background-color: #fdf6e3;\n  padding: 2px;\n  font-size: 18px; }\n\ndiv.renderer div.markdown h1 {\n  margin: 10px 0 10px 0;\n  font-size: 26px; }\n\ndiv.renderer div.markdown h2 {\n  margin: 10px 0 10px 0;\n  font-size: 22px; }\n\ndiv.renderer div.markdown h3 {\n  margin: 5px 0 5px 0;\n  font-size: 20px;\n  font-weight: 400; }\n\ndiv.renderer div.markdown h4 {\n  font-weight: 700; }\n\ndiv.renderer div.markdown ul {\n  list-style-type: disc;\n  list-style-position: inside;\n  padding: 5px 0 5px 20px; }\n\ndiv.blog {\n  position: absolute;\n  left: 50%;\n  top: 50px;\n  transform: translate(-50%, 0);\n  width: 80%;\n  max-width: 800px;\n  overflow: scroll;\n  padding-bottom: 60px;\n  line-height: 1.5; }\n  div.blog header {\n    vertical-align: middle;\n    position: relative;\n    cursor: pointer; }\n    div.blog header span {\n      position: absolute;\n      top: 40%;\n      right: 10px;\n      transform: translate(0, -50%); }\n    div.blog header h1 {\n      font-size: 30px;\n      margin-bottom: 10px;\n      display: inline-block;\n      padding-right: 80px; }\n  div.blog i {\n    margin-right: 10px; }\n  div.blog li.post-index-item {\n    margin-top: 40px; }\n  div.blog div.post {\n    margin-top: 40px; }\n    div.blog div.post i {\n      transform: rotate(90deg);\n      margin-left: 2px; }\n  div.blog nav.blog-nav-bar {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    height: 40px; }\n\nfooter.copyright-bar {\n  position: fixed;\n  bottom: 0;\n  z-index: 1;\n  height: 40px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  background-color: white;\n  width: 100%;\n  max-width: 812px;\n  width: calc(80% + 12px);\n  left: 50%;\n  transform: translate(-50%, 0);\n  box-shadow: 0px -15px 12px -12px darkgrey;\n  min-width: 320px; }\n", ""]);
+exports.push([module.i, "html, body, header, nav, h1, a,\nul, li, strong, main, button, i,\nsection, img, div, h2, p, form,\nfieldset, label, input, textarea,\nspan, article, footer, time, small {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  outline: 0;\n  font: inherit;\n  color: inherit;\n  text-align: inherit;\n  text-decoration: inherit;\n  vertical-align: inherit;\n  box-sizing: inherit;\n  background: transparent; }\n\nul {\n  list-style-type: none; }\n\nimg {\n  display: block;\n  width: 100%;\n  height: auto; }\n\ninput[type=\"password\"],\ninput[type=\"email\"],\ninput[type=\"text\"],\ninput[type=\"submit\"],\ntextarea,\nbutton {\n  /*\n  Get rid of native styling. Read more here:\n  http://css-tricks.com/almanac/properties/a/appearance/\n  */\n  -webkit-appearance: none;\n  -moz-appearance: none;\n  appearance: none; }\n\na, button,\ninput[type=\"submit\"] {\n  cursor: pointer; }\n\n/* Clearfix */\n.group:after {\n  content: \"\";\n  display: block;\n  clear: both; }\n\nhtml {\n  position: relative;\n  height: 100%;\n  font-family: 'Droid Sans', sans-serif; }\n\nbody {\n  height: 100%;\n  font-size: 18px; }\n\na {\n  color: darkgrey;\n  transition: 0.3s; }\n\na:hover {\n  color: black; }\n\ndiv.center {\n  position: absolute;\n  top: 45%;\n  left: 50%;\n  transform: translate(-50%, -50%); }\n\ndiv.projects {\n  top: 100px;\n  transform: translate(-50%, 0);\n  width: 80%;\n  max-width: 450px;\n  min-width: 310px; }\n  div.projects li.index-item {\n    margin-bottom: 20px; }\n    div.projects li.index-item h1 {\n      font-size: 20px;\n      margin-bottom: 10px;\n      cursor: pointer; }\n    div.projects li.index-item section {\n      transition: height 0.5s ease-in-out;\n      overflow: hidden; }\n    div.projects li.index-item section.measure {\n      visibility: hidden;\n      position: absolute; }\n    div.projects li.index-item i {\n      margin-right: 5px;\n      transform: rotate(0deg);\n      transition: transform 0.4s ease-in-out;\n      font-size: 20px; }\n    div.projects li.index-item i.rotate {\n      transform: rotate(90deg); }\n    div.projects li.index-item label {\n      font-weight: 400;\n      margin-right: 5px; }\n    div.projects li.index-item a {\n      margin-right: 20px; }\n    div.projects li.index-item p {\n      margin-bottom: 5px; }\n    div.projects li.index-item span {\n      display: inline-block; }\n\ndiv.splash {\n  position: absolute;\n  top: 40%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  min-width: 310px;\n  max-width: 480px;\n  width: auto; }\n  div.splash .title h1 {\n    font-size: 40px;\n    display: inline-block;\n    margin-right: 10px; }\n  div.splash .title h2 {\n    font-size: 20px;\n    display: inline-block; }\n  div.splash a {\n    margin-left: 15px;\n    padding-top: 5px;\n    display: block;\n    width: 80px; }\n\ndiv.contact h1 {\n  font-size: 30px; }\n\ndiv.contact p {\n  margin-top: 10px; }\n\ndiv.contact a {\n  margin-left: 5px; }\n\ndiv.nav-bar {\n  position: fixed;\n  z-index: 1;\n  background: white;\n  height: 50px;\n  max-width: 812px;\n  width: calc(80% + 12px);\n  left: 50%;\n  transform: translate(-50%, 0);\n  min-width: 320px;\n  box-shadow: 0px 15px 12px -12px darkgrey; }\n  div.nav-bar section.logo {\n    position: absolute;\n    top: 50%;\n    right: 10px;\n    transform: translate(0, -50%);\n    justify-content: left; }\n  div.nav-bar section.center {\n    position: absolute;\n    left: 50%;\n    top: 50%;\n    transform: translate(-50%, -50%);\n    display: flex;\n    justify-content: center; }\n  div.nav-bar a {\n    padding: 5px;\n    margin-left: 5px;\n    margin-right: 5px;\n    display: inline;\n    font-size: 18px; }\n  div.nav-bar a.active {\n    color: black; }\n\ndiv.about-me {\n  max-width: 450px;\n  min-width: 310px;\n  width: 80%; }\n  div.about-me h1 {\n    font-size: 30px; }\n  div.about-me section {\n    margin-top: 10px;\n    vertical-align: top; }\n  div.about-me label {\n    font-weight: 700;\n    margin-right: 5px; }\n  div.about-me ul {\n    display: inline-block; }\n  div.about-me p {\n    display: inline-block; }\n  div.about-me li {\n    margin-bottom: 5px; }\n  div.about-me li.last {\n    margin-bottom: 0; }\n\ndiv.renderer p.tex {\n  position: relative;\n  display: inline-block;\n  left: 50%;\n  transform: translate(-50%, 0);\n  margin: 10px 0 10px 0; }\n\ndiv.renderer div.markdown code {\n  font-family: courier;\n  background-color: #fdf6e3;\n  padding: 2px;\n  font-size: 18px; }\n\ndiv.renderer div.markdown h1 {\n  margin: 10px 0 10px 0;\n  font-size: 26px; }\n\ndiv.renderer div.markdown h2 {\n  margin: 10px 0 10px 0;\n  font-size: 22px; }\n\ndiv.renderer div.markdown h3 {\n  margin: 5px 0 5px 0;\n  font-size: 20px;\n  font-weight: 400; }\n\ndiv.renderer div.markdown h4 {\n  font-weight: 700; }\n\ndiv.renderer div.markdown ul {\n  list-style-type: disc;\n  list-style-position: inside;\n  padding: 5px 0 5px 20px; }\n\ndiv.blog {\n  position: absolute;\n  left: 50%;\n  top: 50px;\n  transform: translate(-50%, 0);\n  width: 80%;\n  max-width: 800px;\n  overflow: scroll;\n  padding-bottom: 60px;\n  line-height: 1.5; }\n  div.blog header {\n    vertical-align: middle;\n    position: relative;\n    cursor: pointer; }\n    div.blog header span {\n      position: absolute;\n      top: 40%;\n      right: 10px;\n      transform: translate(0, -50%); }\n    div.blog header h1 {\n      font-size: 30px;\n      margin-bottom: 10px;\n      display: inline-block;\n      padding-right: 80px; }\n  div.blog i {\n    margin-right: 10px; }\n  div.blog li.post-index-item {\n    margin-top: 40px; }\n  div.blog div.post {\n    margin-top: 40px; }\n    div.blog div.post i {\n      transform: rotate(90deg);\n      margin-left: 2px; }\n  div.blog nav.blog-nav-bar {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    height: 40px; }\n\nfooter.copyright-bar {\n  position: fixed;\n  bottom: 0;\n  z-index: 1;\n  height: 40px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  background-color: white;\n  width: 100%;\n  max-width: 812px;\n  width: calc(80% + 12px);\n  left: 50%;\n  transform: translate(-50%, 0);\n  box-shadow: 0px -15px 12px -12px darkgrey;\n  min-width: 320px; }\n", ""]);
 
 // exports
 
@@ -33498,7 +33518,7 @@ var TexBlock = function (_React$Component) {
   _createClass(TexBlock, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
-      _katex2.default.render(this.props.content, this.el, { display: this.props.display });
+      _katex2.default.render(this.props.content, this.el, { displayMode: this.props.display });
     }
   }, {
     key: 'render',
@@ -51766,6 +51786,98 @@ exports.uriFragmentInHTMLData = exports.uriComponentInHTMLData;
 */
 exports.uriFragmentInHTMLComment = exports.uriComponentInHTMLComment;
 
+
+/***/ }),
+/* 390 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(4);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Logo = function (_React$Component) {
+  _inherits(Logo, _React$Component);
+
+  function Logo(props) {
+    _classCallCheck(this, Logo);
+
+    var _this = _possibleConstructorReturn(this, (Logo.__proto__ || Object.getPrototypeOf(Logo)).call(this, props));
+
+    _this.state = { hover: false };
+    _this.toggleHover = _this.toggleHover.bind(_this);
+    return _this;
+  }
+
+  _createClass(Logo, [{
+    key: 'toggleHover',
+    value: function toggleHover() {
+      this.setState({ hover: !this.state.hover });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var height = 30;
+      var logoStyles = {
+        width: height,
+        height: height,
+        borderRadius: height / 2,
+        backgroundColor: 'lightgrey',
+        cursor: 'pointer',
+        textAlign: 'center',
+        position: 'relative'
+      };
+      var lStyles = {
+        fontSize: 22,
+        color: this.state.hover ? 'black' : 'darkgrey',
+        fontWeight: 700,
+        position: 'absolute',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        display: 'block',
+        margin: 0,
+        padding: 0
+      };
+
+      return _react2.default.createElement(
+        'div',
+        { style: logoStyles,
+          onClick: this.props.onClick,
+          onMouseEnter: this.toggleHover,
+          onMouseLeave: this.toggleHover,
+          className: 'logo' },
+        _react2.default.createElement(
+          'a',
+          { style: lStyles },
+          'L'
+        )
+      );
+    }
+  }]);
+
+  return Logo;
+}(_react2.default.Component);
+
+;
+
+exports.default = Logo;
 
 /***/ })
 /******/ ]);

@@ -6,7 +6,7 @@ class TexBlock extends React.Component {
     katex.render(
       this.props.content,
       this.el,
-      { display: this.props.display }
+      { displayMode: this.props.display }
     );
   }
 

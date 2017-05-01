@@ -5,7 +5,7 @@ export default () => (
   <div className="splash">
     <div className="title">
       <h1>Luke&nbsp;Wassink</h1>
-      <h2>Full&#8209;stack web developer</h2>
+      <h2>Web developer</h2>
     </div>
 
     <div className="index">
