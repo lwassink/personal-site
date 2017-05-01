@@ -162,13 +162,31 @@ Sorting the array will recursively call `sort` on two arrays of length `math n/2
 The worst case for each of the recursive calls to `sort` is `math T(n/2)` (actually it's `math T(\\left\\lceil n/2\\right\\rceil)`, but that turns out not to matter very much, so we won't wory about it).
 The worst case number of steps for `merge` is `math n`, which occurs if both left and right are emptied down to one element each before finishing the merge.
 
-When `math n>1` the cost of a call to `sort` comes from the recursive calls and the `merge`.
+When `math n>1` the cost of a call to `sort` comes from the recursive calls to `sort` and the call to `merge`.
 Adding these together we get
 ```math
   T(n) = 2T(n/2) + n.
 ```
 We will use this formula to prove that `math T(n) = O(n\\log n)`.
 
+We must prove that `math T(n) < Cn\\log n` for some constant `math C`.
+As noted above, the time to sort an array of length `math 1` is independant of the particular array, so picking `math C` large enough we have `math T(n) < C`.
+This is our base case.
+
+We now assume the inequality holds for integers less than `math n` and prove it for `math n`.
+Since `math n/2 < n` we have
+```math
+  \\begin{aligned}
+    T(n) &= 2T(n/2) + n \\\\
+    &< 2Cn/2\\log(n/2) + n \\\\
+    &= Cn(\\log n - \\log 2) + n \\\\
+    &= Cn(\\log n - 1) + n \\\\
+    &= Cn\\log n + n - Cn \\\\
+    &< Cn\\log n,
+  \\end{aligned}
+```
+so the proof is done.
+In my next post I will discuss the master theorem, which provides a very general solution to recurrances such as this one.
 POST
 
 Post.create!(

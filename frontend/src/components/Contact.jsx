@@ -9,7 +9,7 @@ class Contact extends React.Component {
         <NavBar />
         <div  className="contact center">
           <h1>Luke Wassink</h1>
-          <p><label>phone:</label> 319 330-1706</p>
+          <p><label>phone:</label> (319) 330-1706</p>
           <p><label>email:</label>
             <a target="_blank" href="mailto:lwassink@gmail.com">
               lwassink@gmail.com
