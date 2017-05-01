@@ -190,6 +190,7 @@ In my next post I will discuss the master theorem, which provides a very general
 POST
 
 Post.create!(
-  title: "Assymptotic analysis and the Master Theorem",
+  title: "Assymptotic Analysis of Algorithms",
+  url_name: "assymptotic-analysis",
   body: big_o_body
 )

@@ -3,16 +3,16 @@ import withRouter from 'react-router-dom/withRouter';
 import BlogNavBar from './BlogNavBar';
 
 const mapStateToProps = ( state, ownProps) => {
-  const { ids } = state.posts;
+  const { names } = state.posts;
   const { match } = ownProps;
-  const id = parseInt(match.params.postId);
-  const pos = ids.indexOf(id);
+  const name = match.params.postName;
+  const pos = names.indexOf(name);
 
   return {
-    isFirst: id === ids[ids.length - 1],
-    isLast: id === ids[0],
-    next: ids[pos - 1],
-    prev: ids[pos + 1]
+    isFirst: name === names[names.length - 1],
+    isLast: name === names[0],
+    next: names[pos - 1],
+    prev: names[pos + 1]
   };
 };
 

@@ -17798,7 +17798,7 @@ exports.default = function () {
       'div',
       { className: 'blog' },
       _react2.default.createElement(_Route2.default, { exact: true, path: '/posts', component: _PostIndexContainer2.default }),
-      _react2.default.createElement(_Route2.default, { path: '/posts/:postId', component: _PostContainer2.default })
+      _react2.default.createElement(_Route2.default, { path: '/posts/:postName', component: _PostContainer2.default })
     ),
     _react2.default.createElement(_CopyrightBar2.default, null)
   );
@@ -17875,17 +17875,17 @@ var _BlogNavBar2 = _interopRequireDefault(_BlogNavBar);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var mapStateToProps = function mapStateToProps(state, ownProps) {
-  var ids = state.posts.ids;
+  var names = state.posts.names;
   var match = ownProps.match;
 
-  var id = parseInt(match.params.postId);
-  var pos = ids.indexOf(id);
+  var name = match.params.postName;
+  var pos = names.indexOf(name);
 
   return {
-    isFirst: id === ids[ids.length - 1],
-    isLast: id === ids[0],
-    next: ids[pos - 1],
-    prev: ids[pos + 1]
+    isFirst: name === names[names.length - 1],
+    isLast: name === names[0],
+    next: names[pos - 1],
+    prev: names[pos + 1]
   };
 };
 
@@ -18028,7 +18028,7 @@ var _defaultPost = { title: "", body: "", created_at: "1/1/1" };
 var mapStateToProps = function mapStateToProps(_ref, ownProps) {
   var posts = _ref.posts;
   return {
-    post: posts.allPosts[ownProps.match.params.postId] || _defaultPost
+    post: posts.allPosts[ownProps.match.params.postName] || _defaultPost
   };
 };
 
@@ -18129,8 +18129,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var mapStateToProps = function mapStateToProps(_ref) {
   var posts = _ref.posts;
   return {
-    posts: posts.ids.map(function (id) {
-      return posts.allPosts[id];
+    posts: posts.names.map(function (name) {
+      return posts.allPosts[name];
     })
   };
 };
@@ -18206,7 +18206,7 @@ var PostIndexItem = function (_React$Component) {
   }, {
     key: 'handleHeaderClick',
     value: function handleHeaderClick() {
-      this.props.history.push('/posts/' + this.props.post.id);
+      this.props.history.push('/posts/' + this.props.post.url_name);
     }
   }, {
     key: 'render',
@@ -18743,7 +18743,7 @@ exports.default = function () {
 
 var _post_actions = __webpack_require__(50);
 
-var _defaultState = { ids: [], allPosts: {} };
+var _defaultState = { names: [], allPosts: {} };
 
 /***/ }),
 /* 166 */

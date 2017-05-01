@@ -1,6 +1,6 @@
 import { RECEIVE_POSTS } from '../actions/post_actions';
 
-const _defaultState = { ids: [], allPosts: {} };
+const _defaultState = { names: [], allPosts: {} };
 
 export default function(state = _defaultState, action) {
   Object.freeze(state)

@@ -17,7 +17,7 @@ class PostIndexItem extends React.Component {
   }
 
   handleHeaderClick() {
-    this.props.history.push(`/posts/${this.props.post.id}`);
+    this.props.history.push(`/posts/${this.props.post.url_name}`);
   }
 
   render() {

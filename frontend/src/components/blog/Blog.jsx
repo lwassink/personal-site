@@ -10,7 +10,7 @@ export default () => (
     <NavBar />
     <div className="blog">
       <Route exact={true} path="/posts" component={PostIndexContainer} />
-      <Route path="/posts/:postId" component={PostContainer} />
+      <Route path="/posts/:postName" component={PostContainer} />
     </div>
     <CopyrightBar />
   </div>
