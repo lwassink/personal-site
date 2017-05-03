@@ -2,8 +2,13 @@ div.projects {
   top: 100px;
   transform: translate(-50%, 0);
   width: 80%;
-  max-width: 450px;
+  max-width: 600px;
   min-width: 310px;
+  overflow: scroll;
+
+  ul {
+    margin-bottom: 80px;
+  }
 
   li.index-item {
     margin-bottom: 20px;
@@ -12,6 +17,11 @@ div.projects {
       font-size: 20px;
       margin-bottom: 10px;
       cursor: pointer;
+      margin-left: 2px;
+    }
+
+    main {
+      margin-left: 22px;
     }
 
     section {

@@ -5,10 +5,17 @@ class ProjectItem extends React.Component {
     super(props);
 
     this.state = {
-      open: false,
+      open: this.props.open,
       phase: null
     };
     this.toggleOpen = this.toggleOpen.bind(this);
+  }
+
+  componentDidMount() {
+    if (this.state.open)
+      this.setState({
+        height: document.getElementById(this.props.project.id).offsetHeight
+      });
   }
 
   isMeasuring() {
@@ -81,25 +88,27 @@ class ProjectItem extends React.Component {
           aria-hidden="true"></i>
           {project.title}
         </h1>
-        <section
-          style={sectionStyle}
-          className={measureClass}
-          id={project.id} >
-          <p> {project.description} </p>
+        <main>
+          <section
+            style={sectionStyle}
+            className={measureClass}
+            id={project.id} >
+            <p> {project.description} </p>
+            <p>
+              <label>technologies used:</label> {project.technologies}
+            </p>
+          </section>
           <p>
-            <label>technologies used:</label> {project.technologies}
+            {project.site_url ?<span>
+              <label>live site:</label>
+              <a target="_blank" href={project.site_url}>{project.short_site_url}</a>
+            </span> : null}
+            {project.github_url ? <span>
+              <label>github:</label>
+              <a target="_blank" href={project.github_url}>{project.short_github_url}</a>
+            </span> : null}
           </p>
-        </section>
-        <p>
-          {project.site_url ?<span>
-            <label>live site:</label>
-            <a target="_blank" href={project.site_url}>{project.short_site_url}</a>
-          </span> : null}
-          {project.github_url ? <span>
-            <label>github:</label>
-            <a target="_blank" href={project.github_url}>{project.short_github_url}</a>
-          </span> : null}
-        </p>
+        </main>
       </li>
     );
   }

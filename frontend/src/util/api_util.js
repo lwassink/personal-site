@@ -1,5 +1,3 @@
-const domain = 'http://lukewassink.com';
+export const requestPosts = () => fetch(`/api/posts`, {mode: 'cors'});
 
-export const requestPosts = () => fetch(domain + '/api/posts', {mode: 'cors'});
-
-export const requestProjects = () => fetch(domain + '/api/projects', {mode: 'cors'});
+export const requestProjects = () => fetch(`/api/projects`, {mode: 'cors'});
