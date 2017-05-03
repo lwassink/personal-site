@@ -10055,12 +10055,14 @@ exports.default = TexBlock;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+var domain = 'http://lukewassink.com';
+
 var requestPosts = exports.requestPosts = function requestPosts() {
-  return fetch('http://localhost:8000/api/posts', { mode: 'cors' });
+  return fetch(domain + '/api/posts', { mode: 'cors' });
 };
 
 var requestProjects = exports.requestProjects = function requestProjects() {
-  return fetch('http://localhost:8000/api/projects', { mode: 'cors' });
+  return fetch(domain + '/api/projects', { mode: 'cors' });
 };
 
 /***/ }),

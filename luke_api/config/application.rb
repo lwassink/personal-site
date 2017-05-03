@@ -28,7 +28,7 @@ module LukeApi
     config.api_only = true
 
     config.action_dispatch.default_headers = {
-        'Access-Control-Allow-Origin' => 'http://localhost:80',
+        'Access-Control-Allow-Origin' => 'http://lukewassink.com',
         'Access-Control-Request-Method' => %w{GET POST OPTIONS}.join(",")
       }
   end

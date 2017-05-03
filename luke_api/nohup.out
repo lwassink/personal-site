@@ -16,3 +16,144 @@ A server is already running. Check /home/ubuntu/personal-site/luke_api/tmp/pids/
 => Rails 5.0.2 application starting in development on http://localhost:3000
 => Run `rails server -h` for more startup options
 Exiting
+A server is already running. Check /home/ubuntu/personal-site/luke_api/tmp/pids/server.pid.
+=> Booting Puma
+=> Rails 5.0.2 application starting in development on http://localhost:3000
+=> Run `rails server -h` for more startup options
+Exiting
+=> Booting Puma
+=> Rails 5.0.2 application starting in development on http://localhost:3000
+=> Run `rails server -h` for more startup options
+Puma starting in single mode...
+* Version 3.8.2 (ruby 2.4.1-p111), codename: Sassy Salamander
+* Min threads: 5, max threads: 5
+* Environment: development
+* Listening on tcp://localhost:3000
+Use Ctrl-C to stop
+Started GET "/api/posts" for 127.0.0.1 at 2017-05-01 08:31:37 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Api::PostsController#index as */*
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "posts"."id" FROM "posts" ORDER BY "posts"."created_at" ASC[0m
+Completed 200 OK in 10ms (Views: 1.0ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/api/posts" for 127.0.0.1 at 2017-05-01 08:31:47 +0000
+Processing by Api::PostsController#index as */*
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "posts"."id" FROM "posts" ORDER BY "posts"."created_at" ASC[0m
+Completed 200 OK in 3ms (Views: 0.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/projects" for 127.0.0.1 at 2017-05-01 08:31:49 +0000
+Processing by Api::ProjectsController#index as */*
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "projects"."id" FROM "projects" ORDER BY "projects"."created_at" ASC[0m
+Completed 200 OK in 12ms (Views: 0.7ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/api/posts" for 127.0.0.1 at 2017-05-01 08:31:51 +0000
+Processing by Api::PostsController#index as */*
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "posts"."id" FROM "posts" ORDER BY "posts"."created_at" ASC[0m
+Completed 200 OK in 2ms (Views: 0.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/posts" for 127.0.0.1 at 2017-05-01 08:32:14 +0000
+Processing by Api::PostsController#index as */*
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "posts"."id" FROM "posts" ORDER BY "posts"."created_at" ASC[0m
+Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/projects" for 127.0.0.1 at 2017-05-01 08:32:16 +0000
+Processing by Api::ProjectsController#index as */*
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "projects"."id" FROM "projects" ORDER BY "projects"."created_at" ASC[0m
+Completed 200 OK in 2ms (Views: 0.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/posts" for 127.0.0.1 at 2017-05-01 08:32:19 +0000
+Processing by Api::PostsController#index as */*
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "posts"."id" FROM "posts" ORDER BY "posts"."created_at" ASC[0m
+Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/posts" for 127.0.0.1 at 2017-05-01 08:32:21 +0000
+Processing by Api::PostsController#index as */*
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "posts"."id" FROM "posts" ORDER BY "posts"."created_at" ASC[0m
+Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/posts" for 127.0.0.1 at 2017-05-01 08:32:32 +0000
+Processing by Api::PostsController#index as */*
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "posts"."id" FROM "posts" ORDER BY "posts"."created_at" ASC[0m
+Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/posts" for 127.0.0.1 at 2017-05-01 08:34:59 +0000
+Processing by Api::PostsController#index as */*
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "posts"."id" FROM "posts" ORDER BY "posts"."created_at" ASC[0m
+Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/posts" for 127.0.0.1 at 2017-05-01 08:35:01 +0000
+Processing by Api::PostsController#index as */*
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "posts"."id" FROM "posts" ORDER BY "posts"."created_at" ASC[0m
+Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/projects" for 127.0.0.1 at 2017-05-01 08:35:04 +0000
+Processing by Api::ProjectsController#index as */*
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "projects"."id" FROM "projects" ORDER BY "projects"."created_at" ASC[0m
+Completed 200 OK in 2ms (Views: 0.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/projects" for 127.0.0.1 at 2017-05-01 08:36:45 +0000
+Processing by Api::ProjectsController#index as */*
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "projects"."id" FROM "projects" ORDER BY "projects"."created_at" ASC[0m
+Completed 200 OK in 2ms (Views: 0.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/posts" for 127.0.0.1 at 2017-05-01 15:58:08 +0000
+Processing by Api::PostsController#index as */*
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "posts"."id" FROM "posts" ORDER BY "posts"."created_at" ASC[0m
+Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/projects" for 127.0.0.1 at 2017-05-01 15:58:10 +0000
+Processing by Api::ProjectsController#index as */*
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "projects"."id" FROM "projects" ORDER BY "projects"."created_at" ASC[0m
+Completed 200 OK in 2ms (Views: 0.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/projects" for 127.0.0.1 at 2017-05-02 01:39:31 +0000
+Processing by Api::ProjectsController#index as */*
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "projects"."id" FROM "projects" ORDER BY "projects"."created_at" ASC[0m
+Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/posts" for 127.0.0.1 at 2017-05-02 01:39:50 +0000
+Processing by Api::PostsController#index as */*
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "posts"."id" FROM "posts" ORDER BY "posts"."created_at" ASC[0m
+Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/posts" for 127.0.0.1 at 2017-05-02 01:39:53 +0000
+Processing by Api::PostsController#index as */*
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "posts"."id" FROM "posts" ORDER BY "posts"."created_at" ASC[0m
+Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 0.4ms)
+
+
