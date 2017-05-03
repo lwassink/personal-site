@@ -2,7 +2,7 @@ Project.destroy_all
 
 Project.create!(
   title: "GoodCode",
-  description: "GoodCode is a site for reviewing technological tools, loosly based on Goodreads. It is a single page, fullstack rails app with a React frontend and secure user authentication. It supports rendering of comments in Markdown.",
+  description: "GoodCode is a site for reviewing technological tools, loosely based on Goodreads. It is a single page, fullstack rails app with a React frontend and secure user authentication. It supports rendering of comments in Markdown.",
   github_url: "https://github.com/lwassink/good-code",
   short_github_url: "github.com/lwassink/good-code",
   site_url: "https://goodcode.herokuapp.com/#/",
@@ -12,7 +12,7 @@ Project.create!(
 
 Project.create!(
   title: "Personal Site",
-  description: "I used this site as an oportunity to learn a number of technologies I was interested in. It is served by an nginx reverse-proxy server. Static assets are served by a node express server, while content is served by a rails app. It is hosted on an Amazon EC2 instance.",
+  description: "I used this site as an opportunity to learn a number of technologies I was interested in. It is served by an nginx reverse-proxy server. Static assets are served by a node express server, while content is served by a rails app. It is hosted on an Amazon EC2 instance.",
   site_url: "https://lukewassink.com",
   short_site_url: "lukewassink.com",
   technologies: "ruby, javascript, rails, express server, nginx, react, redux",
@@ -34,12 +34,12 @@ Post.destroy_all
 big_o_body = <<-POST
 A few weeks ago I gave a talk on the intuition behind the precise mathematical definition of Big-O notation.
 In this post I plan to record that talk, and possibly flesh out a few points.
-My plan is to begin with Big-O and related definitions in assymptotic analysis, review mathematical induction, and use it to prove the assymptotic behavior of mergesort.
-In a subsuquent post I hope to explain the Master Theorem.
+My plan is to begin with Big-O and related definitions in asymptotic analysis, review mathematical induction, and use it to prove the asymptotic behavior of merge sort.
+In a subsequent post I hope to explain the Master Theorem.
 
 ===FOLD===
 
-## Assymptotic analysis
+## Asymptotic analysis
 
 The goal of Big-O analysis is to measure the rate of growth of a function.
 The idea is, we aren't interested in how big a function is at any given point, but rather in how fast it's growing.
@@ -99,7 +99,7 @@ Dividing both sides by `math 2^n` we get `math (3/2)^n < C` for `math n > N`, bu
 
 ## Induction
 
-We will now apply this definition to a more interesting example: mergesort.
+We will now apply this definition to a more interesting example: merge sort.
 First we need to review the concept of mathematical induction.
 Induction can be thought of as the mathematical foundation of recursion.
 Here's the idea: suppose we want to prove that some statement is true for all positive integers.
@@ -107,7 +107,7 @@ Induction tells us that it suffices to prove the statement for some number of sm
 If we can do that, we will have proved the statement is true in general.
 
 Let's take an example.
-Suppose we want to prove the clasic formula
+Suppose we want to prove the classic formula
 ```math
 \\sum_{i=1}^n i = \\frac{n(n+1)}{2}.
 ```
@@ -147,8 +147,8 @@ which simplifies to
 \\end{aligned}
 ```
 
-Now let's take a look at mergesort.
-Here's a simple implimentation of mergesort in ruby, so we have something to refer to
+Now let's take a look at merge sort.
+Here's a simple implementation of merge sort in ruby, so we have something to refer to
 ```ruby
   def sort(array)
     n = array.length
@@ -172,7 +172,7 @@ Big-O is concerned with the worst case, so let's write `math T(n)` for the longe
 From the above code we can see that `math T(0) = T(1) = 2 = O(1)`, since if `math n=0\\text{ or }1` we hit the `return`.
 Now let's consider a general array of length `math n`.
 Sorting the array will recursively call `sort` on two arrays of length `math n/2` and then call `merge` on them.
-The worst case for each of the recursive calls to `sort` is `math T(n/2)` (actually it's `math T(\\left\\lceil n/2\\right\\rceil)`, but that turns out not to matter very much, so we won't wory about it).
+The worst case for each of the recursive calls to `sort` is `math T(n/2)` (actually it's `math T(\\left\\lceil n/2\\right\\rceil)`, but that turns out not to matter very much, so we won't worry about it).
 The worst case number of steps for `merge` is `math n`, which occurs if both left and right are emptied down to one element each before finishing the merge.
 
 When `math n>1` the cost of a call to `sort` comes from the recursive calls to `sort` and the call to `merge`.
@@ -183,7 +183,7 @@ Adding these together we get
 We will use this formula to prove that `math T(n) = O(n\\log n)`.
 
 We must prove that `math T(n) < Cn\\log n` for some constant `math C`.
-As noted above, the time to sort an array of length `math 1` is independant of the particular array, so picking `math C` large enough we have `math T(n) < C`.
+As noted above, the time to sort an array of length `math 1` is independent of the particular array, so picking `math C` large enough we have `math T(n) < C`.
 This is our base case.
 
 We now assume the inequality holds for integers less than `math n` and prove it for `math n`.
@@ -199,7 +199,7 @@ Since `math n/2 < n` we have
   \\end{aligned}
 ```
 so the proof is done.
-In my next post I will discuss the master theorem, which provides a very general solution to recurrances such as this one.
+In my next post I will discuss the master theorem, which provides a very general solution to recurrences such as this one.
 POST
 
 Post.create!(
@@ -209,9 +209,9 @@ Post.create!(
 )
 
 master_theorem_body = <<-POST
-In a [previous post](/posts/assymptotic-analysis) I discussed Big-O notation and the assymptotic behavior of algorithms.
-I introduced mathematical induction and proved that the runtime of mergesort is `math O(n\\log n)`.
-In this post I will explain a very general result known as the Master Theorem which gives the assymptotic behaviour of functions that satisfy certain types of recurrance relations.
+In a [previous post](/posts/asymptotic-analysis) I discussed Big-O notation and the assymptotic behavior of algorithms.
+I introduced mathematical induction and proved that the runtime of merge sort is `math O(n\\log n)`.
+In this post I will explain a very general result known as the Master Theorem which gives the asymptotic behavior of functions that satisfy certain types of recurrence relations.
 ===FOLD===
 
 We first introduce Big-Theta notation.
@@ -223,7 +223,7 @@ C_1g(n) < f(n) < C_2g(n) \\text{ when } n > N.
 ```
 This can be interpreted as saying that `math f` and `math g` grow at the same rate.
 
-Write `math T(n)` for the worst-case execution time of calling mergesort on an array of `math n` elements.
+Write `math T(n)` for the worst-case execution time of calling merge sort on an array of `math n` elements.
 Then one can show that `math T(n)` satisfies `math T(n) = 2T(n/2) + n`.
 Use this relation we were able to prove that `math T(n) = O(n\\log n)`.
 The Master Theorem provides a general solution for algorithms that satisfy similar relations.
@@ -241,7 +241,7 @@ Then
 3. If `math f(n) = \\Theta(n^{\\log_b a + \\epsilon})` for some `math \\epsilon > 0`, and if `math af(n/b) \\leq cf(n)` for some `math c<1`,  then `math T(n) = \\Theta(f(n))`.
 
 Let's try to understand why this should be true.
-The first step is to expand the recurrance relation used to define `math T` by repeatedly plugging it into itself.
+The first step is to expand the recurrence relation used to define `math T` by repeatedly plugging it into itself.
 We get
 ```math
 \\begin{aligned}
@@ -254,7 +254,7 @@ We get
 ```
 where `math k` is number such that `math n/b^k = 1`.
 Solving, we get `math n = b^k` so `math k = \\log_b(n)`.
-It is useful to rearange `math a^k = a^{\\log_b(n)} = n^{\\log_b(a)}` (the reader can check the details).
+It is useful to rearrange `math a^k = a^{\\log_b(n)} = n^{\\log_b(a)}` (the reader can check the details).
 This gives
 ```math
   T(n) = T(1)n^{log_ba} + \\sum_{j=1}^{log_b(n-1)} a^jf(n/b^j) + f(n).
@@ -281,8 +281,8 @@ One source of a detailed proof is the [CLRS book on algorithms](https://www.amaz
 ## Examples
 
 We conclude with two example uses of this theorem.
-First, mergesort.
-Recall that mergesort satisfies `math T(n) = 2T(n/2) + n`.
+First, merge sort.
+Recall that merge sort satisfies `math T(n) = 2T(n/2) + n`.
 Putting this in the language of the Master Theorem we have `math a = b = 2` and `math f(n) = n`.
 Thus `math n^{log_ba} = n^{log_22} = n^1 = n`, so `math f(n) = n^{log_ba}`, so we are in the second case of the theorem.
 Thus `math T(n) = \\Theta(n\\log n)`.
@@ -293,7 +293,7 @@ This is because we must compute `math n^2` entries, and each entry requires comp
 Strassen's clever approach involves breaking each matrix into `math 4` `math n/2 \\times n/2` pieces, preforming `math 7` multiplications on the pieces, and recombining them to derive the solution.
 Again, refer to CLRS for details.
 In any case, the recombining means adding together several `math n/2 \\times n/2` matrices.
-Each such addition requires adding `math n^2/4` elements, so clearly the recombining takes `math \\Theta(n^2)` steps alltogether.
+Each such addition requires adding `math n^2/4` elements, so clearly the recombining takes `math \\Theta(n^2)` steps altogether.
 The upshot is that Strassen's algorithm satisfies
 ```math
 T(n) = 7T(n/2) + \\Theta(n^2).
@@ -312,10 +312,10 @@ Post.create!(
 
 scala_trie_body = <<-POST
 
-I recently became interested in understanding a number of common string proccessing algorithms and string data structures.
+I recently became interested in understanding a number of common string processing algorithms and string data structures.
 One of the most important string data structures is the Trie.
-A Trie provides an eficient implementation of a symbol table when the keys are strings.
-For an excelent, detailed discussion see [Algoritms](http://algs4.cs.princeton.edu/home/) by Sedgewick and Wayne.
+A Trie provides an efficient implementation of a symbol table when the keys are strings.
+For an excellent, detailed discussion see [Algorithms](http://algs4.cs.princeton.edu/home/) by Sedgewick and Wayne.
 
 ===FOLD===
 
@@ -326,7 +326,7 @@ If at any point there is no child node corresponding to the given character then
 This means that inserting a key-value pair may mean inserting several intermediate nodes with null values.
 
 The main virtue of a Trie is that it allows insertion an lookup in time corresponding to the length of the keys.
-Further, it supports easy, eficient implementations of more advanced functions, such as looking for all keys that begin with a given prefix string.
+Further, it supports easy, efficient implementations of more advanced functions, such as looking for all keys that begin with a given prefix string.
 In their code, Sedgewick and Wayne even allow for the searching with a wildcard character which can stand in for arbitrary strings.
 
 ## Implementation
@@ -334,11 +334,11 @@ In their code, Sedgewick and Wayne even allow for the searching with a wildcard 
 Inspiration for my code comes from the beautiful implementation by Sedgewick and Wayne which can be found on [their website](http://algs4.cs.princeton.edu/52trie/TrieST.java.html).
 At the same time that I encountered their code I was also learning functional programming in Scala.
 I immediately became interested in creating a functional implementation that would maintain a similar symbol table interface.
-This proved surprisingly dificult, particularly when it comes to iterating through the keys.
+This proved surprisingly difficult, particularly when it comes to iterating through the keys.
 Eventually I was able to create an implementation I am happy with.
 It is contained in a single `Node` class.
 It is purely functional; instances of `Node` are never mutated.
-I also tried to write concise, ideomatic Scala, though I'm sure improvements could be made.
+I also tried to write concise, idiomatic Scala, though I'm sure improvements could be made.
 Here is the code.
 
 ```scala
@@ -376,13 +376,13 @@ class Node[Val](kids: Map[Char, Node[Val]], val contents: Option[Val]) {
 
 A few points of particular interest:
 * At first I used separate classes for empty and non-empty nodes.
-The use of a default value with `children` elminated the need for this.
+The use of a default value with `children` eliminated the need for this.
 * Values are stored as options.
 Thus if a key-value pair `(k, v)` is stored in a Trie `t` then `t.get(k)` will return `Some(v)`.
 If a key `k'` is not contained in `t` or has no associated value then `t.get(k')` will return `None`.
 In Scala, Options are a monoid with `map` and `flatMap` methods.
-This means that it is possible to write very concise code that gracefully handles the posibility that a value may or may not be found for a given key.
-* When searching for keys begining with a given prefix (just use `t.keysWithPrefix("")` to get all keys) the keys are returned as a stream of strings in alphabetical order.
+This means that it is possible to write very concise code that gracefully handles the possibility that a value may or may not be found for a given key.
+* When searching for keys beginning with a given prefix (just use `t.keysWithPrefix("")` to get all keys) the keys are returned as a stream of strings in alphabetical order.
 This allows the user to read only as many keys as they want in a very natural way.
 For example, to read the first three keys would could simply use `t.keysWithPrefix("").take(3)`.
 This code will only visit the first three nodes with values, then return.
