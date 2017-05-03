@@ -1,4 +1,5 @@
-var path = require("path");
+const path = require("path");
+const webpack = require("webpack");
 
 module.exports = {
   context: __dirname,
@@ -7,6 +8,9 @@ module.exports = {
     path: path.resolve(__dirname, 'public', 'assets'),
     filename: "bundle.js"
   },
+  plugins: [
+    new webpack.optimize.UglifyJsPlugin()
+  ],
   module: {
     loaders: [
       {
@@ -27,7 +31,7 @@ module.exports = {
       }
     ]
   },
-  devtool: 'source-maps',
+  devtool: 'cheap-module-source-map',
   resolve: {
     extensions: [".js", ".jsx", "*"]
   }
