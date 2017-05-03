@@ -6,6 +6,10 @@ class PostIndex extends React.Component {
     this.props.fetchPosts();
   }
 
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
+
   render() {
     const { posts } = this.props;
     return (
