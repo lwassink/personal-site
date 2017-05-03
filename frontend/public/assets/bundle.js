@@ -10058,11 +10058,11 @@ Object.defineProperty(exports, "__esModule", {
 var domain = 'http://localhost:8000';
 
 var requestPosts = exports.requestPosts = function requestPosts() {
-  return fetch(domain + '/api/posts', { mode: 'cors' });
+  return fetch('/api/posts', { mode: 'cors' });
 };
 
 var requestProjects = exports.requestProjects = function requestProjects() {
-  return fetch(domain + '/api/projects', { mode: 'cors' });
+  return fetch('/api/projects', { mode: 'cors' });
 };
 
 /***/ }),
@@ -18395,7 +18395,7 @@ var ProjectItem = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (ProjectItem.__proto__ || Object.getPrototypeOf(ProjectItem)).call(this, props));
 
     _this.state = {
-      open: false,
+      open: _this.props.open,
       phase: null
     };
     _this.toggleOpen = _this.toggleOpen.bind(_this);
@@ -18403,6 +18403,13 @@ var ProjectItem = function (_React$Component) {
   }
 
   _createClass(ProjectItem, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      if (this.state.open) this.setState({
+        height: document.getElementById(this.props.project.id).offsetHeight
+      });
+    }
+  }, {
     key: "isMeasuring",
     value: function isMeasuring() {
       return this.state.phase === "measuring";
@@ -18496,61 +18503,65 @@ var ProjectItem = function (_React$Component) {
           project.title
         ),
         _react2.default.createElement(
-          "section",
-          {
-            style: sectionStyle,
-            className: measureClass,
-            id: project.id },
+          "main",
+          null,
           _react2.default.createElement(
-            "p",
-            null,
-            " ",
-            project.description,
-            " "
+            "section",
+            {
+              style: sectionStyle,
+              className: measureClass,
+              id: project.id },
+            _react2.default.createElement(
+              "p",
+              null,
+              " ",
+              project.description,
+              " "
+            ),
+            _react2.default.createElement(
+              "p",
+              null,
+              _react2.default.createElement(
+                "label",
+                null,
+                "technologies used:"
+              ),
+              " ",
+              project.technologies
+            )
           ),
           _react2.default.createElement(
             "p",
             null,
-            _react2.default.createElement(
-              "label",
+            project.site_url ? _react2.default.createElement(
+              "span",
               null,
-              "technologies used:"
-            ),
-            " ",
-            project.technologies
+              _react2.default.createElement(
+                "label",
+                null,
+                "live site:"
+              ),
+              _react2.default.createElement(
+                "a",
+                { target: "_blank", href: project.site_url },
+                project.short_site_url
+              )
+            ) : null,
+            project.github_url ? _react2.default.createElement(
+              "span",
+              null,
+              _react2.default.createElement(
+                "label",
+                null,
+                "github:"
+              ),
+              _react2.default.createElement(
+                "a",
+                { target: "_blank", href: project.github_url },
+                project.short_github_url
+              )
+            ) : null
           )
-        ),
-        _react2.default.createElement(
-          "p",
-          null,
-          project.site_url ? _react2.default.createElement(
-            "span",
-            null,
-            _react2.default.createElement(
-              "label",
-              null,
-              "live site:"
-            ),
-            _react2.default.createElement(
-              "a",
-              { target: "_blank", href: project.site_url },
-              project.short_site_url
-            )
-          ) : null,
-          project.github_url ? _react2.default.createElement(
-            "span",
-            null,
-            _react2.default.createElement(
-              "label",
-              null,
-              "github:"
-            ),
-            _react2.default.createElement(
-              "a",
-              { target: "_blank", href: project.github_url },
-              project.short_github_url
-            )
-          ) : null
         )
       );
     }
@@ -18627,9 +18638,10 @@ var Projects = function (_React$Component) {
           _react2.default.createElement(
             'ul',
             null,
-            projects.map(function (project) {
+            projects.map(function (project, idx) {
               return _react2.default.createElement(_ProjectItem2.default, {
                 key: project.id,
+                open: idx === 0,
                 project: project });
             })
           )
@@ -24043,7 +24055,7 @@ exports = module.exports = __webpack_require__(208)(undefined);
 
 
 // module
-exports.push([module.i, "html, body, header, nav, h1, a,\nul, li, strong, main, button, i,\nsection, img, div, h2, p, form,\nfieldset, label, input, textarea,\nspan, article, footer, time, small {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  outline: 0;\n  font: inherit;\n  color: inherit;\n  text-align: inherit;\n  text-decoration: inherit;\n  vertical-align: inherit;\n  box-sizing: inherit;\n  background: transparent; }\n\nul {\n  list-style-type: none; }\n\nimg {\n  display: block;\n  width: 100%;\n  height: auto; }\n\ninput[type=\"password\"],\ninput[type=\"email\"],\ninput[type=\"text\"],\ninput[type=\"submit\"],\ntextarea,\nbutton {\n  /*\n  Get rid of native styling. Read more here:\n  http://css-tricks.com/almanac/properties/a/appearance/\n  */\n  -webkit-appearance: none;\n  -moz-appearance: none;\n  appearance: none; }\n\na, button,\ninput[type=\"submit\"] {\n  cursor: pointer; }\n\n/* Clearfix */\n.group:after {\n  content: \"\";\n  display: block;\n  clear: both; }\n\nhtml {\n  position: relative;\n  height: 100%;\n  font-family: 'Droid Sans', sans-serif; }\n\nbody {\n  height: 100%;\n  font-size: 18px; }\n\na {\n  color: darkgrey;\n  transition: 0.3s; }\n\na:hover {\n  color: black; }\n\ndiv.center {\n  position: absolute;\n  top: 45%;\n  left: 50%;\n  transform: translate(-50%, -50%); }\n\ndiv.projects {\n  top: 100px;\n  transform: translate(-50%, 0);\n  width: 80%;\n  max-width: 450px;\n  min-width: 310px; }\n  div.projects li.index-item {\n    margin-bottom: 20px; }\n    div.projects li.index-item h1 {\n      font-size: 20px;\n      margin-bottom: 10px;\n      cursor: pointer; }\n    div.projects li.index-item section {\n      transition: height 0.5s ease-in-out;\n      overflow: hidden; }\n    div.projects li.index-item section.measure {\n      visibility: hidden;\n      position: absolute; }\n    div.projects li.index-item i {\n      margin-right: 5px;\n      transform: rotate(0deg);\n      transition: transform 0.4s ease-in-out;\n      font-size: 20px; }\n    div.projects li.index-item i.rotate {\n      transform: rotate(90deg); }\n    div.projects li.index-item label {\n      font-weight: 400;\n      margin-right: 5px; }\n    div.projects li.index-item a {\n      margin-right: 20px; }\n    div.projects li.index-item p {\n      margin-bottom: 5px; }\n    div.projects li.index-item span {\n      display: inline-block; }\n\ndiv.splash {\n  position: absolute;\n  top: 40%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  min-width: 310px;\n  max-width: 480px;\n  width: auto; }\n  div.splash .title h1 {\n    font-size: 40px;\n    display: inline-block;\n    margin-right: 10px; }\n  div.splash .title h2 {\n    font-size: 20px;\n    display: inline-block; }\n  div.splash a {\n    margin-left: 15px;\n    padding-top: 5px;\n    display: block;\n    width: 80px; }\n\ndiv.contact h1 {\n  font-size: 30px; }\n\ndiv.contact p {\n  margin-top: 10px; }\n\ndiv.contact a {\n  margin-left: 5px; }\n\ndiv.nav-bar {\n  position: fixed;\n  z-index: 1;\n  background: white;\n  height: 50px;\n  max-width: 812px;\n  width: calc(80% + 12px);\n  left: 50%;\n  transform: translate(-50%, 0);\n  min-width: 320px;\n  box-shadow: 0px 15px 12px -12px darkgrey; }\n  div.nav-bar section.logo {\n    position: absolute;\n    top: 50%;\n    right: 10px;\n    transform: translate(0, -50%);\n    justify-content: left; }\n  div.nav-bar section.center {\n    position: absolute;\n    left: 50%;\n    top: 50%;\n    transform: translate(-50%, -50%);\n    display: flex;\n    justify-content: center; }\n  div.nav-bar a {\n    padding: 5px;\n    margin-left: 5px;\n    margin-right: 5px;\n    display: inline;\n    font-size: 18px; }\n  div.nav-bar a.active {\n    color: black; }\n\ndiv.about-me {\n  max-width: 450px;\n  min-width: 310px;\n  width: 80%; }\n  div.about-me h1 {\n    font-size: 30px; }\n  div.about-me section {\n    margin-top: 10px;\n    vertical-align: top; }\n  div.about-me label {\n    font-weight: 700;\n    margin-right: 5px; }\n  div.about-me ul {\n    display: inline-block; }\n  div.about-me p {\n    display: inline-block; }\n  div.about-me li {\n    margin-bottom: 5px; }\n  div.about-me li.last {\n    margin-bottom: 0; }\n\ndiv.renderer p.tex {\n  position: relative;\n  display: inline-block;\n  left: 50%;\n  transform: translate(-50%, 0);\n  margin: 10px 0 10px 0; }\n\ndiv.renderer div.markdown p {\n  margin-bottom: 10px; }\n\ndiv.renderer div.markdown code {\n  font-family: courier;\n  background-color: #fdf6e3;\n  padding: 2px;\n  font-size: 18px; }\n\ndiv.renderer div.markdown h1 {\n  margin: 10px 0 10px 0;\n  font-size: 26px; }\n\ndiv.renderer div.markdown h2 {\n  margin: 10px 0 10px 0;\n  font-size: 22px; }\n\ndiv.renderer div.markdown h3 {\n  margin: 5px 0 5px 0;\n  font-size: 20px;\n  font-weight: 400; }\n\ndiv.renderer div.markdown h4 {\n  font-weight: 700; }\n\ndiv.renderer div.markdown ul {\n  list-style-type: disc;\n  list-style-position: inside;\n  padding: 5px 0 5px 20px; }\n\ndiv.renderer div.markdown strong {\n  font-weight: 700; }\n\ndiv.blog {\n  position: absolute;\n  left: 50%;\n  top: 50px;\n  transform: translate(-50%, 0);\n  width: calc(80% - 20px);\n  max-width: 780px;\n  overflow: scroll;\n  padding-bottom: 60px;\n  line-height: 1.5; }\n  div.blog header {\n    vertical-align: middle;\n    position: relative;\n    cursor: pointer; }\n    div.blog header span {\n      position: absolute;\n      top: 40%;\n      right: 10px;\n      transform: translate(0, -50%); }\n    div.blog header h1 {\n      font-size: 30px;\n      margin-bottom: 10px;\n      display: inline-block;\n      padding-right: 80px; }\n  div.blog i {\n    margin-right: 10px; }\n  div.blog li.post-index-item {\n    margin-top: 40px; }\n  div.blog div.post {\n    margin-top: 40px; }\n    div.blog div.post i {\n      transform: rotate(90deg);\n      margin-left: 2px; }\n  div.blog nav.blog-nav-bar {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    height: 40px; }\n\nfooter.copyright-bar {\n  position: fixed;\n  bottom: 0;\n  z-index: 1;\n  height: 40px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  background-color: white;\n  width: 100%;\n  max-width: 812px;\n  width: calc(80% + 12px);\n  left: 50%;\n  transform: translate(-50%, 0);\n  box-shadow: 0px -15px 12px -12px darkgrey;\n  min-width: 320px; }\n", ""]);
+exports.push([module.i, "html, body, header, nav, h1, a,\nul, li, strong, main, button, i,\nsection, img, div, h2, p, form,\nfieldset, label, input, textarea,\nspan, article, footer, time, small {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  outline: 0;\n  font: inherit;\n  color: inherit;\n  text-align: inherit;\n  text-decoration: inherit;\n  vertical-align: inherit;\n  box-sizing: inherit;\n  background: transparent; }\n\nul {\n  list-style-type: none; }\n\nimg {\n  display: block;\n  width: 100%;\n  height: auto; }\n\ninput[type=\"password\"],\ninput[type=\"email\"],\ninput[type=\"text\"],\ninput[type=\"submit\"],\ntextarea,\nbutton {\n  /*\n  Get rid of native styling. Read more here:\n  http://css-tricks.com/almanac/properties/a/appearance/\n  */\n  -webkit-appearance: none;\n  -moz-appearance: none;\n  appearance: none; }\n\na, button,\ninput[type=\"submit\"] {\n  cursor: pointer; }\n\n/* Clearfix */\n.group:after {\n  content: \"\";\n  display: block;\n  clear: both; }\n\nhtml {\n  position: relative;\n  height: 100%;\n  font-family: 'Droid Sans', sans-serif; }\n\nbody {\n  height: 100%;\n  font-size: 18px; }\n\na {\n  color: darkgrey;\n  transition: 0.3s; }\n\na:hover {\n  color: black; }\n\ndiv.center {\n  position: absolute;\n  top: 45%;\n  left: 50%;\n  transform: translate(-50%, -50%); }\n\ndiv.projects {\n  top: 100px;\n  transform: translate(-50%, 0);\n  width: 80%;\n  max-width: 600px;\n  min-width: 310px;\n  overflow: scroll; }\n  div.projects ul {\n    margin-bottom: 80px; }\n  div.projects li.index-item {\n    margin-bottom: 20px; }\n    div.projects li.index-item h1 {\n      font-size: 20px;\n      margin-bottom: 10px;\n      cursor: pointer;\n      margin-left: 2px; }\n    div.projects li.index-item main {\n      margin-left: 22px; }\n    div.projects li.index-item section {\n      transition: height 0.5s ease-in-out;\n      overflow: hidden; }\n    div.projects li.index-item section.measure {\n      visibility: hidden;\n      position: absolute; }\n    div.projects li.index-item i {\n      margin-right: 5px;\n      transform: rotate(0deg);\n      transition: transform 0.4s ease-in-out;\n      font-size: 20px; }\n    div.projects li.index-item i.rotate {\n      transform: rotate(90deg); }\n    div.projects li.index-item label {\n      font-weight: 400;\n      margin-right: 5px; }\n    div.projects li.index-item a {\n      margin-right: 20px; }\n    div.projects li.index-item p {\n      margin-bottom: 5px; }\n    div.projects li.index-item span {\n      display: inline-block; }\n\ndiv.splash {\n  position: absolute;\n  top: 40%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  min-width: 310px;\n  max-width: 480px;\n  width: auto; }\n  div.splash .title h1 {\n    font-size: 40px;\n    display: inline-block;\n    margin-right: 10px; }\n  div.splash .title h2 {\n    font-size: 20px;\n    display: inline-block; }\n  div.splash a {\n    margin-left: 15px;\n    padding-top: 5px;\n    display: block;\n    width: 80px; }\n\ndiv.contact h1 {\n  font-size: 30px; }\n\ndiv.contact p {\n  margin-top: 10px; }\n\ndiv.contact a {\n  margin-left: 5px; }\n\ndiv.nav-bar {\n  position: fixed;\n  z-index: 1;\n  background: white;\n  height: 50px;\n  max-width: 812px;\n  width: calc(80% + 12px);\n  left: 50%;\n  transform: translate(-50%, 0);\n  min-width: 320px;\n  box-shadow: 0px 15px 12px -12px darkgrey; }\n  div.nav-bar section.logo {\n    position: absolute;\n    top: 50%;\n    right: 10px;\n    transform: translate(0, -50%);\n    justify-content: left; }\n  div.nav-bar section.center {\n    position: absolute;\n    left: 50%;\n    top: 50%;\n    transform: translate(-50%, -50%);\n    display: flex;\n    justify-content: center; }\n  div.nav-bar a {\n    padding: 5px;\n    margin-left: 5px;\n    margin-right: 5px;\n    display: inline;\n    font-size: 18px; }\n  div.nav-bar a.active {\n    color: black; }\n\ndiv.about-me {\n  max-width: 450px;\n  min-width: 310px;\n  width: 80%; }\n  div.about-me h1 {\n    font-size: 30px; }\n  div.about-me section {\n    margin-top: 10px;\n    vertical-align: top; }\n  div.about-me label {\n    font-weight: 700;\n    margin-right: 5px; }\n  div.about-me ul {\n    display: inline-block; }\n  div.about-me p {\n    display: inline-block; }\n  div.about-me li {\n    margin-bottom: 5px; }\n  div.about-me li.last {\n    margin-bottom: 0; }\n\ndiv.renderer p.tex {\n  position: relative;\n  display: inline-block;\n  left: 50%;\n  transform: translate(-50%, 0);\n  margin: 10px 0 10px 0; }\n\ndiv.renderer div.markdown p {\n  margin-bottom: 10px; }\n\ndiv.renderer div.markdown code {\n  font-family: courier;\n  background-color: #fdf6e3;\n  padding: 2px;\n  font-size: 18px; }\n\ndiv.renderer div.markdown h1 {\n  margin: 10px 0 10px 0;\n  font-size: 26px; }\n\ndiv.renderer div.markdown h2 {\n  margin: 10px 0 10px 0;\n  font-size: 22px; }\n\ndiv.renderer div.markdown h3 {\n  margin: 5px 0 5px 0;\n  font-size: 20px;\n  font-weight: 400; }\n\ndiv.renderer div.markdown h4 {\n  font-weight: 700; }\n\ndiv.renderer div.markdown ul {\n  list-style-type: disc;\n  list-style-position: inside;\n  padding: 5px 0 5px 20px; }\n\ndiv.renderer div.markdown strong {\n  font-weight: 700; }\n\ndiv.blog {\n  position: absolute;\n  left: 50%;\n  top: 50px;\n  transform: translate(-50%, 0);\n  width: calc(80% - 20px);\n  max-width: 780px;\n  overflow: scroll;\n  padding-bottom: 60px;\n  line-height: 1.5; }\n  div.blog header {\n    vertical-align: middle;\n    position: relative;\n    cursor: pointer; }\n    div.blog header span {\n      position: absolute;\n      top: 40%;\n      right: 10px;\n      transform: translate(0, -50%); }\n    div.blog header h1 {\n      font-size: 30px;\n      margin-bottom: 10px;\n      display: inline-block;\n      padding-right: 80px; }\n  div.blog i {\n    margin-right: 10px; }\n  div.blog li.post-index-item {\n    margin-top: 40px; }\n  div.blog div.post {\n    margin-top: 40px; }\n    div.blog div.post i {\n      transform: rotate(90deg);\n      margin-left: 2px; }\n  div.blog nav.blog-nav-bar {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    height: 40px; }\n\nfooter.copyright-bar {\n  position: fixed;\n  bottom: 0;\n  z-index: 1;\n  height: 40px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  background-color: white;\n  width: 100%;\n  max-width: 812px;\n  width: calc(80% + 12px);\n  left: 50%;\n  transform: translate(-50%, 0);\n  box-shadow: 0px -15px 12px -12px darkgrey;\n  min-width: 320px; }\n", ""]);
 
 // exports
 
