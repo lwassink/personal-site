@@ -5,7 +5,7 @@
   },
   "scripts": {
     "watch": "webpack --watch",
-    "prod-build": "webpack --config webpack.prod.config.js"
+    "prod-build": "export NODE_ENV=production; webpack --config webpack.prod.config.js"
   },
   "name": "personal",
   "version": "0.1.0",
