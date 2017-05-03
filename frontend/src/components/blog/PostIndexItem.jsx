@@ -13,7 +13,7 @@ class PostIndexItem extends React.Component {
   splitAtFold(string) {
     const fold = string.indexOf("===FOLD===");
     if (fold === -1) return string;
-    return string.substring(0, fold).trim();
+    return string.substring(0, fold + 1).trim();
   }
 
   handleHeaderClick() {
