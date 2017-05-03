@@ -10,6 +10,10 @@ class Post extends React.Component {
     this.handleHeaderClick = this.handleHeaderClick.bind(this);
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (this.props.post.id !== nextProps.post.id) window.scrollTo(0, 0);
+  }
+
   componentDidMount() {
     this.props.fetchPosts();
   }

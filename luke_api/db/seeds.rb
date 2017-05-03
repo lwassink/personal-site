@@ -1,19 +1,31 @@
 Project.destroy_all
 
 Project.create!(
-  title: "Reversi",
-  description: "Play against another player or an AI player.",
-  github_url: "https://github.com/",
-  site_url: "google.com",
-  technologies: "ruby, rails, react, redux",
+  title: "GoodCode",
+  description: "GoodCode is a site for reviewing technological tools, loosly based on Goodreads. It is a single page, fullstack rails app with a React frontend and secure user authentication. It supports rendering of comments in Markdown.",
+  github_url: "https://github.com/lwassink/good-code",
+  short_github_url: "github.com/lwassink/good-code",
+  site_url: "https://goodcode.herokuapp.com/#/",
+  short_site_url: "goodcode.herokuapp.com/",
+  technologies: "ruby, javascript, rails, react, redux",
 )
 
 Project.create!(
-  title: "Reversi2",
-  description: "Lorum ipsum dolor sit amet. Other stuff And yet more stuff.Lorum ipsum dolor sit amet. Other stuff And yet more stuff.Lorum ipsum dolor sit amet. Other stuff And yet more stuff.",
-  github_url: "https://github.com/",
-  site_url: "google.com",
-  technologies: "rails, ruby, akka, redux, scala",
+  title: "Personal Site",
+  description: "I used this site as an oportunity to learn a number of technologies I was interested in. It is served by an nginx reverse-proxy server. Static assets are served by a node express server, while content is served by a rails app. It is hosted on an Amazon EC2 instance.",
+  site_url: "https://lukewassink.com",
+  short_site_url: "lukewassink.com",
+  technologies: "ruby, javascript, rails, express server, nginx, react, redux",
+)
+
+Project.create!(
+  title: "Checkers",
+  description: "This site is a playable checkers App. I created it because I was interested in learning how to work with a drag-and-drop interface using React DnD.",
+  github_url: "https://github.com/lwassink/checkers",
+  short_github_url: "github.com/lwassink/checkers",
+  site_url: "https://kingme.herokuapp.com/",
+  short_site_url: "kingme.herokuapp.com/",
+  technologies: "ruby, javascript, rails, react, redux, react-dnd",
 )
 
 
@@ -21,9 +33,10 @@ Post.destroy_all
 
 big_o_body = <<-POST
 A few weeks ago I gave a talk on the intuition behind the precise mathematical definition of Big-O notation.
-In this post I'm going to record that talk, and possibly flush out a few points.
-My plan is to begin with Big-O and related definitions in assymptotic analysis, review mathematical induction, and conclude by stating and motivating (though not fully proving) the Master Theorem.
-I will try to balance intuition and precision: I'll always give you the precise mathematical statements and definitions, but I'll also try to say why definitions the are natural, and why you should believe the results, even if you wouldn't have come up with them.
+In this post I plan to record that talk, and possibly flesh out a few points.
+My plan is to begin with Big-O and related definitions in assymptotic analysis, review mathematical induction, and use it to prove the assymptotic behavior of mergesort.
+In a subsuquent post I hope to explain the Master Theorem.
+
 ===FOLD===
 
 ## Assymptotic analysis
@@ -193,4 +206,213 @@ Post.create!(
   title: "Assymptotic Analysis of Algorithms",
   url_name: "assymptotic-analysis",
   body: big_o_body
+)
+
+master_theorem_body = <<-POST
+In a [previous post](/posts/assymptotic-analysis) I discussed Big-O notation and the assymptotic behavior of algorithms.
+I introduced mathematical induction and proved that the runtime of mergesort is `math O(n\\log n)`.
+In this post I will explain a very general result known as the Master Theorem which gives the assymptotic behaviour of functions that satisfy certain types of recurrance relations.
+===FOLD===
+
+We first introduce Big-Theta notation.
+We say `math f = \\Theta(g)` if `math f = O(g)` and `math g = O(f)`.
+From the definition of Big-O, we see that this is equivalent to the following:
+`math f = \\Theta(g)` if there exist positive constants `math N, C_1, \\text{ and } C_2` such that
+```math
+C_1g(n) < f(n) < C_2g(n) \\text{ when } n > N.
+```
+This can be interpreted as saying that `math f` and `math g` grow at the same rate.
+
+Write `math T(n)` for the worst-case execution time of calling mergesort on an array of `math n` elements.
+Then one can show that `math T(n)` satisfies `math T(n) = 2T(n/2) + n`.
+Use this relation we were able to prove that `math T(n) = O(n\\log n)`.
+The Master Theorem provides a general solution for algorithms that satisfy similar relations.
+It is stated as follows.
+
+**Master Theorem** Let `math a\\geq 1` and `math b\\geq 1` be constants and let `math f(n)` be a function.
+Define `math T(n)` by
+```math
+T(n) = aT(n/b) + f(n),
+```
+where we assume `math T(1)` is a constant.
+Then
+1. If `math f(n) = \\Theta(n^{\\log_b a - \\epsilon})` for some `math \\epsilon > 0` then `math T(n) = \\Theta(n^{\\log_b a})`.
+2. If `math f(n) = \\Theta(n^{\\log_b a})` then `math T(n) = \\Theta(n^{\\log_b a}\\log n)`.
+3. If `math f(n) = \\Theta(n^{\\log_b a + \\epsilon})` for some `math \\epsilon > 0`, and if `math af(n/b) \\leq cf(n)` for some `math c<1`,  then `math T(n) = \\Theta(f(n))`.
+
+Let's try to understand why this should be true.
+The first step is to expand the recurrance relation used to define `math T` by repeatedly plugging it into itself.
+We get
+```math
+\\begin{aligned}
+  T(n) &= aT(n/b) + f(n) \\\\
+  &= a(aT(n/b^2) + f(n/b)) + f(n) \\\\
+  &= a^2T(n/b^2) + af(n/b) + f(n) \\\\
+  &\\vdots \\\\
+  &= a^kT(1) + a^{k-1}f(n/b^{k-1}) + \\cdots + af(n/b) + f(n),
+\\end{aligned}
+```
+where `math k` is number such that `math n/b^k = 1`.
+Solving, we get `math n = b^k` so `math k = \\log_b(n)`.
+It is useful to rearange `math a^k = a^{\\log_b(n)} = n^{\\log_b(a)}` (the reader can check the details).
+This gives
+```math
+  T(n) = T(1)n^{log_ba} + \\sum_{j=1}^{log_b(n-1)} a^jf(n/b^j) + f(n).
+```
+
+This sum is to complex to evaluate in general.
+Instead, we focus on three cases, which correspond to the three cases of the theorem.
+They are
+
+1. The first term dominates.
+This happens when `math f` is small compared to `math n^{log_ba}`.
+In this case we may simply ignore the parts involving `math f`, and we are left with `math T(n) = \\Theta(n^{log_ba})`.
+2. The function `math f(n)` is calibrated so that each term is about the same size.
+In this case we get the size of a term, `math n^{log_ba}` multiplied by the number of terms, `math log_b n`.
+Thus `math T(n) = \\Theta(n^{log_ba}log n)`.
+3. The last term, `math f(n)`, dominates.
+This happens when `math f(n)` is large enough that we can ignore `math n^{log_ba}`, and when `math f(n)` grows quickly enough that we may ignore all the earlier terms of the form `math a^jf(n/b^j)`.
+This growth is the significance of the condition `math af(n/b) \\leq cf(n)`.
+In this case we simply have `math T(n) = \\Theta(f(n))`.
+
+These three cases explain the cases in the theorem.
+One source of a detailed proof is the [CLRS book on algorithms](https://www.amazon.com/Introduction-Algorithms-3rd-MIT-Press/dp/0262033844).
+
+## Examples
+
+We conclude with two example uses of this theorem.
+First, mergesort.
+Recall that mergesort satisfies `math T(n) = 2T(n/2) + n`.
+Putting this in the language of the Master Theorem we have `math a = b = 2` and `math f(n) = n`.
+Thus `math n^{log_ba} = n^{log_22} = n^1 = n`, so `math f(n) = n^{log_ba}`, so we are in the second case of the theorem.
+Thus `math T(n) = \\Theta(n\\log n)`.
+
+Our final example is Strassen's algorithm for matrix multiplication.
+A reader familiar with basic linear algebra will see that that the standard approach to multiplying two `math n\\times n` matrices requires `math \\Theta(n^3)` calculations.
+This is because we must compute `math n^2` entries, and each entry requires computing the dot product of a row with a column, which involves `math n` multiplications and `math n-1` additions for `math \\Theta(n)` operations.
+Strassen's clever approach involves breaking each matrix into `math 4` `math n/2 \\times n/2` pieces, preforming `math 7` multiplications on the pieces, and recombining them to derive the solution.
+Again, refer to CLRS for details.
+In any case, the recombining means adding together several `math n/2 \\times n/2` matrices.
+Each such addition requires adding `math n^2/4` elements, so clearly the recombining takes `math \\Theta(n^2)` steps alltogether.
+The upshot is that Strassen's algorithm satisfies
+```math
+T(n) = 7T(n/2) + \\Theta(n^2).
+```
+We once again apply the Master Theorem, noting that in this case `math a = 7` and `math b = 2`.
+Since `math log_2 4 = 2` we have `math \\log_2 7 > 2`, so `math n^{\\log_ba}` dominates `math n^2`.
+Thus we are in case 1, so `math T(n) = \\Theta(n^{\\log_27}) \\approx \\Theta(n^{2.807})`.
+This is smaller than `math n^3`, so Strassen's algorithm is an improvement over the naive approach.
+POST
+
+Post.create!(
+  title: "The Master Theorem",
+  url_name: "master-theorem",
+  body: master_theorem_body
+)
+
+scala_trie_body = <<-POST
+
+I recently became interested in understanding a number of common string proccessing algorithms and string data structures.
+One of the most important string data structures is the Trie.
+A Trie provides an eficient implementation of a symbol table when the keys are strings.
+For an excelent, detailed discussion see [Algoritms](http://algs4.cs.princeton.edu/home/) by Sedgewick and Wayne.
+
+===FOLD===
+
+This basic idea is we store a tree whose nodes are key-value pairs.
+The keys are characters, and the values can be any data type we choose.
+The value corresponding to a given string should be stored in the node reached by starting at the root node and moving to it's child node corresponding to the first character of the string, then to it's child node corresponding to the second character, and so on.
+If at any point there is no child node corresponding to the given character then the string is not contained in the table, so a null value should be returned.
+This means that inserting a key-value pair may mean inserting several intermediate nodes with null values.
+
+The main virtue of a Trie is that it allows insertion an lookup in time corresponding to the length of the keys.
+Further, it supports easy, eficient implementations of more advanced functions, such as looking for all keys that begin with a given prefix string.
+In their code, Sedgewick and Wayne even allow for the searching with a wildcard character which can stand in for arbitrary strings.
+
+## Implementation
+
+Inspiration for my code comes from the beautiful implementation by Sedgewick and Wayne which can be found on [their website](http://algs4.cs.princeton.edu/52trie/TrieST.java.html).
+At the same time that I encountered their code I was also learning functional programming in Scala.
+I immediately became interested in creating a functional implementation that would maintain a similar symbol table interface.
+This proved surprisingly dificult, particularly when it comes to iterating through the keys.
+Eventually I was able to create an implementation I am happy with.
+It is contained in a single `Node` class.
+It is purely functional; instances of `Node` are never mutated.
+I also tried to write concise, ideomatic Scala, though I'm sure improvements could be made.
+Here is the code.
+
+```scala
+class Node[Val](kids: Map[Char, Node[Val]], val contents: Option[Val]) {
+  def children: Char => Node[Val] = kids withDefaultValue new Node[Val](Map(), None)
+
+  def put(key: String, value: Val, pos: Int): Node[Val] =
+    if (pos == key.length) new Node[Val](kids, Some(value))
+    else {
+      val char = key.charAt(pos)
+      new Node[Val](kids updated(char, children(char).put(key, value, pos + 1)), contents)
+    }
+
+  def put(key: String, value: Val): Node[Val] = put(key, value, 0)
+
+  def get(key: String, pos: Int): Node[Val] =
+    if (pos == key.length) this else children(key.charAt(pos)).get(key, pos + 1)
+
+  def get(key: String): Node[Val] = get(key, 0)
+
+  def traverse[T](f: (Node[Val], Stream[T], String) => T, prefix: String): T = {
+    val keys = kids.keys.toVector.sorted.toStream
+    val vals = keys.map(key => children(key).traverse[T](f, prefix ++ key.toString))
+    f(this, vals, prefix)
+  }
+
+  def toStream(node: Node[Val], v: Stream[Stream[String]], p: String): Stream[String] = {
+    val base = if (node.contents.isEmpty) Stream() else Stream(p)
+    v.foldLeft(base)(_ ++ _)
+  }
+
+  def keysWithPrefix(prefix: String): Stream[String] = get(prefix).traverse(toStream, prefix)
+}
+```
+
+A few points of particular interest:
+* At first I used separate classes for empty and non-empty nodes.
+The use of a default value with `children` elminated the need for this.
+* Values are stored as options.
+Thus if a key-value pair `(k, v)` is stored in a Trie `t` then `t.get(k)` will return `Some(v)`.
+If a key `k'` is not contained in `t` or has no associated value then `t.get(k')` will return `None`.
+In Scala, Options are a monoid with `map` and `flatMap` methods.
+This means that it is possible to write very concise code that gracefully handles the posibility that a value may or may not be found for a given key.
+* When searching for keys begining with a given prefix (just use `t.keysWithPrefix("")` to get all keys) the keys are returned as a stream of strings in alphabetical order.
+This allows the user to read only as many keys as they want in a very natural way.
+For example, to read the first three keys would could simply use `t.keysWithPrefix("").take(3)`.
+This code will only visit the first three nodes with values, then return.
+
+## Symbol Table API
+
+For ease of use I decided to wrap `Node` in a mutable `Trie` class.
+```scala
+class Trie[Val] {
+  private var store = new Node(Map(), None)
+  def put(key: String, value: Val): Unit = store = store.put(key, value, 0)
+  def get(key: String): Option[Val] = store.get(key).contents
+  def keysWithPrefix(pre: String): Stream[String] = store.keysWithPrefix(pre)
+  def keys: Stream[String] = store.keysWithPrefix("")
+
+  private class Node(kids: Map[Char, Node], val contents: Option[Val]) {
+  // code...
+  }
+}
+```
+This also allows for the elimination of the type parameter `Val` from `Node`.
+
+## Code
+
+All the code from this post as well as scalatest tests for it can be found on github [here](https://github.com/lwassink/scalaTrie).
+If you have suggestions for improvements, feel free to make a pull request or raise an issue.
+POST
+
+Post.create!(
+  title: "A Functional Trie in Scala",
+  url_name: "scala-trie",
+  body: scala_trie_body
 )
