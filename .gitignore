@@ -19,3 +19,6 @@ yarn-error.log*
 # rails
 **/tmp
 
+# webpack bundle
+**/bundle.js
+
