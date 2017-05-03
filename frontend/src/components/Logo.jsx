@@ -12,14 +12,14 @@ class Logo extends React.Component {
   }
 
   render() {
-    const height = 30;
+    const size = 30;
     const logoStyles = {
-      width: height,
-      height: height,
-      borderRadius: height/2,
+      width: size,
+      minWidth: size,
+      height: size,
+      borderRadius: size/2,
       backgroundColor: 'lightgrey',
       cursor: 'pointer',
-      textAlign: 'center',
       position: 'relative'
     };
     const lStyles = {

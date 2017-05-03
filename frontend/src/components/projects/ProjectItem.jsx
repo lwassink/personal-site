@@ -91,14 +91,14 @@ class ProjectItem extends React.Component {
           </p>
         </section>
         <p>
-          <span>
+          {project.site_url ?<span>
             <label>live site:</label>
-            <a href={project.site_url}>{project.site_url}</a>
-          </span>
-          <span>
+            <a target="_blank" href={project.site_url}>{project.short_site_url}</a>
+          </span> : null}
+          {project.github_url ? <span>
             <label>github:</label>
-            <a href={project.github_url}>{project.github_url}</a>
-          </span>
+            <a target="_blank" href={project.github_url}>{project.short_github_url}</a>
+          </span> : null}
         </p>
       </li>
     );

@@ -8,6 +8,9 @@ div.renderer {
   }
 
   div.markdown{
+    p {
+      margin-bottom: 10px;
+    }
 
     code {
       font-family: courier;
@@ -40,6 +43,10 @@ div.renderer {
       list-style-type: disc;
       list-style-position: inside;
       padding: 5px 0 5px 20px;
+    }
+
+    strong {
+      font-weight: 700;
     }
   }
 }

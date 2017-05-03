@@ -17,7 +17,7 @@ class PostIndexItem extends React.Component {
   }
 
   handleHeaderClick() {
-    this.props.history.push(`/posts/${this.props.post.id}`);
+    this.props.history.push(`/posts/${this.props.post.url_name}`);
   }
 
   render() {
@@ -34,7 +34,7 @@ class PostIndexItem extends React.Component {
         </header>
         <section>
           <Renderer text={this.splitAtFold(post.body)} />
-          <Link to={`/posts/${post.id}`}>full post</Link>
+          <Link to={`/posts/${post.url_name}`}>full post</Link>
         </section>
       </li>
     )

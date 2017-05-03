@@ -3,7 +3,7 @@ import PostIndex from './PostIndex';
 import { fetchPosts } from '../../actions/post_actions';
 
 const mapStateToProps = ({ posts }) => ({
-  posts: posts.ids.map(id => posts.allPosts[id]),
+  posts: posts.names.map(name => posts.allPosts[name]),
 });
 
 const mapDispatchToProps = (dispatch) => ({
