@@ -15,6 +15,8 @@ Project.create!(
   description: "I used this site as an opportunity to learn a number of technologies I was interested in. It is served by an nginx reverse-proxy server. Static assets are served by a node express server, while content is served by a rails app. It is hosted on an Amazon EC2 instance.",
   site_url: "https://lukewassink.com",
   short_site_url: "lukewassink.com",
+  github_url: "https://github.com/lwassink/personal-site",
+  short_github_url: "github.com/lwassink/personal-site",
   technologies: "ruby, javascript, rails, express server, nginx, react, redux",
 )
 
