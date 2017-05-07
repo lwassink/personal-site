@@ -12,7 +12,7 @@ class AboutMe extends React.Component {
           <section>
             I am a full-stack web developer.
             I work with Javascript, React, and Redux on the frontend.
-            On the backend I have used Ruby on Rails, express server, and nginx.
+            On the backend I use Ruby on Rails, Node.js, and Nginx.
             I also work with Scala.
           </section>
           <section>

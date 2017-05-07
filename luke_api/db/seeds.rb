@@ -2,32 +2,32 @@ Project.destroy_all
 
 Project.create!(
   title: "GoodCode",
-  description: "GoodCode is a site for reviewing technological tools, loosely based on Goodreads. It is a single page, fullstack rails app with a React frontend and secure user authentication. It supports rendering of comments in Markdown.",
+  description: "Goodcode is a site for reviewing technological tools, loosely based on Goodreads. It is a single-page, full-stack Rails app with a React frontend and secure user authentication. It also supports rendering of comments in Markdown.",
   github_url: "https://github.com/lwassink/good-code",
   short_github_url: "github.com/lwassink/good-code",
   site_url: "https://goodcode.herokuapp.com/#/",
   short_site_url: "goodcode.herokuapp.com/",
-  technologies: "ruby, javascript, rails, react, redux",
+  technologies: "Ruby, Javascript, Rails, React, Redux",
 )
 
 Project.create!(
   title: "Personal Site",
-  description: "I used this site as an opportunity to learn a number of technologies I was interested in. It is served by an nginx reverse-proxy server. Static assets are served by a node express server, while content is served by a rails app. It is hosted on an Amazon EC2 instance.",
+  description: "I used this site as an opportunity to learn a number of technologies I was interested in: It is served by an Nginx reverse-proxy server. Static assets are served by a node Express Server, while content is served by a Rails app. It is hosted on an Amazon EC2 instance.",
   site_url: "https://lukewassink.com",
   short_site_url: "lukewassink.com",
   github_url: "https://github.com/lwassink/personal-site",
   short_github_url: "github.com/lwassink/personal-site",
-  technologies: "ruby, javascript, rails, express server, nginx, react, redux",
+  technologies: "Ruby, Javascript, Rails, Express Server, Nginx, React, Redux",
 )
 
 Project.create!(
   title: "Checkers",
-  description: "This site is a playable checkers App. I created it because I was interested in learning how to work with a drag-and-drop interface using React DnD.",
+  description: "This site is a playable checkers app. I created it because I was interested in learning how to work with a drag-and-drop interface using React DnD.",
   github_url: "https://github.com/lwassink/checkers",
   short_github_url: "github.com/lwassink/checkers",
   site_url: "https://kingme.herokuapp.com/",
   short_site_url: "kingme.herokuapp.com/",
-  technologies: "ruby, javascript, rails, react, redux, react-dnd",
+  technologies: "Ruby, Javascript, Rails, React, Redux, React DnD",
 )
 
 
@@ -150,8 +150,8 @@ which simplifies to
 ```
 
 Now let's take a look at merge sort.
-Here's a simple implementation of merge sort in ruby, so we have something to refer to
-```ruby
+Here's a simple implementation of merge sort in Ruby, so we have something to refer to
+```Ruby
   def sort(array)
     n = array.length
     return array if n <= 1
@@ -314,30 +314,32 @@ Post.create!(
 
 scala_trie_body = <<-POST
 
-I recently became interested in understanding a number of common string processing algorithms and string data structures.
-One of the most important string data structures is the Trie.
-A Trie provides an efficient implementation of a symbol table when the keys are strings.
+I recently became interested in understanding a number of common string-x processing algorithms and string data structures.
+One of the most important string data structures is the trie.
+A trie provides an efficient implementation of a symbol table if the keys are strings.
 For an excellent, detailed discussion see [Algorithms](http://algs4.cs.princeton.edu/home/) by Sedgewick and Wayne.
 
 ===FOLD===
 
-This basic idea is we store a tree whose nodes are key-value pairs.
+The basic idea is that we store a tree whose nodes are key&#8211;value pairs.
 The keys are characters, and the values can be any data type we choose.
-The value corresponding to a given string should be stored in the node reached by starting at the root node and moving to it's child node corresponding to the first character of the string, then to it's child node corresponding to the second character, and so on.
-If at any point there is no child node corresponding to the given character then the string is not contained in the table, so a null value should be returned.
-This means that inserting a key-value pair may mean inserting several intermediate nodes with null values.
+To find the value corresponding to a given string, start at the root node.
+Move to the child node whose key equals the first character of the string.
+Then from there move to the child node whose key equals the second character of the string, and so on.
+If at any point there is no child node corresponding to a given character, then the string is not contained in the table, so a null value should be returned.
+Inserting a key-value pair may mean inserting several intermediate nodes with null values.
 
-The main virtue of a Trie is that it allows insertion an lookup in time corresponding to the length of the keys.
-Further, it supports easy, efficient implementations of more advanced functions, such as looking for all keys that begin with a given prefix string.
-In their code, Sedgewick and Wayne even allow for the searching with a wildcard character which can stand in for arbitrary strings.
+The main virtue of a trie is that it allows insertion and lookup in time corresponding to the length of the keys.
+Further, it supports easy, efficient implementations of more advanced functions, such as searching for all keys that begin with a given prefix string.
+In their code, Sedgewick and Wayne even allow for searches that use a wildcard character, which can stand in for arbitrary strings.
 
 ## Implementation
 
-Inspiration for my code comes from the beautiful implementation by Sedgewick and Wayne which can be found on [their website](http://algs4.cs.princeton.edu/52trie/TrieST.java.html).
+Inspiration for my code comes from the beautiful Java implementation by Sedgewick and Wayne, which can be found on [their website](http://algs4.cs.princeton.edu/52trie/TrieST.java.html).
 At the same time that I encountered their code I was also learning functional programming in Scala.
-I immediately became interested in creating a functional implementation that would maintain a similar symbol table interface.
-This proved surprisingly difficult, particularly when it comes to iterating through the keys.
-Eventually I was able to create an implementation I am happy with.
+I was interested in creating a functional implementation of a trie that would maintain a similar symbol table interface.
+This proved surprisingly difficult, particularly when it came to iterating through the keys.
+Eventually I was able to create an implementation I was happy with.
 It is contained in a single `Node` class.
 It is purely functional; instances of `Node` are never mutated.
 I also tried to write concise, idiomatic Scala, though I'm sure improvements could be made.
