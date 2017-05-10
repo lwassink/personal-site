@@ -1,13 +1,12 @@
 import React from 'react';
-import { proccessDate } from '../../util/util';
 import Renderer from './renderer/Renderer';
 import withRouter from 'react-router-dom/withRouter';
 import BlogNavBarContainer from './BlogNavBarContainer';
+import PostHeader from './PostHeader';
 
 class Post extends React.Component {
   constructor(props) {
     super(props);
-    this.handleHeaderClick = this.handleHeaderClick.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -26,21 +25,13 @@ class Post extends React.Component {
       + string.substring(foldIndex + foldLength).trim();
   }
 
-  handleHeaderClick() {
-    this.props.history.push("/posts");
-  };
-
   render() {
     const { post } = this.props;
     return (
       <div className="post">
-        <header onClick={this.handleHeaderClick}>
-          <h1>
-            <i className="fa fa-chevron-right " aria-hidden="true"></i>
-            {post.title}
-          </h1>
-          <span>{proccessDate(post.created_at)}</span>
-        </header>
+        <PostHeader
+          post={post}
+          to="/posts" />
         <section>
           <Renderer text={this.stripFold(post.body)} />
         </section>
@@ -50,4 +41,4 @@ class Post extends React.Component {
   }
 };
 
-export default withRouter(Post);
+export default Post;

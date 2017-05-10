@@ -11,12 +11,14 @@ div.blog {
   padding-bottom: 60px;
   line-height: 1.5;
 
-  header {
+  a.header {
     vertical-align: middle;
     position: relative;
     cursor: pointer;
+    color: black;
+    display: block;
 
-    span {
+    span.date {
       position: absolute;
       top: 40%;
       right: 10px;
@@ -24,10 +26,11 @@ div.blog {
     }
 
     h1 {
-      font-size: 30px;
+      font-size: 25px;
       margin-bottom: 10px;
       display: inline-block;
       padding-right: 80px;
+      span { text-decoration: underline; }
     }
   }
 

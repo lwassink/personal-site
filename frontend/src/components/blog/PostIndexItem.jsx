@@ -1,13 +1,12 @@
 import React from 'react';
 import Link from 'react-router-dom/Link';
 import withRouter from 'react-router-dom/withRouter';
-import { proccessDate } from '../../util/util';
 import Renderer from './renderer/Renderer';
+import PostHeader from './PostHeader';
 
 class PostIndexItem extends React.Component {
   constructor(props) {
     super(props);
-    this.handleHeaderClick = this.handleHeaderClick.bind(this);
   }
 
   splitAtFold(string) {
@@ -16,22 +15,14 @@ class PostIndexItem extends React.Component {
     return string.substring(0, fold + 1).trim();
   }
 
-  handleHeaderClick() {
-    this.props.history.push(`/posts/${this.props.post.url_name}`);
-  }
-
   render() {
     const { post } = this.props;
 
     return (
       <li className="post-index-item">
-        <header onClick={this.handleHeaderClick}>
-          <h1>
-            <i className="fa fa-chevron-right " aria-hidden="true"></i>
-            {post.title}
-          </h1>
-          <span>{proccessDate(post.created_at)}</span>
-        </header>
+        <PostHeader
+          post={post}
+          to={`/posts/${this.props.post.url_name}`} />
         <section>
           <Renderer text={this.splitAtFold(post.body)} />
           <Link to={`/posts/${post.url_name}`}>full post</Link>
@@ -41,4 +32,4 @@ class PostIndexItem extends React.Component {
   }
 }
 
-export default withRouter(PostIndexItem);
+export default PostIndexItem;

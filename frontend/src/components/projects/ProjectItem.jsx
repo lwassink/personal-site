@@ -6,9 +6,7 @@ class ProjectItem extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      open: this.props.open
-    };
+    this.state = { open: this.props.open };
     this.toggleOpen = this.toggleOpen.bind(this);
   }
 
