@@ -1,5 +1,6 @@
 import React from 'react';
 import { Collapse } from 'react-collapse';
+import AnimateHeight from 'react-animate-height';
 
 class ProjectItem extends React.Component {
   constructor(props) {
@@ -18,21 +19,25 @@ class ProjectItem extends React.Component {
   render() {
     const { project } = this.props;
     const rotateClass = this.state.open ? "rotate" : "";
+    const height = this.state.open ? "auto" : 0;
 
     return (
       <li className="index-item">
         <h1 onClick={this.toggleOpen} >
           <i className={"fa fa-chevron-right " + rotateClass}
           aria-hidden="true"></i>
-          {project.title}
+          <span>{project.title}</span>
         </h1>
         <main>
-          <Collapse isOpened={this.state.open} >
+          <AnimateHeight
+            duration={ 500 }
+            height={ height }
+            easing="ease-in-out" >
             <p> {project.description} </p>
             <p>
               <label>technologies used:</label> {project.technologies}
             </p>
-          </Collapse>
+          </AnimateHeight>
           <p>
             {project.site_url ?<span>
               <label>live site:</label>

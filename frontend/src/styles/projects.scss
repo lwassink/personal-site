@@ -18,6 +18,7 @@ div.projects {
       margin-bottom: 10px;
       cursor: pointer;
       margin-left: 2px;
+      span { text-decoration: underline; }
     }
 
     main {
@@ -27,7 +28,7 @@ div.projects {
     i {
       margin-right: 5px;
       transform: rotate(0deg);
-      transition: transform 0.35s ease-in-out;
+      transition: transform 0.4s ease-in-out;
       font-size: 20px;
     }
 
