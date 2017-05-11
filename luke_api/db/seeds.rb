@@ -13,7 +13,7 @@ Project.create!(
 Project.create!(
   title: "Personal Site",
   description: "I used this site as an opportunity to learn a number of technologies I was interested in: It is served by an Nginx reverse-proxy server. Static assets are served by a node Express Server, while content is served by a Rails app. It is hosted on an Amazon EC2 instance.",
-  site_url: "https://lukewassink.com",
+  site_url: "http://lukewassink.com",
   short_site_url: "lukewassink.com",
   github_url: "https://github.com/lwassink/personal-site",
   short_github_url: "github.com/lwassink/personal-site",
