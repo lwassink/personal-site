@@ -8,6 +8,11 @@ class Projects extends React.Component {
     this.props.fetchProjects();
   }
 
+  componentWillUnmount() {
+    const {openId, firstId, toggleOpen} = this.props;
+    if (openId && openId != firstId) toggleOpen(firstId);
+  }
+
   render() {
     const { projects }  = this.props;
     return (
@@ -17,7 +22,7 @@ class Projects extends React.Component {
           <ul>
             {projects.map((project) => <ProjectItem
               key={project.id}
-              toggleOpen={this.props.open}
+              toggleOpen={this.props.toggleOpen}
               open={this.props.openId === project.id}
               project={project} />)}
           </ul>

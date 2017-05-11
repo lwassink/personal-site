@@ -7,12 +7,13 @@ import {
 
 const mapStateToProps = ({ projects }) => ({
   projects: projects.ids.map(id => projects.allProjects[id]),
+  firstId: projects.ids[0],
   openId: projects.open
 });
 
 const mapDispatchToProps = (dispatch) => ({
   fetchProjects: () => dispatch(fetchProjects()),
-  open: (id) => dispatch(toggleOpenProject(id))
+  toggleOpen: (id) => dispatch(toggleOpenProject(id))
 });
 
 export default connect(
