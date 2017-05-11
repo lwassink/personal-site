@@ -10,7 +10,7 @@ class Projects extends React.Component {
 
   componentWillUnmount() {
     const {openId, firstId, toggleOpen} = this.props;
-    if (openId && openId != firstId) toggleOpen(firstId);
+    if (openId != firstId) toggleOpen(firstId);
   }
 
   render() {
