@@ -15,9 +15,10 @@ class Projects extends React.Component {
         <NavBar />
         <div className="center projects">
           <ul>
-            {projects.map((project, idx) => <ProjectItem
+            {projects.map((project) => <ProjectItem
               key={project.id}
-              open={idx === 0}
+              toggleOpen={this.props.open}
+              open={this.props.openId === project.id}
               project={project} />)}
           </ul>
         </div>

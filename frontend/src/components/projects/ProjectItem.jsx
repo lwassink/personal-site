@@ -6,18 +6,17 @@ class ProjectItem extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { open: this.props.open };
     this.toggleOpen = this.toggleOpen.bind(this);
   }
 
   toggleOpen() {
-    this.setState({ open: !this.state.open })
+    this.props.toggleOpen(this.props.project.id);
   }
 
   render() {
     const { project } = this.props;
-    const rotateClass = this.state.open ? "rotate" : "";
-    const height = this.state.open ? "auto" : 0;
+    const rotateClass = this.props.open ? "rotate" : "";
+    const height = this.props.open ? "auto" : 0;
 
     return (
       <li className="index-item">

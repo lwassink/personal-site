@@ -1,13 +1,18 @@
 import { connect } from 'react-redux';
 import Projects from './Projects';
-import { fetchProjects } from '../../actions/project_actions';
+import {
+  fetchProjects,
+  toggleOpenProject
+} from '../../actions/project_actions';
 
 const mapStateToProps = ({ projects }) => ({
-  projects: projects.ids.map(id => projects.allProjects[id])
+  projects: projects.ids.map(id => projects.allProjects[id]),
+  openId: projects.open
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchProjects: () => dispatch(fetchProjects())
+  fetchProjects: () => dispatch(fetchProjects()),
+  open: (id) => dispatch(toggleOpenProject(id))
 });
 
 export default connect(
