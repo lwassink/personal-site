@@ -151,7 +151,7 @@ which simplifies to
 
 Now let's take a look at merge sort.
 Here's a simple implementation of merge sort in Ruby, so we have something to refer to
-```Ruby
+```ruby
   def sort(array)
     n = array.length
     return array if n <= 1
