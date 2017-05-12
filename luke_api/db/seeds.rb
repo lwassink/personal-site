@@ -22,7 +22,7 @@ Project.create!(
 
 Project.create!(
   title: "Checkers",
-  description: "This site is a playable checkers app. I created it because I was interested in learning how to work with a drag-and-drop interface using React DnD.",
+  description: "This site is a playable checkers app. You play as red against the computer as black. I created it because I was interested in learning how to work with a drag-and-drop interface using React DnD.",
   github_url: "https://github.com/lwassink/checkers",
   short_github_url: "github.com/lwassink/checkers",
   site_url: "https://kingme.herokuapp.com/",
