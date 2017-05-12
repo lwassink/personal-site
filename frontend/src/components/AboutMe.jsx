@@ -19,6 +19,10 @@ class AboutMe extends React.Component {
             <label>resume:</label>
             <a href="/assets/luke-wassink-resume.pdf">pdf</a>
           </section>
+          <section>
+            <label>graduate thesis:</label>
+            <a href="/assets/luke-wassink-thesis.pdf">pdf</a>
+          </section>
           <section className="group">
             <label>school:</label>
             <ul>
