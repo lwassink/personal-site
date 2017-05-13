@@ -21,7 +21,7 @@ class AboutMe extends React.Component {
               target="blank">pdf</a>
           </section>
           <section>
-            <label>graduate thesis:</label>
+            <label>doctoral thesis:</label>
             <a href="/assets/luke-wassink-thesis.pdf"
               target="blank">pdf</a>
           </section>
