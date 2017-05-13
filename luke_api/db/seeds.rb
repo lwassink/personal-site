@@ -33,7 +33,7 @@ Project.create!(
 Project.create!(
   title: "Vim-lists",
   description: "When working in Vim, I missed auto-inserted list headers for bulleted and numbered lists.
-  I created this Vim plugin to provide the same functionality for text and markdown files.
+  I created this Vim plugin to provide that functionality for text and markdown files.
   For Vim users: it is configured to be installed with Vundle or Pathogen.",
   github_url: "https://github.com/lwassink/vim-lists",
   short_github_url: "github.com/lwassink/vim-lists",
