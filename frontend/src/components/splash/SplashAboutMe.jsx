@@ -1,5 +1,7 @@
 import React from 'react';
 
 export default () => (
-  <div>About Me</div>
+  <div className="splash-section">
+    About Me
+  </div>
 );

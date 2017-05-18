@@ -1,17 +1,10 @@
 footer.copyright-bar {
-  position: fixed;
-  bottom: 0;
-  z-index: 1;
   height: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: white;
+  background-color: $blue;
   width: 100%;
-  max-width: 812px;
-  width: calc(80% + 12px);
-  left: 50%;
-  transform: translate(-50%, 0);
-  box-shadow: 0px -15px 12px -12px darkgrey;
   min-width: 320px;
+  color: white;
 }

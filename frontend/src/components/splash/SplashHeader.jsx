@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'react-router-dom/Link';
 
 export default () => (
-  <div className="splash">
+  <div className="splash-section">
     <div className="title">
       <h1>Luke&nbsp;Wassink</h1>
       <h2>Web developer</h2>

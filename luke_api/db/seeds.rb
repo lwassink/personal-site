@@ -40,6 +40,14 @@ Project.create!(
   technologies: "Vim, Vimscript"
 )
 
+Project.create!(
+  title: "Vim-lists",
+  description: "Fill me in",
+  github_url: "https://github.com/lwassink/scalaTrie",
+  short_github_url: "github.com/lwassink/scalaTrie",
+  technologies: "Scala"
+)
+
 
 
 Post.destroy_all

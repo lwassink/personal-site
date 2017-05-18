@@ -1,5 +1,7 @@
 import React from 'react';
 
 export default () => (
-  <div>Contact</div>
+  <div className="splash-section">
+    Contact
+  </div>
 );

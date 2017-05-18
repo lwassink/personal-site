@@ -1,5 +1,7 @@
 import React from 'react';
 
 export default () => (
-  <div>Posts</div>
+  <div className="splash-section">
+    Posts
+  </div>
 );

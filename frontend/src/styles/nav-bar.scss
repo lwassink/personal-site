@@ -2,14 +2,13 @@ div.nav-bar {
   $height: 50px;
 
   position: fixed;
+  top: 0;
 
   z-index: 1;
-  background: $dark-blue;
+  background: $blue;
 
   width: 100%;
-  left: 50%;
   height: $height;
-  transform: translate(-50%, 0);
   min-width: 320px;
 
   section.logo {
@@ -45,7 +44,7 @@ div.nav-bar {
   }
 
   a:hover {
-    background: $very-dark-blue;
+    background: $dark-blue;
     border-bottom: 5px solid $orange;
   }
 
