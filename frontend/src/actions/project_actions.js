@@ -13,7 +13,8 @@ export const toggleOpenProject = (id) => ({
   id
 });
 
-export const fetchProjects = () => (dispatch) => {
+export const fetchProjects = () => (dispatch, getState) => {
+  if (getState().projects.fetched) return;
   return requestProjects().then(
     res => res.json().then(projects => dispatch(receiveProjects(projects)))
   )

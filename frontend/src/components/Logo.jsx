@@ -29,10 +29,13 @@ class Logo extends React.Component {
       position: 'absolute',
       top: '50%',
       left: '50%',
+      height: 'auto',
       transform: 'translate(-50%, -50%)',
       display: 'block',
       margin: 0,
-      padding: 0
+      padding: 0,
+      border: 0,
+      background: 'transparent'
     };
 
     return (

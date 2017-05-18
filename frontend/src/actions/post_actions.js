@@ -7,7 +7,8 @@ const receivePosts = (posts) => ({
   posts
 });
 
-export const fetchPosts = () => (dispatch) => {
+export const fetchPosts = () => (dispatch, getState) => {
+  if (getState().posts.fetched) return;
   return requestPosts().then(
     res => res.json().then(posts => dispatch(receivePosts(posts)))
   )

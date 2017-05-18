@@ -7,7 +7,7 @@ Project.create!(
   short_github_url: "github.com/lwassink/good-code",
   site_url: "https://goodcode.herokuapp.com/#/",
   short_site_url: "goodcode.herokuapp.com/",
-  technologies: "Ruby, Javascript, Rails, React, Redux",
+  technologies: "Ruby, Javascript, Rails, React, Redux"
 )
 
 Project.create!(
