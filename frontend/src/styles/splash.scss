@@ -75,8 +75,8 @@ div.splash {
       display: inline-block;
     }
 
-    li.last {
-      margin-right: 0;
+    li:last-of-type {
+      margin-right: 0px;
     }
   }
 }

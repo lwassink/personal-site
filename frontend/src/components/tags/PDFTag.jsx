@@ -1,14 +1,12 @@
 import React from 'react';
 
 export default ({ label, url }) => {
+
   const HEIGHT = 30;
   const linkStyles = {
     display: 'inline-block',
     height: HEIGHT,
     verticalAlign: 'middle',
-    background: "#4c84eb",
-    padding: 5,
-    borderRadius: 5,
   };
   const imageStyles = {
     height: HEIGHT,
@@ -18,7 +16,7 @@ export default ({ label, url }) => {
     width: HEIGHT
   };
   const labelStyles = {
-    color: 'black',
+    color: '#2367e7',
     display: 'inline-block',
     left: 0
   };

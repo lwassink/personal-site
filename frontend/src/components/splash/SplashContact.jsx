@@ -10,19 +10,22 @@ export default () => (
         <IconTag
           imagePath='/assets/images/github-icon.svg'
           alt='Github icon'
+          text='My Gitub'
           url='https://github.com/lwassink' />
       </li>
       <li>
         <IconTag
-          imagePath='/assets/images/linkedin-icon.png'
-          alt='Linkedin icon'
-          url='https://www.linkedin.com/in/lwassink/' />
-      </li>
-      <li className="last">
-        <IconTag
           imagePath='/assets/images/email-icon.png'
+          text='Email me'
           alt='Email icon'
           url='mailto:lwassink@gmail.com' />
+      </li>
+      <li>
+        <IconTag
+          imagePath='/assets/images/linkedin-icon.png'
+          text='My Linkedin'
+          alt='Linkedin icon'
+          url='https://www.linkedin.com/in/lwassink/' />
       </li>
     </ul>
   </div>

@@ -1,14 +1,11 @@
 import React from 'react';
 
-export default ({ imagePath, url, alt }) => {
+export default ({ imagePath, url, alt, text }) => {
   const HEIGHT = 50;
   const linkStyles = {
     width: HEIGHT,
     height: HEIGHT,
     display: 'inline-block',
-    background: "#4c84eb",
-    padding: 5,
-    borderRadius: 5,
   };
   const imageStyles = {
     height: HEIGHT,
@@ -19,7 +16,8 @@ export default ({ imagePath, url, alt }) => {
   };
 
   return (
-    <a style={linkStyles} href={url} target="blank">
+    <a style={linkStyles} href={url} target="blank" className="tooltip">
+      <span className="tooltiptext">{text}</span>
       <img style={imageStyles} alt={alt} src={imagePath} />
     </a>
   );
