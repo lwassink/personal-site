@@ -41,8 +41,12 @@ Project.create!(
 )
 
 Project.create!(
-  title: "Vim-lists",
-  description: "Fill me in",
+  title: "Functional Trie",
+  description: "I recently spent some time learning various string processing algorithms and data structures.
+  At the same time I was working through a course on functional programing in Scala.
+  I decided to create a functional implementation of a Trie data structure using Scala.
+  This is the result.
+  It includes unit tests written in FunSpec",
   github_url: "https://github.com/lwassink/scalaTrie",
   short_github_url: "github.com/lwassink/scalaTrie",
   technologies: "Scala"

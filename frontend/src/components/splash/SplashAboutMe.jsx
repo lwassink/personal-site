@@ -2,6 +2,6 @@ import React from 'react';
 
 export default () => (
   <div className="splash-section">
-    About Me
+    <h2>About Me</h2>
   </div>
 );

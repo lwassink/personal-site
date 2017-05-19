@@ -38,7 +38,8 @@ class Logo extends React.Component {
       margin: 0,
       padding: 0,
       border: 0,
-      background: 'transparent'
+      background: 'transparent',
+      textDecoration: 'none'
     };
 
     return (
@@ -47,7 +48,7 @@ class Logo extends React.Component {
       onMouseEnter={this.toggleHover}
       onMouseLeave={this.toggleHover}
       className='logo'>
-      <a style={lStyles}>L</a>
+      <a href={this.props.src} onClick={e => (e.preventDefault())} style={lStyles}>L</a>
     </div>)
   }
 };

@@ -8,7 +8,7 @@ const NavBar = ({ history }) => {
   return (
     <div className="nav-bar">
       <section className='center'>
-        <Logo onClick={linkHome} />
+        <Logo src="/" onClick={linkHome} />
         <NavLink to="/projects">Projects</NavLink>
         <NavLink to="/posts">Blog</NavLink>
         <NavLink to="/about-me">About Me</NavLink>
