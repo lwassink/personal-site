@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { proccessDate } from '../../util/util';
 
 export default ({ posts }) => {
-  console.log(posts)
   return (
     <div className="splash-section splash-posts">
       <h2>Stuff I <span className="orange">Wrote</span></h2>

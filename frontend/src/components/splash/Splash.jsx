@@ -9,7 +9,6 @@ import NavBar from '../NavBar';
 
 class Splash extends React.Component {
   componentDidMount() {
-    console.log("Mounted");
     this.props.fetchPosts();
     this.props.fetchProjects();
     window.scrollTo(0, 0);
