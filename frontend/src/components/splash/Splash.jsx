@@ -2,7 +2,6 @@ import React from 'react';
 import SplashHeader from './SplashHeader';
 import SplashProjects from './SplashProjects';
 import SplashPosts from './SplashPosts';
-import SplashAboutMe from './SplashAboutMe';
 import SplashContact from './SplashContact';
 import CopyrightBar from '../CopyrightBar';
 import NavBar from '../NavBar';
@@ -21,7 +20,6 @@ class Splash extends React.Component {
         <SplashHeader />
         <SplashProjects projects={this.props.projects} />
         <SplashPosts posts={this.props.posts} />
-        <SplashAboutMe />
         <SplashContact />
         <CopyrightBar />
       </div>

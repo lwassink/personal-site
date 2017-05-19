@@ -11,7 +11,7 @@ div.splash {
   h2 {
     font-size: 30px;
     display: block;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
   }
 
   h3 {
@@ -27,7 +27,7 @@ div.splash {
   }
 
   div.splash-section {
-    margin: 100px 0 100px 0;
+    margin: 70px 0 70px 0;
     text-align: center;
   }
 
@@ -66,6 +66,17 @@ div.splash {
     li {
       margin-bottom: 10px;
       display: block;
+    }
+  }
+
+  .splash-contact {
+    li {
+      margin-right: 30px;
+      display: inline-block;
+    }
+
+    li.last {
+      margin-right: 0;
     }
   }
 }

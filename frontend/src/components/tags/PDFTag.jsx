@@ -7,9 +7,8 @@ export default ({ label, url }) => {
     height: HEIGHT,
     verticalAlign: 'middle',
     background: "#4c84eb",
-    padding: 3,
+    padding: 5,
     borderRadius: 5,
-    border: '2px solid #2c56a5'
   };
   const imageStyles = {
     height: HEIGHT,
@@ -27,7 +26,9 @@ export default ({ label, url }) => {
   return (
     <a style={linkStyles} href={url} target="blank">
       <span style={labelStyles}>{label}</span>
-      <img style={imageStyles} src="/assets/images/pdf-icon.svg" />
+      <img style={imageStyles}
+        alt="PDF icon"
+        src="/assets/images/pdf-icon.svg" />
     </a>
   );
 };
