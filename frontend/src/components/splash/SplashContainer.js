@@ -3,8 +3,9 @@ import { fetchPosts } from "../../actions/post_actions";
 import { fetchProjects } from "../../actions/project_actions";
 import Splash from "./Splash";
 
-const mapStateToProps = (state) => ({
-  posts: state.posts.names.slice(0,3).map(name => state.posts.allPosts[name])
+const mapStateToProps = ({ posts, projects}) => ({
+  posts: posts.names.slice(0,3).map(name => posts.allPosts[name]),
+  projects: projects.ids.slice(0,3).map(id => projects.allProjects[id])
 });
 
 const mapDispatchToProps = (dispatch) => ({

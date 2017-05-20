@@ -8,7 +8,7 @@ Project.create!(
   site_url: "https://goodcode.herokuapp.com/#/",
   short_site_url: "goodcode.herokuapp.com/",
   technologies: "Ruby, Javascript, Rails, React, Redux",
-  img: 'goodcode'
+  img: 'goodcode.png'
 )
 
 Project.create!(
@@ -19,7 +19,7 @@ Project.create!(
   site_url: "https://kingme.herokuapp.com/",
   short_site_url: "kingme.herokuapp.com/",
   technologies: "Ruby, Javascript, Rails, React, Redux, React DnD",
-  img: 'checkers'
+  img: 'checkers.png'
 )
 
 Project.create!(
@@ -30,7 +30,7 @@ Project.create!(
   github_url: "https://github.com/lwassink/vim-lists",
   short_github_url: "github.com/lwassink/vim-lists",
   technologies: "Vim, Vimscript",
-  img: 'vim-lists'
+  img: 'vim-lists.gif'
 )
 
 Project.create!(

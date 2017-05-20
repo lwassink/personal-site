@@ -55,7 +55,14 @@ div.splash {
   }
 
   .splash-projects {
+    li {
+      display: inline-block;
+      margin-right: 30px;
+    }
 
+    li:last-of-type {
+      margin-right: 0;
+    }
   }
 
   .splash-posts {
