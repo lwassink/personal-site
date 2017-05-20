@@ -7,17 +7,8 @@ Project.create!(
   short_github_url: "github.com/lwassink/good-code",
   site_url: "https://goodcode.herokuapp.com/#/",
   short_site_url: "goodcode.herokuapp.com/",
-  technologies: "Ruby, Javascript, Rails, React, Redux"
-)
-
-Project.create!(
-  title: "Personal Site",
-  description: "I used this site as an opportunity to learn a number of technologies I was interested in: It is served by an Nginx reverse-proxy server. Static assets are served by a node Express Server, while content is served by a Rails app. It is hosted on an Amazon EC2 instance.",
-  site_url: "http://lukewassink.com",
-  short_site_url: "lukewassink.com",
-  github_url: "https://github.com/lwassink/personal-site",
-  short_github_url: "github.com/lwassink/personal-site",
-  technologies: "Ruby, Javascript, Rails, Express Server, Nginx, React, Redux",
+  technologies: "Ruby, Javascript, Rails, React, Redux",
+  img: 'goodcode'
 )
 
 Project.create!(
@@ -28,6 +19,7 @@ Project.create!(
   site_url: "https://kingme.herokuapp.com/",
   short_site_url: "kingme.herokuapp.com/",
   technologies: "Ruby, Javascript, Rails, React, Redux, React DnD",
+  img: 'checkers'
 )
 
 Project.create!(
@@ -37,7 +29,18 @@ Project.create!(
   For Vim users: it is configured to be installed with Vundle or Pathogen.",
   github_url: "https://github.com/lwassink/vim-lists",
   short_github_url: "github.com/lwassink/vim-lists",
-  technologies: "Vim, Vimscript"
+  technologies: "Vim, Vimscript",
+  img: 'vim-lists'
+)
+
+Project.create!(
+  title: "Personal Site",
+  description: "I used this site as an opportunity to learn a number of technologies I was interested in: It is served by an Nginx reverse-proxy server. Static assets are served by a node Express Server, while content is served by a Rails app. It is hosted on an Amazon EC2 instance.",
+  site_url: "http://lukewassink.com",
+  short_site_url: "lukewassink.com",
+  github_url: "https://github.com/lwassink/personal-site",
+  short_github_url: "github.com/lwassink/personal-site",
+  technologies: "Ruby, Javascript, Rails, Express Server, Nginx, React, Redux",
 )
 
 Project.create!(
