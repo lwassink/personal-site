@@ -231,13 +231,13 @@ In my next post I will discuss the master theorem, which provides a very general
 POST
 
 Post.create!(
-  title: "Assymptotic Analysis of Algorithms",
-  url_name: "assymptotic-analysis",
+  title: "Asymptotic Analysis of Algorithms",
+  url_name: "asymptotic-analysis",
   body: big_o_body
 )
 
 master_theorem_body = <<-POST
-In a [previous post](/posts/asymptotic-analysis) I discussed Big-O notation and the assymptotic behavior of algorithms.
+In a [previous post](/posts/asymptotic-analysis) I discussed Big-O notation and the asymptotic behavior of algorithms.
 I introduced mathematical induction and proved that the runtime of merge sort is `math O(n\\log n)`.
 In this post I will explain a very general result known as the Master Theorem which gives the asymptotic behavior of functions that satisfy certain types of recurrence relations.
 ===FOLD===
