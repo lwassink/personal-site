@@ -9,8 +9,8 @@ class Projects extends React.Component {
   }
 
   componentWillUnmount() {
-    const {openId, firstId, toggleOpen} = this.props;
-    if (openId != firstId) toggleOpen(firstId);
+    const {openId, firstId, openProject} = this.props;
+    if (!openId) openProject(firstId);
   }
 
   render() {
@@ -27,7 +27,7 @@ class Projects extends React.Component {
               project={project} />)}
           </ul>
         </div>
-        <CopyrightBar />
+        <CopyrightBar fixed={true} />
       </div>
     );
   }

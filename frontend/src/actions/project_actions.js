@@ -2,6 +2,7 @@ import { requestProjects } from '../util/api_util';
 
 export const RECEIVE_PROJECTS = 'RECEIVE_PROJECTS';
 export const TOGGLE_OPEN_PROJECT = 'TOGGLE_OPEN_PROJECT';
+export const OPEN_PROJECT = 'OPEN_PROJECT';
 
 const receiveProjects = (projects) => ({
   type: RECEIVE_PROJECTS,
@@ -13,7 +14,13 @@ export const toggleOpenProject = (id) => ({
   id
 });
 
-export const fetchProjects = () => (dispatch) => {
+export const openProject = (id) => ({
+  type: OPEN_PROJECT,
+  id
+});
+
+export const fetchProjects = () => (dispatch, getState) => {
+  if (getState().projects.fetched) return;
   return requestProjects().then(
     res => res.json().then(projects => dispatch(receiveProjects(projects)))
   )

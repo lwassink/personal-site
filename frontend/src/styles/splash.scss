@@ -1,29 +1,97 @@
 div.splash {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  min-width: 310px;
-  max-width: 480px;
+  margin: 0 auto;
+  min-width: 100%;
   width: auto;
 
-  .title {
-    h1 {
-      font-size: 40px;
-      display: inline-block;
-      margin-right: 10px;
+  h1 {
+    font-size: 35px;
+    display: block;
+  }
+
+  h2 {
+    font-size: 30px;
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  h3 {
+    font-size: 20px;
+    font-weight: 400;
+    margin: auto;
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  span.orange {
+    color: $orange;
+  }
+
+  div.splash-section {
+    margin: 70px 0 70px 0;
+    text-align: center;
+  }
+
+  a.last {
+    display: block;
+  }
+
+  .splash-header {
+    img {
+      width: 150px;
+      height: auto;
+      border-radius: 20px;
+      overflow: hidden;
+      margin: auto;
+      margin-bottom: 20px;
     }
 
-    h2 {
-      font-size: 20px;
-      display: inline-block;
+    a {
+      margin-right: 30px;
+    }
+
+    a:last-of-type {
+      margin-right: 0px;
     }
   }
 
-  a {
-    margin-left: 15px;
-    padding-top: 5px;
-    display: block;
-    width: 80px;
+  .splash-projects {
+    li {
+      display: inline-block;
+      margin-right: 30px;
+    }
+
+    li:last-of-type {
+      margin-right: 0;
+    }
+  }
+
+  .splash-posts {
+    ul.post-links {
+      text-align: right;
+      display: inline-block;
+      margin-right: 5px;
+    }
+
+    ul.post-dates {
+      text-align: left;
+      display: inline-block;
+      padding-right: 100px;
+    }
+
+    li {
+      margin-bottom: 10px;
+      display: block;
+    }
+  }
+
+  .splash-contact {
+    li {
+      margin-right: 30px;
+      display: inline-block;
+    }
+
+    li:last-of-type {
+      margin-right: 0px;
+    }
   }
 }

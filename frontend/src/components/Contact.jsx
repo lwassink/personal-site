@@ -26,7 +26,7 @@ class Contact extends React.Component {
             </a>
           </p>
         </div>
-        <CopyrightBar />
+        <CopyrightBar fixed={true} />
       </div>
     )
   }

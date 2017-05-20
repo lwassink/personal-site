@@ -8,6 +8,29 @@ Project.create!(
   site_url: "https://goodcode.herokuapp.com/#/",
   short_site_url: "goodcode.herokuapp.com/",
   technologies: "Ruby, Javascript, Rails, React, Redux",
+  img: 'goodcode.png'
+)
+
+Project.create!(
+  title: "Checkers",
+  description: "This site is a playable checkers app. You play as red against the computer as black. I created it because I was interested in learning how to work with a drag-and-drop interface using React DnD.",
+  github_url: "https://github.com/lwassink/checkers",
+  short_github_url: "github.com/lwassink/checkers",
+  site_url: "https://kingme.herokuapp.com/",
+  short_site_url: "kingme.herokuapp.com/",
+  technologies: "Ruby, Javascript, Rails, React, Redux, React DnD",
+  img: 'checkers.png'
+)
+
+Project.create!(
+  title: "Vim-lists",
+  description: "When working in Vim, I missed auto-inserted list headers for bulleted and numbered lists.
+  I created this Vim plugin to provide that functionality for text and markdown files.
+  For Vim users: it is configured to be installed with Vundle or Pathogen.",
+  github_url: "https://github.com/lwassink/vim-lists",
+  short_github_url: "github.com/lwassink/vim-lists",
+  technologies: "Vim, Vimscript",
+  img: 'vim-lists.gif'
 )
 
 Project.create!(
@@ -21,23 +44,15 @@ Project.create!(
 )
 
 Project.create!(
-  title: "Checkers",
-  description: "This site is a playable checkers app. You play as red against the computer as black. I created it because I was interested in learning how to work with a drag-and-drop interface using React DnD.",
-  github_url: "https://github.com/lwassink/checkers",
-  short_github_url: "github.com/lwassink/checkers",
-  site_url: "https://kingme.herokuapp.com/",
-  short_site_url: "kingme.herokuapp.com/",
-  technologies: "Ruby, Javascript, Rails, React, Redux, React DnD",
-)
-
-Project.create!(
-  title: "Vim-lists",
-  description: "When working in Vim, I missed auto-inserted list headers for bulleted and numbered lists.
-  I created this Vim plugin to provide that functionality for text and markdown files.
-  For Vim users: it is configured to be installed with Vundle or Pathogen.",
-  github_url: "https://github.com/lwassink/vim-lists",
-  short_github_url: "github.com/lwassink/vim-lists",
-  technologies: "Vim, Vimscript"
+  title: "Functional Trie",
+  description: "I recently spent some time learning various string processing algorithms and data structures.
+  At the same time I was working through a course on functional programing in Scala.
+  I decided to create a functional implementation of a Trie data structure using Scala.
+  This is the result.
+  It includes unit tests written in FunSpec",
+  github_url: "https://github.com/lwassink/scalaTrie",
+  short_github_url: "github.com/lwassink/scalaTrie",
+  technologies: "Scala"
 )
 
 
