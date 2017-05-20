@@ -21,6 +21,7 @@ yarn-error.log*
 
 # webpack bundle
 **/bundle.js
+**/bundle.js.map
 
 # nohup
 **/nuhup.out

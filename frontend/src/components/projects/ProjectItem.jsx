@@ -1,6 +1,7 @@
 import React from 'react';
 import { Collapse } from 'react-collapse';
 import AnimateHeight from 'react-animate-height';
+import ProjectTag from '../tags/ProjectTag';
 
 class ProjectItem extends React.Component {
   constructor(props) {
@@ -30,7 +31,10 @@ class ProjectItem extends React.Component {
             duration={ 500 }
             height={ height }
             easing="ease-in-out" >
-            <p> {project.description} </p>
+            <p>
+              {project.description}
+              <
+            </p>
             <p>
               <label>technologies used:</label> {project.technologies}
             </p>
