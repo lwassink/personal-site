@@ -11,14 +11,15 @@ div.splash {
   h2 {
     font-size: 30px;
     display: block;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
   }
 
   h3 {
     font-size: 20px;
     font-weight: 400;
-    margin: 0 auto;
+    margin: auto;
     display: block;
+    margin-bottom: 10px;
   }
 
   span.orange {
@@ -26,7 +27,7 @@ div.splash {
   }
 
   div.splash-section {
-    margin: 100px 0 100px 0;
+    margin: 70px 0 70px 0;
     text-align: center;
   }
 
@@ -43,10 +44,25 @@ div.splash {
       margin: auto;
       margin-bottom: 20px;
     }
+
+    a {
+      margin-right: 30px;
+    }
+
+    a:last-of-type {
+      margin-right: 0px;
+    }
   }
 
   .splash-projects {
+    li {
+      display: inline-block;
+      margin-right: 30px;
+    }
 
+    li:last-of-type {
+      margin-right: 0;
+    }
   }
 
   .splash-posts {
@@ -65,6 +81,17 @@ div.splash {
     li {
       margin-bottom: 10px;
       display: block;
+    }
+  }
+
+  .splash-contact {
+    li {
+      margin-right: 30px;
+      display: inline-block;
+    }
+
+    li:last-of-type {
+      margin-right: 0px;
     }
   }
 }
