@@ -27,7 +27,7 @@ class Projects extends React.Component {
               project={project} />)}
           </ul>
         </div>
-        <CopyrightBar />
+        <CopyrightBar fixed={true} />
       </div>
     );
   }

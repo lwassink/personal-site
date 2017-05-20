@@ -7,7 +7,7 @@ Project.create!(
   short_github_url: "github.com/lwassink/good-code",
   site_url: "https://goodcode.herokuapp.com/#/",
   short_site_url: "goodcode.herokuapp.com/",
-  technologies: "Ruby, Javascript, Rails, React, Redux",
+  technologies: "Ruby, Javascript, Rails, React, Redux"
 )
 
 Project.create!(
@@ -38,6 +38,18 @@ Project.create!(
   github_url: "https://github.com/lwassink/vim-lists",
   short_github_url: "github.com/lwassink/vim-lists",
   technologies: "Vim, Vimscript"
+)
+
+Project.create!(
+  title: "Functional Trie",
+  description: "I recently spent some time learning various string processing algorithms and data structures.
+  At the same time I was working through a course on functional programing in Scala.
+  I decided to create a functional implementation of a Trie data structure using Scala.
+  This is the result.
+  It includes unit tests written in FunSpec",
+  github_url: "https://github.com/lwassink/scalaTrie",
+  short_github_url: "github.com/lwassink/scalaTrie",
+  technologies: "Scala"
 )
 
 

@@ -46,7 +46,7 @@ class AboutMe extends React.Component {
               </p>
           </section>
         </div>
-        <CopyrightBar />
+        <CopyrightBar fixed={true} />
       </div>
     )
   }

@@ -15,6 +15,7 @@ class Post extends React.Component {
 
   componentDidMount() {
     this.props.fetchPosts();
+    window.scrollTo(0, 0);
   }
 
   stripFold(string) {

@@ -4,7 +4,7 @@ import Route from 'react-router-dom/Route';
 import Link from 'react-router-dom/Link';
 import { Provider } from 'react-redux';
 import React from 'react';
-import Splash from './Splash';
+import SplashContainer from './splash/SplashContainer';
 import ProjectsContainer from './projects/ProjectsContainer';
 import Blog from './blog/Blog';
 import AboutMe from './AboutMe';
@@ -19,7 +19,7 @@ export default ({ store }) => (
           <Route path="/projects" component={ProjectsContainer} />
           <Route path="/about-me" component={AboutMe} />
           <Route path="/contact" component={Contact} />
-          <Route path="/" component={Splash} />
+          <Route path="/" component={SplashContainer} />
         </Switch>
       </div>
     </Provider>
