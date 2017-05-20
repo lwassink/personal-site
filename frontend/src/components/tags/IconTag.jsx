@@ -6,13 +6,18 @@ export default ({ imagePath, url, alt, text }) => {
     width: HEIGHT,
     height: HEIGHT,
     display: 'inline-block',
+    background: '#2367e7',
+    padding: 5,
+    borderRadius: 5
   };
   const imageStyles = {
     height: HEIGHT,
     width: HEIGHT,
     borderRadius: 0,
     display: 'inline-block',
-    margin: 0
+    margin: 0,
+    WebkitFilter: 'invert(1)',
+    filter: 'invert(1)',
   };
 
   return (

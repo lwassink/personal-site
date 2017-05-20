@@ -29,7 +29,7 @@ div.center {
 .tooltip .tooltiptext {
   visibility: hidden;
   width: 120px;
-  background-color: black;
+  background-color: $blue;
   color: #fff;
   text-align: center;
   padding: 5px 0;
@@ -54,5 +54,5 @@ div.center {
     margin-left: -5px;
     border-width: 5px;
     border-style: solid;
-    border-color: black transparent transparent transparent;
+    border-color: $blue transparent transparent transparent;
 }

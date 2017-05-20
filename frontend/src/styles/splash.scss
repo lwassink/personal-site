@@ -44,6 +44,14 @@ div.splash {
       margin: auto;
       margin-bottom: 20px;
     }
+
+    a {
+      margin-right: 30px;
+    }
+
+    a:last-of-type {
+      margin-right: 0px;
+    }
   }
 
   .splash-projects {

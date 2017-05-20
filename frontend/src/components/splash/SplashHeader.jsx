@@ -11,5 +11,9 @@ export default () => (
     label="R&eacute;sum&eacute;"
     url="/assets/luke-wassink-resume.pdf"
     />
+    <PDFTag
+    label="Doctoral thesis"
+    url="/assets/luke-wassink-thesis.pdf"
+    />
   </div>
 )

@@ -7,16 +7,22 @@ export default ({ label, url }) => {
     display: 'inline-block',
     height: HEIGHT,
     verticalAlign: 'middle',
+    background: '#2367e7',
+    padding: 5,
+    borderRadius: 5
   };
   const imageStyles = {
     height: HEIGHT,
     borderRadius: 0,
     display: 'inline-block',
     margin: 0,
-    width: HEIGHT
+    width: HEIGHT,
+    WebkitFilter: 'invert(1)',
+    filter: 'invert(1)',
+    marginLeft: 5
   };
   const labelStyles = {
-    color: '#2367e7',
+    color: 'white',
     display: 'inline-block',
     left: 0
   };
