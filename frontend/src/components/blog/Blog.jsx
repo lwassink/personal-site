@@ -7,7 +7,6 @@ import CopyrightBar from '../CopyrightBar';
 
 export default () => (
   <div>
-    <NavBar />
     <div className="blog main">
       <Route exact={true} path="/posts" component={PostIndexContainer} />
       <Route path="/posts/:postName" component={PostContainer} />

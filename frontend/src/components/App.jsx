@@ -4,6 +4,7 @@ import Route from 'react-router-dom/Route';
 import Link from 'react-router-dom/Link';
 import { Provider } from 'react-redux';
 import React from 'react';
+import NavBar from './NavBar';
 import SplashContainer from './splash/SplashContainer';
 import ProjectsContainer from './projects/ProjectsContainer';
 import Blog from './blog/Blog';
@@ -14,13 +15,12 @@ export default ({ store }) => (
   <BrowserRouter>
     <Provider store={store}>
       <div className="app">
-        <Switch>
-          <Route path="/posts" component={Blog} />
-          <Route path="/projects" component={ProjectsContainer} />
-          <Route path="/about-me" component={AboutMe} />
-          <Route path="/contact" component={Contact} />
-          <Route path="/" component={SplashContainer} />
-        </Switch>
+        <NavBar />
+        <Route path="/posts" component={Blog} />
+        <Route path="/projects" component={ProjectsContainer} />
+        <Route path="/about-me" component={AboutMe} />
+        <Route path="/contact" component={Contact} />
+        <Route exact path="/" component={SplashContainer} />
       </div>
     </Provider>
   </BrowserRouter>

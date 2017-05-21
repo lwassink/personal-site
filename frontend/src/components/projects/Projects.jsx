@@ -17,7 +17,6 @@ class Projects extends React.Component {
     const { projects }  = this.props;
     return (
       <div>
-        <NavBar />
         <div className="projects main">
           <ul>
             {projects.map((project) => <ProjectItem

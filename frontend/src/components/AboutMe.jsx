@@ -6,7 +6,6 @@ class AboutMe extends React.Component {
   render() {
     return (
       <div>
-        <NavBar />
         <div className="about-me center">
           <h1>Luke Wassink</h1>
           <section>
