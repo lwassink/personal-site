@@ -11,14 +11,6 @@ div.nav-bar {
   height: $height;
   min-width: 320px;
 
-  section.logo {
-    position: absolute;
-    top: 50%;
-    right: 10px;
-    transform: translate(0, -50%);
-    justify-content: left;
-  }
-
   section.center {
     position: absolute;
     left: 50%;
@@ -26,7 +18,7 @@ div.nav-bar {
     transform: translate(-50%, -50%);
     height: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
   }
 
@@ -50,5 +42,66 @@ div.nav-bar {
 
   a.active {
     border-bottom: 5px solid $orange;
+  }
+
+  i {
+    color: $orange;
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  div.nav-bar {
+    overflow: hidden;
+    transition: height .5s ease-in-out;
+
+    section.center {
+      top: 0;
+      transform: translate(-50%, 0);
+      flex-direction: column;
+      margin-top: 5px;
+      height: 230px;
+    }
+
+    a {
+      line-height: 40px;
+      height: 40px;
+      padding: 0;
+      width: 120px;
+      cursor: auto;
+    }
+
+    a:hover {
+      background: $blue;
+    }
+
+    i {
+      display: inline-block;
+      margin-right: 20px;
+      cursor: pointer;
+      transition: transform 0.4s ease-in-out;
+    }
+
+    section.hamburger {
+      height: 30px;
+      font-size: 30px;
+      vertical-align: middle;
+    }
+  }
+
+  div.nav-bar.open {
+    height: 235px;
+
+    a {
+      cursor: default;
+    }
+
+    a:hover {
+      background: $dark-blue;
+    }
+
+    i {
+      transform: rotate(180deg);
+    }
   }
 }

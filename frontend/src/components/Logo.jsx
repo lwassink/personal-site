@@ -20,12 +20,16 @@ class Logo extends React.Component {
       width: size,
       minWidth: size,
       height: size,
+      minHeight: size,
       borderRadius: size/2,
       backgroundColor: ORANGE,
       cursor: 'pointer',
-      position: 'relative'
+      position: 'relative',
+      display: 'inline-block'
     };
     const lStyles = {
+      width: 'auto',
+      height: 'auto',
       fontSize: 22,
       color: 'white',
       fontWeight: 700,
@@ -44,12 +48,17 @@ class Logo extends React.Component {
 
     return (
       <div style={logoStyles}
-      onClick={this.props.onClick}
-      onMouseEnter={this.toggleHover}
-      onMouseLeave={this.toggleHover}
-      className='logo'>
-      <a href={this.props.src} onClick={e => (e.preventDefault())} style={lStyles}>L</a>
-    </div>)
+        onClick={this.props.onClick}
+        onMouseEnter={this.toggleHover}
+        onMouseLeave={this.toggleHover}
+        className='logo'>
+        <a href={this.props.src}
+          onClick={e => (e.preventDefault())}
+          style={lStyles}>
+          L
+        </a>
+      </div>
+    )
   }
 };
 
