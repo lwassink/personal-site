@@ -31,10 +31,15 @@ class ProjectItem extends React.Component {
             duration={ 500 }
             height={ height }
             easing="ease-in-out" >
-            <p>
-              {project.description}
-              <
-            </p>
+            <div className="row">
+              <p className="description column column-7">
+                {project.description}
+              </p>
+              <p className="column column-5">
+                {project.img ? <ProjectTag project={project} external={true} />
+                  : null}
+              </p>
+            </div>
             <p>
               <label>technologies used:</label> {project.technologies}
             </p>

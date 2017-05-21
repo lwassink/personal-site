@@ -20,8 +20,6 @@ div.center {
   transform: translate(-50%, -50%);
 }
 
-
-
 .tooltip {
   position: relative;
 }
@@ -55,4 +53,16 @@ div.center {
     border-width: 5px;
     border-style: solid;
     border-color: $blue transparent transparent transparent;
+}
+
+.main {
+	position: relative;
+	min-width: 320px;
+	max-width: 900px;
+	width: 80%;
+	overflow: scroll;
+	left: 50%;
+	transform: translate(-50%, 0);
+	margin-top: 100px;
+	margin-bottom: 50px;
 }

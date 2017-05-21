@@ -18,7 +18,7 @@ class Projects extends React.Component {
     return (
       <div>
         <NavBar />
-        <div className="center projects">
+        <div className="projects main">
           <ul>
             {projects.map((project) => <ProjectItem
               key={project.id}

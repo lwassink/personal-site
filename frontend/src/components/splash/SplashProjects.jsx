@@ -9,10 +9,7 @@ export default ({ projects }) => (
     <ul>
       {projects.map(project => (
         <li key={project.id}>
-          <ProjectTag
-          image={project.img}
-          alt={project.title}
-          id={project.id} />
+          <ProjectTag project={project} />
         </li>
       ))}
     </ul>

@@ -63,6 +63,13 @@ div.splash {
     li:last-of-type {
       margin-right: 0;
     }
+
+    @media only screen and (max-width: 690px) {
+      li {
+        display: block;
+        margin: 0;
+      }
+    }
   }
 
   .splash-posts {

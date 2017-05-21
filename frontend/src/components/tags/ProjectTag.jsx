@@ -3,7 +3,9 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { openProject } from '../../actions/project_actions';
 
-const ProjectTag = (props) => {
+const ProjectTag = ({ project, openProject, history, external }) => {
+  const { title, img } = project;
+
   const HEIGHT = 200;
   const linkStyles = {
     width: HEIGHT,
@@ -20,22 +22,24 @@ const ProjectTag = (props) => {
 
   const handleClick = e => {
     e.preventDefault();
-    props.openProject();
-    props.history.push('/projects');
+    openProject();
+    history.push('/projects');
   }
 
   return (
-    <a style={linkStyles} href="/projects" onClick={handleClick}>
+    <a style={linkStyles}
+    href="/projects"
+    onClick={handleClick}>
       <img
       style={imageStyles}
-      alt={props.alt}
-      src={`/assets/images/${props.image}`} />
+      alt={title}
+      src={`/assets/images/${img}`} />
     </a>
   );
 };
 
-const mapDispatchToProps = (dispatch, { id }) => ({
-  openProject: () => dispatch(openProject(id))
+const mapDispatchToProps = (dispatch, { project }) => ({
+  openProject: () => dispatch(openProject(project.id))
 });
 
 export default connect(
