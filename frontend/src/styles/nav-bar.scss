@@ -21,6 +21,7 @@ div.nav-bar {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    min-width: 395px;
   }
 
   a {
@@ -62,6 +63,7 @@ div.nav-bar {
       flex-direction: column;
       margin-top: 5px;
       height: 230px;
+      min-width: 0;
     }
 
     a {
