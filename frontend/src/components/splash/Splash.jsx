@@ -4,7 +4,6 @@ import SplashProjects from './SplashProjects';
 import SplashPosts from './SplashPosts';
 import SplashContact from './SplashContact';
 import CopyrightBar from '../CopyrightBar';
-import NavBar from '../NavBar';
 
 class Splash extends React.Component {
   componentDidMount() {
@@ -16,7 +15,6 @@ class Splash extends React.Component {
   render() {
     return (
       <div className="splash">
-        <NavBar />
         <SplashHeader />
         <SplashProjects projects={this.props.projects} />
         <SplashPosts posts={this.props.posts} />

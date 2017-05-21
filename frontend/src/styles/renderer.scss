@@ -5,6 +5,7 @@ div.renderer {
     left: 50%;
     transform: translate(-50%, 0);
     margin: 10px 0 10px 0;
+    overflow: scroll;
   }
 
   div.markdown{
