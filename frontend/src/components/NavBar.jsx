@@ -36,11 +36,6 @@ class NavBar extends React.Component {
     this.setState({ open: false });
   }
 
-  componentWillReceiveProps(newProps) {
-    if (newProps.location.pathname != this.props.location.pathname)
-      this.close();
-  }
-
   render () {
     const linkHome = () => this.props.history.push("/");
     const navClass = this.state.open ? "nav-bar open" : "nav-bar";

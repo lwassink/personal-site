@@ -94,6 +94,7 @@ div.nav-bar {
 
     a {
       cursor: default;
+      cursor: pointer;
     }
 
     a:hover {
@@ -101,7 +102,7 @@ div.nav-bar {
     }
 
     i {
-      transform: rotate(180deg);
+      transform: rotate(540deg);
     }
   }
 }
