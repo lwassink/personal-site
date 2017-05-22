@@ -15,9 +15,10 @@ a {
 
 div.center {
 	position: absolute;
-  top: 45%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+	margin: 50px 0 100px 0;
 }
 
 .tooltip {
