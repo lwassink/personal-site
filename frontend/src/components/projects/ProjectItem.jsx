@@ -2,6 +2,7 @@ import React from 'react';
 import { Collapse } from 'react-collapse';
 import AnimateHeight from 'react-animate-height';
 import ProjectTag from '../tags/ProjectTag';
+import { GithubTag, LiveTag } from '../tags/LabelTags';
 
 class ProjectItem extends React.Component {
   constructor(props) {
@@ -45,14 +46,14 @@ class ProjectItem extends React.Component {
             </p>
           </AnimateHeight>
           <p>
-            {project.site_url ?<span>
-              <label>live site:</label>
-              <a target="_blank" href={project.site_url}>{project.short_site_url}</a>
-            </span> : null}
-            {project.github_url ? <span>
-              <label>github:</label>
-              <a target="_blank" href={project.github_url}>{project.short_github_url}</a>
-            </span> : null}
+            <LiveTag
+            label="Live Site"
+            url={project.site_url}
+            />
+            <GithubTag
+            label="Github Repo"
+            url={project.short_github_url}
+            />
           </p>
         </main>
       </li>

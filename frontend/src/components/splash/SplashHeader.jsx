@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'react-router-dom/Link';
-import PDFTag from '../tags/PDFTag';
+import { PDFTag } from '../tags/LabelTags';
 
 export default () => (
   <div className="splash-section splash-header">

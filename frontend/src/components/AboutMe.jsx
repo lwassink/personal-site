@@ -1,6 +1,6 @@
 import React from 'react';
 import CopyrightBar from './CopyrightBar';
-import PDFTag from './tags/PDFTag';
+import { PDFTag } from './tags/LabelTags';
 
 class AboutMe extends React.Component {
   render() {

@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default ({ label, url }) => {
+const LabelTag = ({ label, url, image }) => {
 
   const HEIGHT = 30;
   const linkStyles = {
@@ -32,7 +32,19 @@ export default ({ label, url }) => {
       <span style={labelStyles}>{label}</span>
       <img style={imageStyles}
         alt="PDF icon"
-        src="/assets/images/pdf-icon.svg" />
+        src={`/assets/images/${image}`} />
     </a>
   );
 };
+
+export const PDFTag = (props) => (
+  <LabelTag {...props} image="pdf-icon.svg"/>
+);
+
+export const GithubTag = (props) => (
+  <LabelTag {...props} image="github-icon.svg"/>
+);
+
+export const LiveTag = (props) => (
+  <LabelTag {...props} image="pdf-icon.svg"/>
+);
