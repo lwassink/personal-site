@@ -16,7 +16,7 @@ export default ({ posts }) => {
       <ul className="post-dates" >
         {posts.map(post => (
           <li key={post.id}>
-            - {proccessDate(post.created_at)}
+            - {proccessDate(post.date)}
           </li>
         ))}
       </ul>

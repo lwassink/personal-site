@@ -10,6 +10,6 @@ export default ({ to, post }) => (
       <i className="fa fa-chevron-right " aria-hidden="true"></i>
       <span>{post.title}</span>
     </h1>
-    <span className="date">{proccessDate(post.created_at)}</span>
+    <span className="date">{proccessDate(post.date)}</span>
   </Link>
 );

@@ -233,8 +233,10 @@ POST
 Post.create!(
   title: "Asymptotic Analysis of Algorithms",
   url_name: "asymptotic-analysis",
-  body: big_o_body
+  body: big_o_body,
+  date: DateTime.parse('15/4/2017')
 )
+
 
 master_theorem_body = <<-POST
 In a [previous post](/posts/asymptotic-analysis) I discussed Big-O notation and the asymptotic behavior of algorithms.
@@ -335,7 +337,8 @@ POST
 Post.create!(
   title: "The Master Theorem",
   url_name: "master-theorem",
-  body: master_theorem_body
+  body: master_theorem_body,
+  date: DateTime.parse('28/4/2017')
 )
 
 scala_trie_body = <<-POST
@@ -444,5 +447,6 @@ POST
 Post.create!(
   title: "A Functional Trie in Scala",
   url_name: "scala-trie",
-  body: scala_trie_body
+  body: scala_trie_body,
+  date: DateTime.parse('15/5/2017')
 )
