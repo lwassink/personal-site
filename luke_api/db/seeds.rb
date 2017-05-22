@@ -41,6 +41,7 @@ Project.create!(
   github_url: "https://github.com/lwassink/personal-site",
   short_github_url: "github.com/lwassink/personal-site",
   technologies: "Ruby, Javascript, Rails, Express Server, Nginx, React, Redux",
+  img: 'personal-site.gif'
 )
 
 Project.create!(
@@ -52,7 +53,8 @@ Project.create!(
   It includes unit tests written in FunSpec",
   github_url: "https://github.com/lwassink/scalaTrie",
   short_github_url: "github.com/lwassink/scalaTrie",
-  technologies: "Scala"
+  technologies: "Scala",
+  img: 'scala-trie.png'
 )
 
 

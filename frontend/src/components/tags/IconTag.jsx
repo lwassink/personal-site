@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default ({ imagePath, url, alt, text }) => {
-  const HEIGHT = 50;
+  const HEIGHT = 30;
   const linkStyles = {
     width: HEIGHT,
     height: HEIGHT,

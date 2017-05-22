@@ -3,8 +3,6 @@ import IconTag from '../tags/IconTag';
 
 export default () => (
   <div className="splash-section splash-contact">
-    <h2>Contact</h2>
-
     <ul>
       <li>
         <IconTag
