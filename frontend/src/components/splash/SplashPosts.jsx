@@ -9,14 +9,7 @@ export default ({ posts }) => {
       <ul className="post-links" >
         {posts.map(post => (
           <li key={post.id}>
-            <Link to={`/posts/${post.url_name}`}>{post.title}</Link>
-          </li>
-        ))}
-      </ul>
-      <ul className="post-dates" >
-        {posts.map(post => (
-          <li key={post.id}>
-            - {proccessDate(post.date)}
+            <Link to={`/posts/${post.url_name}`}>{post.title}</Link> -&nbsp;{proccessDate(post.date)}
           </li>
         ))}
       </ul>

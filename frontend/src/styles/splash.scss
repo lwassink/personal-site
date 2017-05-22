@@ -74,20 +74,24 @@ div.splash {
 
   .splash-posts {
     ul.post-links {
+      margin: 0 auto;
+      display: inline-block;
+      padding-right: 50px;
       text-align: right;
-      display: inline-block;
-      margin-right: 5px;
-    }
-
-    ul.post-dates {
-      text-align: left;
-      display: inline-block;
-      padding-right: 100px;
+      width: auto;
     }
 
     li {
       margin-bottom: 10px;
       display: block;
+      width: auto;
+    }
+
+    @media only screen and (max-width: 450px) {
+      li a {
+        display: block;
+        margin-bottom: 5px;
+      }
     }
   }
 
