@@ -4,8 +4,17 @@ import ProjectItem from './ProjectItem';
 import CopyrightBar from '../CopyrightBar';
 
 class Projects extends React.Component {
-  componentWillMount() {
-    this.props.fetchProjects();
+  componentDidMount() {
+    this.props.fetchProjects()
+    if (this.props.openId) this.scroll();
+  }
+
+  scroll() {
+    const openProj = document.getElementById(`project-${this.props.openId}`);
+    const openTop = openProj.getBoundingClientRect().top;
+    const bodyTop = document.body.getBoundingClientRect().top;
+    const absolute = openTop - bodyTop + 30;
+    window.scrollTo(0, absolute);
   }
 
   componentWillUnmount() {

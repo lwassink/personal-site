@@ -21,7 +21,7 @@ class ProjectItem extends React.Component {
     const height = this.props.open ? "auto" : 0;
 
     return (
-      <li className="index-item">
+      <li className="index-item" id={`project-${project.id}`}>
         <h1 onClick={this.toggleOpen} >
           <i className={"fa fa-chevron-right " + rotateClass}
           aria-hidden="true"></i>

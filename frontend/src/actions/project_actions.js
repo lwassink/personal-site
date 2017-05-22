@@ -20,7 +20,7 @@ export const openProject = (id) => ({
 });
 
 export const fetchProjects = () => (dispatch, getState) => {
-  if (getState().projects.fetched) return;
+  if (getState().projects.fetched) return new Promise(() => {});
   return requestProjects().then(
     res => res.json().then(projects => dispatch(receiveProjects(projects)))
   )
