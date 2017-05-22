@@ -2,7 +2,7 @@ import React from 'react';
 
 const LabelTag = ({ label, url, image }) => {
 
-  const HEIGHT = 30;
+  const HEIGHT = 25;
   const linkStyles = {
     display: 'inline-block',
     height: HEIGHT,
@@ -46,5 +46,5 @@ export const GithubTag = (props) => (
 );
 
 export const LiveTag = (props) => (
-  <LabelTag {...props} image="pdf-icon.svg"/>
+  <LabelTag {...props} image="cursor-pointer-icon.png"/>
 );

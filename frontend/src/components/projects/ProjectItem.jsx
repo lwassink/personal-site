@@ -52,7 +52,7 @@ class ProjectItem extends React.Component {
             />
             <GithubTag
             label="Github Repo"
-            url={project.short_github_url}
+            url={project.github_url}
             />
           </p>
         </main>
