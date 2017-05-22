@@ -1,6 +1,6 @@
 import React from 'react';
-import NavBar from './NavBar';
 import CopyrightBar from './CopyrightBar';
+import PDFTag from './tags/PDFTag';
 
 class AboutMe extends React.Component {
   render() {
@@ -15,17 +15,7 @@ class AboutMe extends React.Component {
             I also work with Scala.
           </section>
           <section>
-            <label>resume:</label>
-            <a href="/assets/luke-wassink-resume.pdf"
-              target="blank">pdf</a>
-          </section>
-          <section>
-            <label>doctoral thesis:</label>
-            <a href="/assets/luke-wassink-thesis.pdf"
-              target="blank">pdf</a>
-          </section>
-          <section className="group">
-            <label>school:</label>
+            <label>Education:</label>
             <ul>
               <li>
                 B.S. in Physics and Mathematics
@@ -39,10 +29,20 @@ class AboutMe extends React.Component {
             </ul>
           </section>
           <section>
-            <label>skills:</label>
+            <label>Skills:</label>
               <p>
                 Ruby, Javascript, Scala, SQL, Rails, React, Redux
               </p>
+          </section>
+          <section>
+            <PDFTag
+            label="R&eacute;sum&eacute;"
+            url="/assets/luke-wassink-resume.pdf"
+            />
+            <PDFTag
+            label="Doctoral thesis"
+            url="/assets/luke-wassink-thesis.pdf"
+            />
           </section>
         </div>
         <CopyrightBar fixed={true} />
