@@ -1,5 +1,5 @@
 # Luke Wassink Personal Website
-I created to this site to display my personal projects and to blog about topics in computer science and techology that interest me.
+I created to [lukewassink.com](http://lukewassink.com/) to display my personal projects and to blog about topics in computer science and techology that interest me.
 
 ## Frontend
 This site is a single-page app.
