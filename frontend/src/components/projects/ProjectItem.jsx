@@ -46,10 +46,10 @@ class ProjectItem extends React.Component {
             </p>
           </AnimateHeight>
           <p>
-            <LiveTag
-            label="Live Site"
-            url={project.site_url}
-            />
+            {project.site_url ? <LiveTag
+              label="Live Site"
+              url={project.site_url}
+            /> : null}
             <GithubTag
             label="Github Repo"
             url={project.github_url}
