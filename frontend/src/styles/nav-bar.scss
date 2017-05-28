@@ -51,6 +51,10 @@ div.nav-bar {
     display: none;
     transition: transform 0.4s ease-in-out;
   }
+
+  section.hamburger {
+    vertical-align: middle;
+  }
 }
 
 @media only screen and (max-width: 550px) {
@@ -87,7 +91,6 @@ div.nav-bar {
     section.hamburger {
       height: 30px;
       font-size: 30px;
-      vertical-align: middle;
     }
   }
 
