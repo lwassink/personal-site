@@ -10,7 +10,7 @@ div.nav-bar {
 
   width: 100%;
   height: $height;
-  min-width: 320px;
+  min-width: 290px;
 
   section.center {
     position: absolute;
@@ -66,7 +66,7 @@ div.nav-bar {
       transform: translate(-50%, 0);
       flex-direction: column;
       margin-top: 5px;
-      height: 230px;
+      height: 200px;
       min-width: 0;
     }
 
@@ -95,7 +95,7 @@ div.nav-bar {
   }
 
   div.nav-bar.open {
-    height: 235px;
+    height: 205px;
 
     a {
       cursor: default;

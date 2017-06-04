@@ -19,7 +19,6 @@ export default ({ store }) => (
         <Route path="/posts" component={Blog} />
         <Route path="/projects" component={ProjectsContainer} />
         <Route path="/about-me" component={AboutMe} />
-        <Route path="/contact" component={Contact} />
         <Route exact path="/" component={SplashContainer} />
       </div>
     </Provider>

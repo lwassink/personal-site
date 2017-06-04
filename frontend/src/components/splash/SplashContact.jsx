@@ -1,29 +1,21 @@
 import React from 'react';
-import IconTag from '../tags/IconTag';
+import {
+  GithubTag,
+  EmailTag,
+  LinkedinTag
+} from '../tags/IconTags';
 
 export default () => (
   <div className="splash-section splash-contact">
     <ul>
       <li>
-        <IconTag
-          imagePath='/assets/images/github-icon.svg'
-          alt='Github icon'
-          text='My Gitub'
-          url='https://github.com/lwassink' />
+        <GithubTag />
       </li>
       <li>
-        <IconTag
-          imagePath='/assets/images/email-icon.png'
-          text='Email me'
-          alt='Email icon'
-          url='mailto:lwassink@gmail.com' />
+        <EmailTag />
       </li>
       <li>
-        <IconTag
-          imagePath='/assets/images/linkedin-icon.png'
-          text='My Linkedin'
-          alt='Linkedin icon'
-          url='https://www.linkedin.com/in/lwassink/' />
+        <LinkedinTag />
       </li>
     </ul>
   </div>

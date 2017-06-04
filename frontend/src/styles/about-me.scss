@@ -37,12 +37,12 @@ div.about-me {
     margin-right: 20px;
   }
 
-  @media only screen and ( max-height: 400px ){
+  @media only screen and ( max-height: 460px ){
 		margin: 30px 0 50px 0;
 	}
 
-	@media only screen and ( max-height: 330px ){
-		margin: 60px 0 50px 0;
+	@media only screen and ( max-height: 395px ){
+		margin: 70px 0 50px 0;
 	}
 
   @media only screen and ( max-width: 400px ) and ( max-height: 530px ){

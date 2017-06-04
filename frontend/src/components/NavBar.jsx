@@ -52,7 +52,6 @@ class NavBar extends React.Component {
           <NavLink to="/projects">Projects</NavLink>
           <NavLink to="/posts">Blog</NavLink>
           <NavLink to="/about-me">About Me</NavLink>
-          <NavLink to="/contact">Contact</NavLink>
         </section>
       </div>
     );

@@ -1,6 +1,11 @@
 import React from 'react';
 import CopyrightBar from './CopyrightBar';
 import { PDFTag } from './tags/LabelTags';
+import {
+  GithubTag,
+  EmailTag,
+  LinkedinTag
+} from './tags/IconTags';
 
 class AboutMe extends React.Component {
   render() {
@@ -13,6 +18,16 @@ class AboutMe extends React.Component {
             I work with Javascript, React, and Redux on the frontend.
             On the backend I use Ruby on Rails, Node.js, and Nginx.
             I also work with Scala.
+          </section>
+          <section>
+            <PDFTag
+            label="R&eacute;sum&eacute;"
+            url="/assets/luke-wassink-resume.pdf"
+            />
+            <PDFTag
+            label="Doctoral thesis"
+            url="/assets/luke-wassink-thesis.pdf"
+            />
           </section>
           <section>
             <label>Education:</label>
@@ -35,14 +50,9 @@ class AboutMe extends React.Component {
               </p>
           </section>
           <section>
-            <PDFTag
-            label="R&eacute;sum&eacute;"
-            url="/assets/luke-wassink-resume.pdf"
-            />
-            <PDFTag
-            label="Doctoral thesis"
-            url="/assets/luke-wassink-thesis.pdf"
-            />
+            <GithubTag />
+            <EmailTag />
+            <LinkedinTag />
           </section>
         </div>
         <CopyrightBar fixed={true} />
