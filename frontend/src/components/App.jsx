@@ -9,7 +9,6 @@ import SplashContainer from './splash/SplashContainer';
 import ProjectsContainer from './projects/ProjectsContainer';
 import Blog from './blog/Blog';
 import AboutMe from './AboutMe';
-import Contact from './Contact';
 
 export default ({ store }) => (
   <BrowserRouter>
