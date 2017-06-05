@@ -14,10 +14,12 @@ class AboutMe extends React.Component {
         <div className="about-me center">
           <h1>Luke Wassink</h1>
           <section>
-            I am a full-stack web developer.
-            I work with Javascript, React, and Redux on the frontend.
-            On the backend I use Ruby on Rails, Node.js, and Nginx.
-            I also work with Scala.
+            I love solving difficult, abstract problems.
+            Previously I worked as a research mathematician.
+            Now I bring the same analytical mindset and the same ability to see both the big picture and the details of a project at the same time to bear on my work as a software developer.
+            I enjoy the challenge of disentangling an intricate code base or a complicated algorithm.
+            I also enjoy learning new technologies and new languages.
+            Currently I work with JavaScript, React.js, Ruby, Rails, and Scala.
           </section>
           <section>
             <PDFTag
