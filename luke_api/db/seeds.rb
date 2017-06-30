@@ -340,7 +340,7 @@ Post.create!(
   title: "The Master Theorem",
   url_name: "master-theorem",
   body: master_theorem_body,
-  date: DateTime.parse('28/4/2017')
+  date: DateTime.parse('15/5/2017')
 )
 
 scala_trie_body = <<-POST
@@ -450,5 +450,5 @@ Post.create!(
   title: "A Functional Trie in Scala",
   url_name: "scala-trie",
   body: scala_trie_body,
-  date: DateTime.parse('15/5/2017')
+  date: DateTime.parse('20/6/2017')
 )
