@@ -2,6 +2,7 @@ import BrowserRouter from 'react-router-dom/BrowserRouter';
 import Switch from 'react-router-dom/Switch';
 import Route from 'react-router-dom/Route';
 import Link from 'react-router-dom/Link';
+import Redirect from 'react-router-dom/Redirect';
 import { Provider } from 'react-redux';
 import React from 'react';
 import NavBar from './NavBar';
