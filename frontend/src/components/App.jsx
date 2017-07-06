@@ -19,7 +19,10 @@ export default ({ store }) => (
           <Route path="/posts" component={Blog} />
           <Route path="/projects" component={ProjectsContainer} />
           <Route path="/about-me" component={AboutMe} />
-          <Route component={SplashContainer} />
+          <Route exact path="/" component={SplashContainer} />
+          <Route render={() => (
+            <Redirect to="/" />
+          )} />
         <Switch/>
       </div>
     </Provider>
