@@ -23,7 +23,7 @@ export default ({ store }) => (
           <Route render={() => (
             <Redirect to="/" />
           )} />
-        <Switch/>
+        </Switch>
       </div>
     </Provider>
   </BrowserRouter>
