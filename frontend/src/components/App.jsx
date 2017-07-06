@@ -15,10 +15,12 @@ export default ({ store }) => (
     <Provider store={store}>
       <div className="app">
         <NavBar />
-        <Route path="/posts" component={Blog} />
-        <Route path="/projects" component={ProjectsContainer} />
-        <Route path="/about-me" component={AboutMe} />
-        <Route exact path="/" component={SplashContainer} />
+        <Switch>
+          <Route path="/posts" component={Blog} />
+          <Route path="/projects" component={ProjectsContainer} />
+          <Route path="/about-me" component={AboutMe} />
+          <Route component={SplashContainer} />
+        <Switch/>
       </div>
     </Provider>
   </BrowserRouter>
