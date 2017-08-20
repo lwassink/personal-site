@@ -38,11 +38,11 @@ class Post extends React.Component {
         <section>
           <Renderer text={this.stripFold(post.body)} />
 
-          <ReactDisqusThread
-            shortname={post.url_name}
+          {post.url_name ? (<ReactDisqusThread
+            shortname={"lukewassink"}
             identifier={post.url_name}
             title={post.title}
-            url="http://www.lukewassink.com"/>
+            url="https://lukewassink.disqus.com"/>) : null}
         </section>
         <BlogNavBarContainer />
       </div>
