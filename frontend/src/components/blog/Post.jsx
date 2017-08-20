@@ -29,7 +29,6 @@ class Post extends React.Component {
 
   render() {
     const { post } = this.props;
-    console.log(post)
     return (
       <div className="post">
         <PostHeader
