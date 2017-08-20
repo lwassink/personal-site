@@ -1,6 +1,7 @@
 import React from 'react';
-import Renderer from './renderer/Renderer';
+import ReactDisqusThread from 'react-disqus-thread';
 import withRouter from 'react-router-dom/withRouter';
+import Renderer from './renderer/Renderer';
 import BlogNavBarContainer from './BlogNavBarContainer';
 import PostHeader from './PostHeader';
 
@@ -28,6 +29,7 @@ class Post extends React.Component {
 
   render() {
     const { post } = this.props;
+    console.log(post)
     return (
       <div className="post">
         <PostHeader
@@ -35,6 +37,12 @@ class Post extends React.Component {
           to="/posts" />
         <section>
           <Renderer text={this.stripFold(post.body)} />
+
+          <ReactDisqusThread
+            shortname={post.url_name}
+            identifier={post.url_name}
+            title={post.title}
+            url="http://www.lukewassink.com"/>
         </section>
         <BlogNavBarContainer />
       </div>

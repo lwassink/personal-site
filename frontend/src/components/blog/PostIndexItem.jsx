@@ -22,9 +22,12 @@ class PostIndexItem extends React.Component {
       <li className="post-index-item">
         <PostHeader
           post={post}
-          to={`/posts/${this.props.post.url_name}`} />
+          to={`/posts/${post.url_name}`} />
         <section>
           <Renderer text={this.splitAtFold(post.body)} />
+
+
+
           <Link to={`/posts/${post.url_name}`}>full post</Link>
         </section>
       </li>
