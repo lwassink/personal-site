@@ -292,7 +292,7 @@ This gives
   T(n) = T(1)n^{log_ba} + \\sum_{j=1}^{log_b(n-1)} a^jf(n/b^j) + f(n).
 ```
 
-This sum is to complex to evaluate in general.
+This sum is too complex to evaluate in general.
 Instead, we focus on three cases, which correspond to the three cases of the theorem.
 They are
 
@@ -451,4 +451,71 @@ Post.create!(
   url_name: "scala-trie",
   body: scala_trie_body,
   date: DateTime.parse('20/6/2017')
+)
+
+
+
+linear_regression_body = <<-POST
+I am currently trying to learn some methods in data science and machine learning.
+I'm hoping to write up some of the results as I go, putting them in my own words and notation.
+In this post I will talk about linear regression.
+
+===FOLD===
+
+First, what is the general problem we wish to solve via linear regression?
+Roughly speaking, suppose we have a series of input vectors leading to outputs.
+We will call this information our _training data_.
+Then we wish to find an affine functional that will as closely as possible map the input vectors to the outputs.
+
+More precisely, let `math x^(1), \\ldots, x^(m) \\in \\mathbb{R}^n` be our input vectors, and `math y^(1),\\ldots,y^(m)\\in\\mathbb{R}` be the correspoinding values.
+Let `math A: \\mathbb{R}^n\\to\\mathbb{R}` be a affine functional.
+That is, `math A` is of the form `math A(x) = c + f(x)` for some constant `math c \\in\\mathbb{R}` and some linear functional `math f`.
+We define the cost function associated with `math A` to be
+```math
+J(A) = \\frac{1}{2m} \\sum_{i = 1}^m (A(x^(i)) - y^(i))^2.
+```
+Then our goal is to pick `math A` to minimize `math J(A)`.
+
+To minimize this cost we must minimize the gradient of `math J(A)`.
+Two aproaches to this are discussed below, but first let us calculate the gradient.
+With respect to some basis we can identify `math \\mathbb{R}^n` with its dual.
+We wish to treat the coeficients of this dual vector and the constant `math c` in a uniform maner, so by convention we identify `math A` with `math \\theta = (theta_0,\\ldots,\\theta_n)\\in\\mathbb{R}^{n+1}`.
+This is done by setting `math x^(i)_0 = 1` for all `math i`.
+Let us write `math J(\\theta) = J(A)` where `math A` and `math \\theta` correspond as described.
+Then treating `math \\theta` and `math x^{(i)}` as column vectors we have
+```math
+J(\\theta) = \\frac{1}{2m} \\sum_i (x^{(i)T}\\theta - y^{(i)})^2.
+```
+
+Thus we calculate
+```math
+  \\begin{aligned}
+    \\frac{\\partial}{\\partial \\theta_j}J(\\theta) &= \\frac1m \\sum_i (x^{(i)T}\\theta - y^{(i)})x^{(i)}_j. \\\\
+  \\end{aligned}
+```
+If we write `math X = (x^{(1)} | \\ldots | x^{(m)})` for the matrix whose columns are the `math x^{(i)}` and let `math X_j` denote its `math j^{\\text{th}}` row, we may condense this expression as `math \\frac1m(X_jX^T\\theta - X_j^Ty)`.
+Thus
+```math
+  \\nabla J(\\theta) = \\frac1m(XX^T\\theta - Xy).
+```
+There are two approaches to minimizing this gradient.
+
+## The Normal Equation
+Suppose `math XX^T` is invertible.
+Then we may simply solve `math \\nabla J(\\theta) = 0` to derive
+```math
+  \\theta = (XX^T)^{-1}Xy.
+```
+If `math XX^T` is not invertible, we may instead use its so-called [pseudoinverse](https://en.wikipedia.org/wiki/Moore%E2%80%93Penrose_pseudoinverse).
+This can be shown to still minimize `math J(\\theta)`.
+
+## Gradient Descent
+Coming soon :)
+POST
+
+Post.create!(
+  title: "Linear Regression",
+  url_name: "problem-of-linear-regression",
+  body: linear_regression_body,
+  date: DateTime.parse('21/7/2017')
 )

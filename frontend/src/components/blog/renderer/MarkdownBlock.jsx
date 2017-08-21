@@ -7,7 +7,10 @@ export default ({ content }) => {
     <ReactMarkdown
     source={content}
     containerProps={{ className: "markdown" }}
-    renderers={{ Code: InlineCode }}/>
+    renderers={{
+       Code: InlineCode,
+       Link: props => <a href={props.href} target="_blank">{props.children}</a>
+     }}/>
   );
 };
 
