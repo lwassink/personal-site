@@ -467,12 +467,12 @@ Roughly speaking, suppose we have a series of input vectors leading to outputs.
 We will call this information our _training data_.
 Then we wish to find an affine functional that will as closely as possible map the input vectors to the outputs.
 
-More precisely, let `math x^(1), \\ldots, x^(m) \\in \\mathbb{R}^n` be our input vectors, and `math y^(1),\\ldots,y^(m)\\in\\mathbb{R}` be the correspoinding values.
+More precisely, let `math x^{(1)}, \\ldots, x^{(m)} \\in \\mathbb{R}^n` be our input vectors, and `math y^{(1)},\\ldots,y^{(m)}\\in\\mathbb{R}` be the correspoinding values.
 Let `math h: \\mathbb{R}^n\\to\\mathbb{R}` be a affine functional.
 That is, `math h` is of the form `math h(x) = c + f(x)` for some constant `math c \\in\\mathbb{R}` and some linear functional `math f`.
 We define the cost function associated with `math h` to be
 ```math
-J(h) = \\frac{1}{2m} \\sum_{i = 1}^m (h(x^{(i)}) - y^(i))^2.
+J(h) = \\frac{1}{2m} \\sum_{i = 1}^m (h(x^{(i)}) - y^{(i)})^2.
 ```
 Then our goal is to pick `math h` to minimize `math J(h)`.
 
@@ -480,20 +480,20 @@ To minimize this cost we must minimize the gradient of `math J(h)`.
 Two aproaches to this are discussed below, but first let us calculate the gradient.
 With respect to some basis we can identify `math \\mathbb{R}^n` with its dual.
 We wish to treat the coeficients of this dual vector and the constant `math c` in a uniform maner, so by convention we identify `math h` with `math \\theta = (\\theta_0,\\ldots,\\theta_n)\\in\\mathbb{R}^{n+1}`.
-This is done by setting `math x^(i)_0 = 1` for all `math i`.
+This is done by setting `math x^{(i)}_0 = 1` for all `math i`, so `math c = \\theta_0`.
 Let us write `math h_\\theta` for the functional corresponding to `math \\theta` and set `math J(\\theta) = J(h_\\theta)`.
 Then treating `math \\theta` and `math x^{(i)}` as column vectors we have
 ```math
-J(\\theta) = \\frac{1}{2m} \\sum_i (x^{(i)T}\\theta - y^{(i)})^2.
+J(\\theta) = \\frac{1}{2m} \\sum_i (x^{(i)^T}\\theta - y^{(i)})^2.
 ```
 
 Thus we calculate
 ```math
   \\begin{aligned}
-    \\frac{\\partial}{\\partial \\theta_j}J(\\theta) &= \\frac1m \\sum_i (x^{(i)T}\\theta - y^{(i)})x^{(i)}_j. \\\\
+    \\frac{\\partial}{\\partial \\theta_j}J(\\theta) &= \\frac1m \\sum_i (x^{(i)^T}\\theta - y^{(i)})x^{(i)}_j. \\\\
   \\end{aligned}
 ```
-If we write `math X = (x^{(1)} | \\ldots | x^{(m)})` for the matrix whose columns are the `math x^{(i)}` and let `math X_j` denote its `math j^{\\text{th}}` row, we may condense this expression as `math \\frac1m(X_jX^T\\theta - X_j^Ty)`.
+If we set `math X` to be `math (x^{(1)} | \\ldots | x^{(m)})`, the matrix whose columns are the `math x^{(i)}`, and let `math X_j` denote its `math j^{\\text{th}}` row, we may condense this expression to `math \\frac1m(X_jX^T\\theta - X_j^Ty)`.
 Thus
 ```math
   \\nabla J(\\theta) = \\frac1m(XX^T\\theta - Xy).
