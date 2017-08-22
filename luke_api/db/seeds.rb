@@ -510,7 +510,18 @@ If `math XX^T` is not invertible, we may instead use its so-called [pseudoinvers
 This can be shown to still minimize `math J(\\theta)`.
 
 ## Gradient Descent
-Coming soon :)
+
+The idea here is that, rather than directly solving for the minimum of `math J(\\theta)`, we instead iteratively produce a sequence `math \\theta^0, \\theta^1, \\ldots` that converges to the `math \\theta` that minimizes `math J`.
+Gradient descent can be viewed as a multi-dimensional version of Newton's method.
+At each step of the iteration we must determine the direction in which `math J` is most rapidly decreasing, and take a step in that direction.
+
+This direction is given by the vector `math -\\nabla J(\\theta)`.
+Let us fix a step size `math a`.
+Then starting with a choice of `math \\theta^0`, often `math 0`, we define `math \\theta^n = \\theta^{n-1} - a\\nabla J(\\theta^{n-1})`.
+Plugging in our calculation of `math \\nabla J(\\theta)` we get
+```math
+  \\theta^n = \\theta^{n-1} - \\frac{a}{m}(XX^T\\theta^{n-1} - Xy).
+```
 POST
 
 Post.create!(
