@@ -472,7 +472,7 @@ Let `math h: \\mathbb{R}^n\\to\\mathbb{R}` be a affine functional.
 That is, `math h` is of the form `math h(x) = c + f(x)` for some constant `math c \\in\\mathbb{R}` and some linear functional `math f`.
 We define the cost function associated with `math h` to be
 ```math
-J(h) = \\frac{1}{2m} \\sum_{i = 1}^m (h(x^(i)) - y^(i))^2.
+J(h) = \\frac{1}{2m} \\sum_{i = 1}^m (h(x^{(i)}) - y^(i))^2.
 ```
 Then our goal is to pick `math h` to minimize `math J(h)`.
 
