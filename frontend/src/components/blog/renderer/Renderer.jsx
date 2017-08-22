@@ -31,7 +31,7 @@ export default ({ text }) => {
 
   function proccessMarkdown(text) {
     const end = text.indexOf('```');
-    const content = text.slice(0, end);
+    const content = text.slice(0, end === -1 ? text.length : end);
     const type = "markdown";
     return [{ type, content }, ...proccessRemainder(text, end, 0)];
   }
