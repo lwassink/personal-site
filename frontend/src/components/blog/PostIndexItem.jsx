@@ -12,7 +12,7 @@ class PostIndexItem extends React.Component {
   splitAtFold(string) {
     const fold = string.indexOf("===FOLD===");
     if (fold === -1) return string;
-    return string.substring(0, fold + 1).trim();
+    return string.substring(0, fold).trim();
   }
 
   render() {
@@ -25,9 +25,6 @@ class PostIndexItem extends React.Component {
           to={`/posts/${post.url_name}`} />
         <section>
           <Renderer text={this.splitAtFold(post.body)} />
-
-
-
           <Link to={`/posts/${post.url_name}`}>full post</Link>
         </section>
       </li>
