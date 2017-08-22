@@ -522,7 +522,7 @@ Plugging in our calculation of `math \\nabla J(\\theta)` we get
 ```math
   \\theta^n = \\theta^{n-1} - \\frac{a}{m}(XX^T\\theta^{n-1} - Xy).
 ```
-We can now simply compute, say, `math \\theta^1000`, and `math h_\\theta` will be quite close to the `math h` we are looking for.
+We can now simply compute, say, `math \\theta^{1000}`, and `math h_\\theta` will be quite close to the `math h` we are looking for.
 POST
 
 Post.create!(
