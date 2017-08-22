@@ -468,20 +468,20 @@ We will call this information our _training data_.
 Then we wish to find an affine functional that will as closely as possible map the input vectors to the outputs.
 
 More precisely, let `math x^(1), \\ldots, x^(m) \\in \\mathbb{R}^n` be our input vectors, and `math y^(1),\\ldots,y^(m)\\in\\mathbb{R}` be the correspoinding values.
-Let `math A: \\mathbb{R}^n\\to\\mathbb{R}` be a affine functional.
-That is, `math A` is of the form `math A(x) = c + f(x)` for some constant `math c \\in\\mathbb{R}` and some linear functional `math f`.
-We define the cost function associated with `math A` to be
+Let `math h: \\mathbb{R}^n\\to\\mathbb{R}` be a affine functional.
+That is, `math h` is of the form `math h(x) = c + f(x)` for some constant `math c \\in\\mathbb{R}` and some linear functional `math f`.
+We define the cost function associated with `math h` to be
 ```math
-J(A) = \\frac{1}{2m} \\sum_{i = 1}^m (A(x^(i)) - y^(i))^2.
+J(h) = \\frac{1}{2m} \\sum_{i = 1}^m (h(x^(i)) - y^(i))^2.
 ```
-Then our goal is to pick `math A` to minimize `math J(A)`.
+Then our goal is to pick `math h` to minimize `math J(h)`.
 
-To minimize this cost we must minimize the gradient of `math J(A)`.
+To minimize this cost we must minimize the gradient of `math J(h)`.
 Two aproaches to this are discussed below, but first let us calculate the gradient.
 With respect to some basis we can identify `math \\mathbb{R}^n` with its dual.
-We wish to treat the coeficients of this dual vector and the constant `math c` in a uniform maner, so by convention we identify `math A` with `math \\theta = (theta_0,\\ldots,\\theta_n)\\in\\mathbb{R}^{n+1}`.
+We wish to treat the coeficients of this dual vector and the constant `math c` in a uniform maner, so by convention we identify `math h` with `math \\theta = (\\theta_0,\\ldots,\\theta_n)\\in\\mathbb{R}^{n+1}`.
 This is done by setting `math x^(i)_0 = 1` for all `math i`.
-Let us write `math J(\\theta) = J(A)` where `math A` and `math \\theta` correspond as described.
+Let us write `math h_\\theta` for the functional corresponding to `math \\theta` and set `math J(\\theta) = J(h_\\theta)`.
 Then treating `math \\theta` and `math x^{(i)}` as column vectors we have
 ```math
 J(\\theta) = \\frac{1}{2m} \\sum_i (x^{(i)T}\\theta - y^{(i)})^2.
