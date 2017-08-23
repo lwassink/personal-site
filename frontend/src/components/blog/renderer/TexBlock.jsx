@@ -1,12 +1,21 @@
 import React from 'react';
 import katex from 'katex';
+import { withRouter } from 'react-router-dom';
 
 class TexBlock extends React.Component {
   componentDidMount() {
+    this.renderLaTeX(this.props);
+  }
+
+  componentWillReceiveProps(newProps) {
+    if (this.props.content !== newProps.content) this.renderLaTeX(newProps);
+  }
+
+  renderLaTeX({ content, display}) {
     katex.render(
-      this.props.content,
+      content,
       this.el,
-      { displayMode: this.props.display }
+      { displayMode: display }
     );
   }
 
