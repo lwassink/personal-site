@@ -21,16 +21,40 @@ Instead, we need an algorithmic way to select some features as significant exclu
 
 This goal is achieved by augmenting the cost function `math J(\\theta)` as follows:
 ```math
-  J(\\theta) = \\frac{1}{2m}\\sum_{i=1}^m (h_\\theta(x^{(i)}) - y^{(i)})^2 + \\frac{\\lambda}{m}\\sum_{j=1}^n\\theta_j^2
+  J(\\theta) = \\frac1m\\sum_{i=1}^m (h_\\theta(x^{(i)}) - y^{(i)})^2 + \\frac{\\lambda}{2m}\\sum_{j=1}^n\\theta_j^2
 ```
 where `math n` is the number of features and `math m` is the number of points in our set of training data.
 This essentially adds a cost to increasing the size of each parameter in `math \\theta`, meaning that when we run gradient descent we will tend to shrink these parameters to near zero unless there is a compensating increase in cost.
 That is, roughly speaking, parameters corresponding to insignificant features will tend towards zero, and only the significant features will remain.
 Note that we do not penalize the constant term `math \\theta_0`, so our sum starts from `math 1`.
-Further, note that a vecorized form of this equation can be given by writing the last term as `math \\frac{\\lambda}{m}\\theta^T\\theta`.
+Further, note that a vectorized form of this equation can be given by writing the last term as `math \\frac{\\lambda}{m}\\theta^T\\theta`.
 
 We conclude by recording the updated gradient of `math J(\\theta)`.
+We have
+```math
+  \\frac{\\partial}{\\partial \\theta_i}\\left(\\frac{\\lambda}{2m}\\sum_{j=1}^n\\theta_j^2\\right) =
+  \\begin{cases}
+    0 & \\text{ if } i = 0 \\\\
+    \\frac{\\lambda\\theta_i}{m} & \\text{ otherwise}
+  \\end{cases}.
+```
+Thus
+```math
+  \\nabla J(\\theta) = \\frac1m\\left[XX^T\\theta - Xy + \\lambda L \\theta\\right]
+```
+where `math L` is a diagonal matrix with a zero in the first diagonal entry and ones in the remaining diagonal entries.
 
+Setting `math \\nabla J(\\theta) = 0` and solving for `math \\theta` we get the following updated update form of the normal Equation
+```math
+  \\theta = \\left(XX^T + \\lambda L\\right)^{-1}Xy.
+```
+If we similary update the formula for gradient descent we get
+```math
+  \\begin{aligned}
+  \\theta_{n+1} &= \\theta_n - \\frac{\\alpha}{m}\\left[(XX^T + \\lambda L)\\theta_n - Xy\\right] \\\\
+  &= (1 - \\frac{\\alpha\\lambda}{m}L)\\theta_n - \\frac{\\alpha}{m}X(h_\\theta(\\theta_n) - y).
+  \\end{aligned}
+```
 POST
 
 Post.create!(
