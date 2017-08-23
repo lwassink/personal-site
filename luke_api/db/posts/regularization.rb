@@ -52,7 +52,7 @@ If we similary update the formula for gradient descent we get
 ```math
   \\begin{aligned}
   \\theta_{n+1} &= \\theta_n - \\frac{\\alpha}{m}\\left[(XX^T + \\lambda L)\\theta_n - Xy\\right] \\\\
-  &= (1 - \\frac{\\alpha\\lambda}{m}L)\\theta_n - \\frac{\\alpha}{m}X(h_\\theta(\\theta_n) - y).
+  &= (1 - \\frac{\\alpha\\lambda}{m}L)\\theta_n - \\frac{\\alpha}{m}X(X^T\\theta_n - y).
   \\end{aligned}
 ```
 POST
