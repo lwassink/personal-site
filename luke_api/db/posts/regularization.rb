@@ -9,8 +9,9 @@ To more precisely state the situation, suppose we are given training data `math 
 Perhaps `math y` does not depend linearly on `math x`.
 To model this situation, we may augment `math x` by introducing so-called computed features.
 Typically these are polynomial in `math x`.
-For example, given `math x = (x_1, x_2)` we may instead fit `math y` to `math (x_1, x_2, x_1^2, x_2^2, x_1x_2)`.
-Of course we could extend this by adding in even higher order terms.
+For example, suppose `math x` is two dimensional, and write it in coordinate as `math `(x_1, x_2)`
+We can compute higher order terms in these coordinates and fit `math y` to, for example, `math (x_1, x_2, x_1^2, x_2^2, x_1x_2)`.
+Of course we could extend this by adding in cubic terms, quartic terms, and so on.
 
 Clearly as we add computed features, the dimension of the parameter vector `math \\theta` (see my previous post on [linear regression](/posts/linear-regression)) will grow very rapidly.
 Thus we run the danger of over-fitting.
@@ -44,11 +45,11 @@ Thus
 ```
 where `math L` is a diagonal matrix with a zero in the first diagonal entry and ones in the remaining diagonal entries.
 
-Setting `math \\nabla J(\\theta) = 0` and solving for `math \\theta` we get the following updated update form of the normal Equation
+Setting `math \\nabla J(\\theta) = 0` and solving for `math \\theta` we get the following updated update form of the normal equation
 ```math
   \\theta = \\left(XX^T + \\lambda L\\right)^{-1}Xy.
 ```
-If we similary update the formula for gradient descent we get
+If we similarly update the formula for gradient descent we get
 ```math
   \\begin{aligned}
   \\theta_{n+1} &= \\theta_n - \\frac{\\alpha}{m}\\left[(XX^T + \\lambda L)\\theta_n - Xy\\right] \\\\
